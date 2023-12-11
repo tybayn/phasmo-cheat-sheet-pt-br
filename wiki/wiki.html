@@ -1,0 +1,674 @@
+<div class="wiki_title accordian" onclick="accordian(this)">Additional Ghost Data</div>
+<div class="wiki_details" style="height: 0px;">
+    <h3>Obake Fingerprints</h3>
+    <div class="text">Obake has a 25% chance to <i>not</i> leave UV evidence and has the ability to make UV evidence disappear faster.</div>
+    <div class="text">This ghost also has a chance to leave behind unique finger/handprints:</div>
+    <h4>6 Fingered Handprint (Doors, Windows, Coolers)</h4>
+    <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/obake_hand.png" style="max-width: 50%; padding: 10px;">
+    <h4>Double Fingerprint (Light Switches)</h4>
+    <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/obake_switch.png" style="max-width: 50%; padding: 10px;">
+    <h4>5 Fingerprint (Keyboards, Cell Doors)</h4>
+    <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/obake_keyboard.png" style="max-width: 50%; padding: 10px;">
+</div>    
+<div class="wiki_title accordian" onclick="accordian(this)">Hunts<div id="hunts_tab_footstep" style="display: none;"></div></div>
+<div class="wiki_details" style="height: 0px;">
+    <h3>Flickering</h3>
+    <div class="text">During a hunt, ghosts will flicker in and out of existance, alternating between visible and invisible multiple times every few seconds. There are a couple of ghosts that can be identified by their flickering during a hunt: (1) an Oni will be more visible during a hunt and (2) the Phantom will be invisible for longer periods of time.</div>
+    <div class="text">Below you can see examples of the flicker timing of Phantom, Oni, and all other ghosts.</div>
+    <div class="wiki-flex">
+        <div id="phantom-flicker" class="wiki-img-block">
+            <div id="flicker-ghost-name">Phantom</div>
+            <div id="ghost-flicker">
+                <img class="flicker-img" src="imgs/flicker_ghost.png">
+            </div>
+        </div>
+        <div id="normal-flicker" class="wiki-img-block">
+            <div id="flicker-ghost-name">Normal</div>
+            <div id="ghost-flicker">
+                <img class="flicker-img" src="imgs/flicker_ghost.png">
+            </div>
+        </div>
+        <div id="oni-flicker" class="wiki-img-block">
+            <div id="flicker-ghost-name">Oni</div>
+            <div id="ghost-flicker">
+                <img class="flicker-img" src="imgs/flicker_ghost.png">
+            </div>
+        </div>
+    </div>
+    <hr>
+    <h3>Ghost Speed Breakdowns</h3>
+    <div class="text">Many ghosts have a range of speeds that they can be. These are usually dependant on some other factor (such as sanity or temperature) and will cause the speed to be somewhere in-between the speeds listed on the cards</div>
+    
+    <h4>Hantu Speeds</h4>
+    <table id="hantu_speed_breakdown">
+        <thead>
+            <tr>
+                <th>Temp (C)</th>
+                <th>Temp (F)</th>
+                <th>Speed</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>&gt;15°C</td>
+            <td>&gt;59°F</td>
+            <td class="hantu_speed_item">1.4 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.4,'hantu-s1');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>12 - 15°C</td>
+            <td>54 - 59°F</td>
+            <td class="hantu_speed_item">1.75 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.75,'hantu-s2');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>9 - 12°C</td>
+            <td>48 - 54°F</td>
+            <td class="hantu_speed_item">2.1 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.1,'hantu-s3');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>6 - 9°C</td>
+            <td>43 - 48°F</td>
+            <td class="hantu_speed_item">2.3 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.3,'hantu-s4');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>3 - 6°C</td>
+            <td>37 - 43°F</td>
+            <td class="hantu_speed_item">2.4 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.4,'hantu-s5');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>0 - 3°C</td>
+            <td>32 - 37°F</td>
+            <td class="hantu_speed_item">2.5 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.5,'hantu-s6');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>&lt;0°C</td>
+            <td>&lt;32°F</td>
+            <td class="hantu_speed_item">2.7 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.7,'hantu-s7');">&#128266;</span></td>
+        </tr>
+    </table>
+
+    <h4>Moroi Speeds</h4>
+    <table id="moroi_speed_breakdown">
+        <thead>
+            <tr>
+                <th>Average Sanity</th>
+                <th>Speed</th>
+                <th>Example</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>0 - 5%</td>
+            <td class="moroi_speed_item">2.25 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.25,'moroi-s1');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>5 - 10%</td>
+            <td class="moroi_speed_item">2.164 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.164,'moroi-s2');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>10 - 15%</td>
+            <td class="moroi_speed_item">2.081 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.081,'moroi-s3');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>15 - 20%</td>
+            <td class="moroi_speed_item">1.998 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.998,'moroi-s4');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>20 - 25%</td>
+            <td class="moroi_speed_item">1.915 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.915,'moroi-s5');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>25 - 30%</td>
+            <td class="moroi_speed_item">1.832 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.832,'moroi-s6');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>30 - 35%</td>
+            <td class="moroi_speed_item">1.749 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.749,'moroi-s7');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>35 - 40%</td>
+            <td class="moroi_speed_item">1.66 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.66,'moroi-s8');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>40 - 45%</td>
+            <td class="moroi_speed_item">1.583 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.583,'moroi-s9');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>&gt;45%</td>
+            <td class="moroi_speed_item">1.5 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.5,'moroi-s10');">&#128266;</span></td>
+        </tr>
+        
+    </table>
+
+    <h4>Thaye Speeds</h4>
+    <table id="thaye_speed_breakdown">
+        <thead>
+            <tr>
+                <th>Aging Cycles</th>
+                <th>Time Near Ghost</th>
+                <th style="width: 25%;">Speed</th>
+                <th style="width: 25%;">Example</th>
+            </tr>
+        </thead>
+        <tr>
+            <td>+0</td>
+            <td>0m</td>
+            <td class="thaye_speed_item">2.7 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.7,'thaye-s1');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+1</td>
+            <td>~ 1 - 2m</td>
+            <td class="thaye_speed_item">2.525 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.525,'thaye-s2');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+2</td>
+            <td>~ 2 - 4m</td>
+            <td class="thaye_speed_item">2.35 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.35,'thaye-s3');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+3</td>
+            <td>~ 3 - 6m</td>
+            <td class="thaye_speed_item">2.175 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.175,'thaye-s4');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+4</td>
+            <td>~ 4 - 8m</td>
+            <td class="thaye_speed_item">2.0 m/s</td>
+            <td><span class="sound" onclick="toggleSound(2.0,'thaye-s5');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+5</td>
+            <td>~ 5 - 10m</td>
+            <td class="thaye_speed_item">1.825 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.825,'thaye-s6');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+6</td>
+            <td>~ 6 - 12m</td>
+            <td class="thaye_speed_item">1.65m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.65,'thaye-s7');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+7</td>
+            <td>~ 7 - 14m</td>
+            <td class="thaye_speed_item">1.475 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.475,'thaye-s8');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+8</td>
+            <td>~ 8 - 16m</td>
+            <td class="thaye_speed_item">1.3 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.3,'thaye-s9');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+9</td>
+            <td>~ 9 - 18m</td>
+            <td class="thaye_speed_item">1.125 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.125,'thaye-s10');">&#128266;</span></td>
+        </tr>
+        <tr>
+            <td>+10</td>
+            <td>~ 10 - 20m</td>
+            <td class="thaye_speed_item">1.0 m/s</td>
+            <td><span class="sound" onclick="toggleSound(1.0,'thaye-s11');">&#128266;</span></td>
+        </tr>
+        
+    </table>
+    <hr>
+    <h3>Ghost Ranges</h3>
+    <div class="text">During a hunt, many ghosts have different behaviors depending on how far away they are from the player. The following shows a basic radius from the player for many of the ghosts and their abilities. (Sunny Meadows shown)</div>
+    <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/hunt_ranges.png">
+</div>
+
+<div class="wiki_title accordian" onclick="accordian(this)">Monkey Paw</div>
+<div class="wiki_details" style="height: 0px;">
+    <h3>Wishes</h3>
+    <div class="text">
+        <b>"I wish to see the ghost"</b>
+        <ul>
+            <li>Pro: Ghost appears at its current location</li>
+            <li>Con: After the event, a hunt will start and player vision is darkened for the duration of the event and hunt</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish for activity"</b>
+        <ul>
+            <li>Pro: Doubles all ghost activity for 2 min</li>
+            <li>Con: Breaker set to broken and front door locked for 2 min</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish for sanity"</b>
+        <ul>
+            <li>Pro: Averages everyone's sanity to 50%</li>
+            <li>Con: Sets ghost's favorite room to a random room and increases current sanity drain by 50%</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish the ghost was trapped"</b>
+        <ul>
+            <li>Pro: Ghost locked in its room for 1 min where it cannot hunt, roam, or do abilities</li>
+            <li>Con: Locks doors in the players room and hunt starts after the 1 min period (25% doors will unlock after grace period)</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish for life"</b>
+        <ul>
+            <li>Pro: Revive a dead player</li>
+            <li>Con: 50% chance that the wishing player will die</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish to be safe"</b>
+        <ul>
+            <li>Pro: Unblocks the nearest blocked hiding spot</li>
+            <li>Con: Breaks the light in that room and ghost is able to sense or hear the player from any distance</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish to leave"</b>
+        <ul>
+            <li>Pro: Unlocks all exit doors (works during hunts)</li>
+            <li>Con: Player slowness and darkened vision for 5 secs</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish for knowledge"</b>
+        <ul>
+            <li>Pro: Removes 1 incorrect evidence from the journal and crosses out associated ghosts</li>
+            <li>Con: Starts a hunt and player vision and audio is reduced the rest of that round</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish for [weather]"</b>
+        <ul>
+            <li>Pro: Changes the weather to the one specified</li>
+            <li>Con: Drops sanity by 25%</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"I wish for anything"</b>
+        <ul>
+            <li>Randomly chooses one of the above wishes</li>
+        </ul>
+    </div>
+</div>
+
+<div class="wiki_title accordian" onclick="accordian(this)">Oujia Board</div>
+<div class="wiki_details" style="height: 0px;">
+    <h3>Questions</h3>
+    <div class="text">
+        <b>"Where are you?"</b>
+        <ul>
+            <li>Sanity Cost: 50%</li>
+            <li>Gives the current room of the ghost (not the favorite room)</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Are you here? / Are you close?"</b>
+        <ul>
+            <li>Sanity Cost: 20%</li>
+            <li>Tells if the ghost is in the same room as the player</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Where is the bone?"</b>
+        <ul>
+            <li>Sanity Cost: 50%</li>
+            <li>Gives the room of the bone</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Hide and seek?"</b>
+        <ul>
+            <li>Sanity Cost: 0% (breaks board)</li>
+            <li>Counts down from 5 and starts a hunt</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Do you respond to everyone?"</b>
+        <ul>
+            <li>Sanity Cost: 20%</li>
+            <li>Replies with if the ghosts wants to be alone when using the spirit box</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"How old are you?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>Returns the current age of the ghost. If the number changes, the ghost is a Thaye</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"When did you die?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>Returns a random number</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"What is my sanity?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>'Healthy' (Sanity > 80%), 'Good' (60-80%), 'Average' (40-60%), 'Bad' (20-40%), 'Awful' (&lt;20%)</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"How insane am I?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>'Not Very' (Sanity > 50%), 'Very' (25-50%), 'Insane' (&lt;25%)</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Am I insane?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>'No' (Sanity > 90%), 'Maybe' (20-90%), 'Yes' (&lt;20%)</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"How did you die?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>Returns the ghost's cause of death</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"How do you feel?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>Returns a randomly selected emotion</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Why are you here?"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>Returns a randomly selected reason</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Knock Knock"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>"Whos there"</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>"Marco"</b>
+        <ul>
+            <li>Sanity Cost: 5%</li>
+            <li>"Polo"</li>
+        </ul>
+    </div>
+</div>
+
+<div class="wiki_title accordian" onclick="accordian(this)">Spirit Box</div>
+<div class="wiki_details" style="height: 0px;">
+    <div class="text">
+        <b>Aggression Questions:</b><br>
+        <p>The following questions can be asked to return a randomly chosen "aggresive" response</p>
+        <ul>
+            <li>"What do you want?"</li>
+            <li>"Why are you here?"</li>
+            <li>"Are you angry?"</li>
+            <li>"Do you want us to leave?"</li>
+            <li>"Are you friendly?"</li>
+            <li>"Are you dangerous?"</li>
+        </ul>
+        Responses:
+        <ul>
+            <li>"Kill", "Death", "Die", "Hate", "Hurt", "Attack"</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>Location Questions:</b><br>
+        <p>The following questions can be asked to indicate how close you are to ghost and if the ghost is in the same room</p>
+        <ul>
+            <li>"Where are you?"</li>
+            <li>"Are you close?"</li>
+            <li>"Give us a sign."</li>
+            <li>"Are you here?"</li>
+            <li>"Is anybody here?"</li>
+            <li>"What is your location?"</li>
+        </ul>
+        Responses:
+        <ul>
+            <li>Within 3 meters:<br>"(I'm) here", "I'm close", "(I'm) behind you"</li>
+            <li>In same room, but further than 3 meters:<br>"Next to you", "Away", "Far"</li>
+        </ul>
+    </div>
+    <div class="text">
+        <b>Age Questions:</b><br>
+        <p>The following questions can be asked to return an age (not correlated to ghost model)</p>
+        <ul>
+            <li>"How old are you?"</li>
+            <li>"How young are you?"</li>
+            <li>"What is your age?"</li>
+            <li>"Are you old?"</li>
+        </ul>
+        Responses:
+        <ul>
+            <li>"Old", "Young"</li>
+        </ul>
+    </div>
+</div>
+
+<!-- Tarot Card Wiki Contributed by svenjaun (2023-09-07) -->
+<div class="wiki_title accordian" onclick="accordian(this)">Tarot Cards</div>
+<div class="wiki_details" style="height: 0px;">
+    <h3>Tarot Cards</h3>
+    <div class="text">Tarot cards can be picked up, and you can draw one card at a time.</div>
+    <div class="text">Each Tarot card deck contains 10 randomly generated cards.</div>
+    <br />
+    <hr>
+
+    <div class="text">
+        <p><b>The Tower</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/tower.webp">
+        <p>Causes an interaction and doubles all ghost activity for 20 seconds.</p>
+        <ul class="text">
+            <li>20% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Wheel of Fortune</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/wheeloffortune.webp">
+        <p>The player who draws the card will experience either a gain or loss of sanity, depending on the burn color of the card.</p>
+        <p>
+            <span class="square green"></span>Green burn: 25% Sanity gain
+            <br>
+            <span class="square red"></span>Red burn: 25% Sanity loss
+        </p>
+        <ul class="text">
+            <li>20% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Fool</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/fool.webp">
+        <p>No effect is applied when drawing this card.</p>
+        <p class="smaller-text">Randomly selects another card to appear as, before turning into The Fool as it burns.</p>
+        <ul class="text">
+            <li>17% Draw Chance</li>
+            <li>(100% during hunts)</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Devil</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/devil.webp">
+        <p>Triggers a Ghost Event towards the nearest player to the ghost.</p>
+        <ul class="text">
+            <li>10% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>Death</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/death.webp">
+        <p>Triggers a cursed hunt.</p>
+        <ul class="text">
+            <li>10% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Hermit</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/hermit.webp">
+        <p>Teleports the ghost back to its ghost room and traps it there for 1 minute. </p>
+        <p class="smaller-text">This does not affect hunts and ghost events.</p>
+        <ul class="text">
+            <li>10% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Sun</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/sun.webp">
+        <p>The player who draws the card will have their sanity fully restored to 100%</p>
+        <ul class="text">
+            <li>5% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Moon</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/moon.webp">
+        <p>The player who draws the card will have their sanity instantly set to 0%.</p>
+        <ul class="text">
+            <li>5% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The High Priestess</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/highpriestess.webp">
+        <p>Revives a randomly chosen dead player at their corpse. </p>
+        <p class="smaller-text">If no one is currently dead, it will revive the next player who dies. Multiple cards do not stack.<br>(A player cannot die twice in the same hunt)</p>
+        <ul class="text">
+            <li>2% Draw Chance</li>
+        </ul>
+    </div>
+
+    <hr>
+
+    <div class="text">
+        <p><b>The Hanged Man</b></p>
+        <img class="tarot-img" src="https://zero-network.net/phasmophobia/static/imgs/tarot/hangedman.webp">
+        <p>Instantly kills the player.<br></p>
+        <p class="smaller-text">If 'Friendly Ghost' custom difficulty option is turned on, this will always turn into "The Fool".</p>
+        <ul class="text">
+            <li>1% Draw Chance</li>
+        </ul>
+    </div>
+
+</div>
+
+<div class="wiki_title accordian" onclick="accordian(this)">XP Grinding</div>
+<div class="wiki_details" style="height: 0px;">
+    <div class="text">
+        <p><b>Current Strat: x12.97 WoodWind</b></p>
+        <p><b>Strategy:</b></p>
+        <p>
+            The goal of this strategy is to go in long enough to survive a single hunt (2 if you value correctness over number of attempts) and leave. 
+            It requires a decent understanding of ghost behaviour during hunts and the ability to loop a ghost. This strat is done ideally with 2+ players,
+            but it is possible to do in single player.
+        </p>
+        <p>
+            You will want to equip a loadout that at a minimum has incense (I prefer Tier 1 so the ghost will run away and not hang around), ignitors,
+            salt (preferably tier 2 or 3), and a device that can be left on to test for rajiu (I usually go with an EMF reader or another device that will help complete an 
+            objective, such as a paramic).
+        </p>
+        <p>
+            (Single Player) To start, grab the electronic device, turn it on and throw it just inside the gate (this will be used for testing for Raiju).
+            Then grab salt, an ingiter, and an incense.<br>
+            <br>
+            (Multiplayer) Have one player grab an igniter and 2 incense and the other player grab salt, an electronic device (for testing raiju and/or completing objectives), and any other equipment
+            that could be used to complete other objectives.<br>
+            <br>
+            Head toward either the picnic tables just inside the gate or to the campfire in the middle of the logs. Place your salt on the ground in a location the ghost 
+            will likely walk through (opening to the campfire circle or in between the picnic tables). Then wait for the ghost to hunt.<br>
+            <br>
+            Once the ghost begins to hunt, start to identify what it is based on behaviour (footstep speed, flicker/blink rate, speed up near electronics, freezing breath, etc).
+            Continue to loop the ghost around the campfire / picnic tables and smudge if needed.<br>
+            <br>
+            After the hunt is over, you can either use a timer to narrow down if it is a spirit or demon based on smudge cooldown (this takes quite a bit of time, but allows time to complete more objectives),
+            or you can guess the ghost and leave. This entire process can be done in under 2 minutes if optimized and rewards between 2000xp - 5000xp for correct ghost and completed objectives.
+        </p>
+    </div>
+    <div class="text">
+        <p><b><u>Custom Difficulty Settings:</u></b></p>
+        <b>Player:</b>
+        <ul>
+            <li>Starting Sanity: 0</li>
+            <li>Sanity Pill Restoration (%): 0</li>
+            <li>Sanity drain speed (%): 200</li>
+            <li>Sprinting: Off</li>
+            <li>Player speed (%): 100</li>
+            <li>Flashlights: Off</li>
+            <li>Lose items and consumables: On</li>
+        </ul>
+        <b>Ghost:</b>
+        <ul>
+            <li>Ghost speed (%): 100</li>
+            <li>Roaming frequency: High</li>
+            <li>Changing favourite room: High</li>
+            <li>Interaction amount: Low</li>
+            <li>Event frequency: Low</li>
+            <li>Friendly ghost: Off</li>
+            <li>Grace period (s): 0</li>
+            <li>Hunt duration (s): Medium</li>
+            <li>Evidence Given: 0</li>
+        </ul>
+        <b>Contract:</b>
+        <ul>
+            <li>Setup time (s): 0</li>
+            <li>Weather: Windy</li>
+            <li>Doors starting open: High</li>
+            <li>Number of hiding places: None</li>
+            <li>Sanity monitor: Off</li>
+            <li>Activity monitor: Off</li>
+            <li>Fuse box at start of contract: Broken</li>
+            <li>Fuse box visible on map: Off</li>
+        </ul>
+    </div>
+</div>
