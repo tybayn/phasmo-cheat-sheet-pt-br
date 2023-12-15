@@ -1,8 +1,8 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
-const all_evidence = ["DOTs","EMF 5","Ultraviolet","Freezing","Ghost Orbs","Writing","Spirit Box"]
-const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","The Mimic","Moroi","Deogen","Thaye"]
+const all_evidence = ["Projetor DOTs","EMF Nível 5","Ultravioleta","Temperaturas Negativas","Orbe Fantasma","Escrita Fantasma","Spirit Box"]
+const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","Mímico","Moroi","Deogen","Thaye"]
 const all_speed = ["Slow","Normal","Fast"]
 const all_sanity = ["Late","Average","Early","VeryEarly"]
 let bpm_list = []
@@ -400,11 +400,11 @@ function filter(ignore_link=false){
             parseInt(ghosts[i].getElementsByClassName("ghost_hunt_low")[0].textContent),
             parseInt(ghosts[i].getElementsByClassName("ghost_hunt_high")[0].textContent)
         ]
-        if (name == "The Mimic"){
-            evidence.push("Ghost Orbs")
+        if (name == "Mímico"){
+            evidence.push("Orbe Fantasma")
             mimic_evi = evidence
-            nm_evidence = "Ghost Orbs"
-            mimic_nm_evi = "Ghost Orbs"
+            nm_evidence = "Orbe Fantasma"
+            mimic_nm_evi = "Orbe Fantasma"
         }
 
         //Check for monkey paw filter
@@ -413,7 +413,7 @@ function filter(ignore_link=false){
         }
 
         //Check for los filter
-        if (name != "The Mimic" && speed_has_los != -1 && speed_has_los != has_los){
+        if (name != "Mímico" && speed_has_los != -1 && speed_has_los != has_los){
             loskeep = false
         }
         
@@ -442,7 +442,7 @@ function filter(ignore_link=false){
         else if (num_evidences == "2"){
 
 
-            if (evi_array.length == 3 && name != "The Mimic"){
+            if (evi_array.length == 3 && name != "Mímico"){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -471,7 +471,7 @@ function filter(ignore_link=false){
         // Insanity
         else if (num_evidences == "1"){
 
-            if (evi_array.length == 2 && name != "The Mimic"){
+            if (evi_array.length == 2 && name != "Mímico"){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -500,11 +500,11 @@ function filter(ignore_link=false){
         // Apocalypse
         else if (num_evidences == "0"){
 
-            if (evi_array.length > 0 && name != "The Mimic"){
+            if (evi_array.length > 0 && name != "Mímico"){
                 keep = false
             }
 
-            if (not_evi_array.length > 0 && name == "The Mimic"){
+            if (not_evi_array.length > 0 && name == "Mímico"){
                 keep = false
             }
         }
@@ -544,9 +544,9 @@ function filter(ignore_link=false){
         if (spe_array.length > 0){
             var skeep = false,nkeep = false,fkeep = false;
 
-            var shas = (min_speed < base_speed || name == "The Mimic")
-            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "The Mimic")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
-            var fhas = (max_speed > base_speed || name == "The Mimic")
+            var shas = (min_speed < base_speed || name == "Mímico")
+            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "Mímico")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
+            var fhas = (max_speed > base_speed || name == "Mímico")
 
             spe_array.forEach(function (item,index){
 
@@ -578,14 +578,14 @@ function filter(ignore_link=false){
 
         // Check if speed is being kept
         if (keep && loskeep){
-            if(min_speed < base_speed || name == "The Mimic"){
+            if(min_speed < base_speed || name == "Mímico"){
                 keep_speed.add('Slow')
                 if (marked_not)
                     fade_speed.add('Slow')
                 else
                     not_fade_speed.add('Slow')
             }
-            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "The Mimic"){
+            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "Mímico"){
                 keep_speed.add('Normal')
                 if (marked_not)
                     fade_speed.add('Normal')
@@ -599,7 +599,7 @@ function filter(ignore_link=false){
                 else
                     not_fade_speed.add('Normal')
             }
-            if(max_speed > base_speed || name == "The Mimic"){
+            if(max_speed > base_speed || name == "Mímico"){
                 keep_speed.add('Fast')
                 if (marked_not)
                     fade_speed.add('Fast')
@@ -778,7 +778,7 @@ function filter(ignore_link=false){
     }
 
     else if (num_evidences == "0"){
-        all_evidence.filter(evi => evi != 'Ghost Orbs').forEach(function(item){
+        all_evidence.filter(evi => evi != 'Orbe Fantasma').forEach(function(item){
             var checkbox = document.getElementById(item);
             $(checkbox).addClass("block")
             $(checkbox).find("#checkbox").removeClass(["good","bad","faded"])
@@ -1096,6 +1096,8 @@ function showMaps(forceOpen = false, forceClose = false){
 
 function showNews(){
     if (document.getElementById("news_box").style.right == "-366px"){
+        document.getElementById("language_box").style.zIndex = "9"
+        document.getElementById("news_box").style.zIndex = "11"
         document.getElementById("news_box").style.boxShadow = "-5px 0px 10px 0px #000"
         document.getElementById("news_tab").style.boxShadow = "-5px 6px 5px -2px #000"
         document.getElementById("news_box").style.right = "0px"
@@ -1105,6 +1107,23 @@ function showNews(){
         document.getElementById("news_box").style.right = "-366px"
         document.getElementById("news_box").style.boxShadow = "none"
         document.getElementById("news_box").style.boxShadow = "none"
+    }
+}
+
+function showLanguage(){
+    if (document.getElementById("language_box").style.right == "-176px"){
+        // document.getElementById("news_box").style.zIndex = "9"
+        document.getElementById("language_box").style.zIndex = "11"
+        document.getElementById("language_box").style.boxShadow = "-5px 0px 10px 0px #000"
+        document.getElementById("language_tab").style.boxShadow = "-5px 6px 5px -2px #000"
+        document.getElementById("language_box").style.right = "0px"
+        $("#lang_blackout").fadeIn(500)
+    }
+    else {
+        document.getElementById("language_box").style.right = "-176px"
+        document.getElementById("language_box").style.boxShadow = "none"
+        document.getElementById("language_box").style.boxShadow = "none"
+        $("#lang_blackout").fadeOut(500)
     }
 }
 

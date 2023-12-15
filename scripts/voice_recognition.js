@@ -249,7 +249,7 @@ function parse_speech(vtext){
         vtext = vtext.replace('evidence', "").trim()
         domovoi_msg += "marked evidence as "
 
-        var smallest_evidence = "emf 5"
+        var smallest_evidence = "emf nível 5"
         var smallest_val = 100
         var vvalue = 1
         if(vtext.startsWith("not ") || vtext.startsWith("knot ") || vtext.startsWith("knight ")|| vtext.startsWith("night ")){
@@ -309,7 +309,7 @@ function parse_speech(vtext){
         vtext = vtext.replace('monkey paw', "").trim()
         domovoi_msg += "marked "
 
-        var smallest_evidence = "emf 5"
+        var smallest_evidence = "emf nível 5"
         var smallest_val = 100
         var vvalue = 1
 
@@ -717,7 +717,7 @@ if (("webkitSpeechRecognition" in window || "speechRecognition" in window) && !n
   
     speechRecognition.continuous = false;
     speechRecognition.interimResults = false;
-    speechRecognition.lang = 'en-US';
+    speechRecognition.lang = 'pt-BR';
   
     speechRecognition.onend = () => {
         if(!stop_listen){

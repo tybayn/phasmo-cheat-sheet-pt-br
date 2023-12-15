@@ -11,14 +11,14 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
+                "EMF Nível 5",
                 "Spirit Box",
-                "Writing"
+                "Escrita Fantasma"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Incensing the ghost will prevent a hunt for 180s instead of the normal 90s"
+                "<Dicas>",
+                "Usar incenso impede o fantasma de caçar por 180s em vez do tempo normal de 90s"
             ]
         },
         {
@@ -32,17 +32,17 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
+                "EMF Nível 5",
                 "Spirit Box",
-                "DOTs"
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Ghost will never step in salt of any tier",
-                "Will not be slowed down by tier 3 salt during a hunt",
-                "<Behaviors>",
-                "Can teleport to random players, leaving EMF 2 or EMF 5"
+                "<Dicas>",
+                "O fantasma nunca pisará no sal de nenhum nível",
+                "Não diminuirá velocidade pelo sal nível 3 durante a caça",
+                "<Comportamentos>",
+                "Pode teleportar para qualquer jogador, deixando EMF Nível 2 ou EMF Nível 5"
             ]
         },
         {
@@ -57,17 +57,17 @@
             "hunt_sanity_high": "50%",
             "evidence": [
                 "Spirit Box",
-                "Ultraviolet",
-                "DOTs"
+                "Ultravioleta",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Does not appear in ghost photo",
-                "During an event or during DOTs state, taking a photo will cause the ghost to disappear",
-                "Less visible during hunts (See 'Guides' tab)",
-                "<Behaviors>",
-                "Can roam to a random player, leaving EMF 2"
+                "<Dicas>",
+                "Não aparece na foto de fantasma",
+                "Durante um evento ou no estado DOTs, tirar uma foto vai fazer o fantasma desaparecer",
+                "Menos visível durante caças (Ver tab 'Guia')",
+                "<Comportamentos>",
+                "Pode vagar para qualquer jogador, deixando EMF Nível 2"
             ]
         },
         {
@@ -82,17 +82,17 @@
             "hunt_sanity_high": "50%",
             "evidence": [
                 "Spirit Box",
-                "Ultraviolet",
-                "Writing"
+                "Ultravioleta",
+                "Escrita Fantasma"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
+                "<Dicas>",
                 "Can throw multiple objects at once, decreasing player sanity 2% per item thrown",
-                "Will throw an item every 0.5s during a hunt",
-                "<Behaviors>",
-                "Higher chance to throw & interact with objects",
-                "Can throw objects faster and further"
+                "Joga itens a cada 0.5s durante a caça",
+                "<Comportamentos>",
+                "Chance mais alta de mover e interagir com objetos",
+                "Pode atirar objetos mais rápido e mais longe"
             ]
         },
         {
@@ -106,21 +106,21 @@
             "hunt_sanity_low": "12%",
             "hunt_sanity_high": "87%",
             "evidence": [
-                "Ultraviolet",
-                "Ghost Orbs",
-                "DOTs"
+                "Ultravioleta",
+                "Orbe Fantasma",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Banshee scream through paramic  <span class=\"sound\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/banshee_scream.mp3')\">🔊</span>",
-                "<Behaviors>",
-                "Will only go after its target during a hunt (unless target is outside)",
-                "Will roam toward its target, without leaving EMF 2",
-                "Will attempt to roam toward their target while in DOTs state",
-                "Prefers singing ghost events",
-                "<Hunt Sanity>",
-                "Hunts when target's sanity is 50% or lower (even if target is outside), meaning it can hunt as early as 87% average sanity"
+                "<Dicas>",
+                "Banshee emite um grito no microfone parabólico  <span class=\"sound\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/banshee_scream.mp3')\">🔊</span>",
+                "<Comportamentos>",
+                "Caçará somente seu alvo durante a caça (A menos que o alvo esteja fora do local)",
+                "Vagará até seu alvo, sem deixar EMF Nível 2",
+                "Tentará vagar até seu alvo durante o estado DOTs",
+                "Tem preferência por eventos cantando",
+                "<Sanidade para caça>",
+                "Caça quando a sanidade de seu alvo está em 50% ou abaixo (mesmo se o alvo estiver fora do local), o que significa que pode caçar com uma média de 87% de sanidade quando em multiplayer"
             ]
         },
         {
@@ -134,18 +134,18 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
-                "Ultraviolet",
-                "Freezing"
+                "EMF Nível 5",
+                "Ultravioleta",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Ability to drop nearby players' sanity by 25%, with EMF 2 or EMF 5 at the breaker (when breaker is on)",
-                "<Behaviors>",
-                "Can not turn off fuse box directly",
-                "<Hunt Speed>",
-                "2.5m/s when fuse box is on, has LOS, and is further than 3m from the seen player, 1.7m/s otherwise"
+                "<Dicas>",
+                "Habilidade de derrubar 25% da sanidade de jogadores por perto, com EMF Nível 2 ou EMF Nível 5 na caixa de dijuntores (quando estiver ligado)",
+                "<Comportamentos>",
+                "Não consegue desligar a caixa de dijuntores",
+                "<Velocidade da caça>",
+                "2.5m/s quando os dijuntores estiverem ligados, tem LDV, e está a mais de 3m do jogador visto, se não, 1.7m/s"
             ]
         },
         {
@@ -160,19 +160,19 @@
             "hunt_sanity_high": "60%",
             "evidence": [
                 "Spirit Box",
-                "Ghost Orbs",
-                "Writing"
+                "Orbe Fantasma",
+                "Escrita Fantasma"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Ability to immediately turn off a light that a player has turned on (can only test for ability once every 10s)",
-                "Cannot turn on lights (keyboard and TV excluded)",
-                "<Behaviors>",
-                "More likely to turn off and bust lights",
-                "More likely to wander to a room where lights are off",
-                "<Hunt Sanity>",
-                "60% when lights are off in the ghost's current room, 40% when on"
+                "<Dicas>",
+                "Habilidade de imediatamente desligar uma luz que o jogador ligou (só pode ser testada a cada 10s)",
+                "Não consegue ligar luzes (exceto teclados e TV)",
+                "<Comportamentos>",
+                "Mais chance de desligar e estourar luzes",
+                "Mais chance de trocar de cômodo para onde as luzes estão desligadas",
+                "<Sanidade para caça>",
+                "60% quando as luzes estão desligadas no cômodo favorito do fantasma, 40% quando ligadas"
             ]
         },
         {
@@ -186,14 +186,14 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Ghost Orbs",
-                "Writing",
-                "Freezing"
+                "Orbe Fantasma",
+                "Escrita Fantasma",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Hunt Speed>",
-                "3.0m/s immediately once the player has been sensed (equipment, voice, or line of sight) and until ghost has reached the players last known location where it will gradually slow down to 1m/s"
+                "<Velocidade da caça>",
+                "3.0m/s assim que o jogador é notado (equipamento, voz ou LDV) até que o fantasma chegue no último local conhecido do jogador e então gradualmente diminuirá a velocidade para 1m/s"
             ]
         },
         {
@@ -207,19 +207,19 @@
             "hunt_sanity_low": "35%",
             "hunt_sanity_high": "35%",
             "evidence": [
-                "EMF 5",
-                "Writing",
-                "Freezing"
+                "EMF Nível 5",
+                "Escrita Fantasma",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Does not do interactions that result in EMF 2, 3, or 5 with someone in the same room (except writing and blowing out firelights)",
-                "Will not hunt with someone in the same room",
-                "<Behaviors>",
-                "More ghost events at lower average sanity (cannot do ghost events at 100% sanity)",
-                "Less likely to appear as full ghost model but more likely to do 'ghost mist' event",
-                "Has a chance to appear as a shadow if summoned from music box, monkey paw, or summoning circle"
+                "<Dicas>",
+                "Não dá interações que resultem em EMF Nível 2, 3 ou 5 com um jogador no mesmo local (exceto escrita fantasma e apagar chamas)",
+                "Não iniciará caça quando alguém estiver no mesmo cômodo",
+                "<Comportamentos>",
+                "Realiza mais eventos quando a sanidade média está baixa (não consegue realizar eventos quando a sanidade está a 100%)",
+                "Menos probabilidade de mostrar o modelo do fantasma, mas mais provável de realizar o evento de 'névoa fantasma'",
+                "Tem chance de aparecer em forma de sombra quando invocado pela caixa de música, pata de macaco ou o círculo de invocação"
             ]
         },
         {
@@ -233,19 +233,19 @@
             "hunt_sanity_low": "70%",
             "hunt_sanity_high": "100%",
             "evidence": [
-                "Ultraviolet",
-                "Writing",
-                "Freezing"
+                "Ultravioleta",
+                "Escrita Fantasma",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Incensing the ghost will prevent a hunt for 60s instead of the normal 90s",
-                "20s minimum hunt cool-down (normal is 25s)",
-                "<Behaviors>",
-                "Crucifix range increased by 50% per tier (4.5m, 6m, 7.5m respectively)",
-                "<Hunt Sanity>",
-                "Ability to hunt at any sanity, hunts normally at 70%"
+                "<Dicas>",
+                "Usar incenso irá prevenir o fantasma de caçar por 60s em vez dos 90s normais",
+                "Mínimo de 20s de espera entre caças (normal é 25s)",
+                "<Comportamentos>",
+                "Alcance do crucifixo aumentado em 50% por nível (4.5m, 6m, 7.5m respectivamente)",
+                "<Sanidade para caça>",
+                "Habilidade de caça em qualquer sanidade, normalmente caça em 70%"
             ]
         },
         {
@@ -259,17 +259,17 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Ghost Orbs",
-                "Freezing",
-                "DOTs"
+                "Orbe Fantasma",
+                "Temperaturas Negativas",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Can shut a door and drop sanity of nearby players by 15% <b><i>if</i></b> a door is in the room",
-                "Only ghost that can close or interact with an exit door outside of a hunt or ghost event",
-                "<Behaviors>",
-                "Incense traps ghost in its room and prevents wandering for 60 seconds"
+                "<Dicas>",
+                "Pode fechar uma porta e derrubar a sanidade de jogadores por perto em 15% <b><i>se</i></b> existe uma porta no cômodo",
+                "O único fantasma que pode interagir com as portas de entrada ou saída, exceto caças ou eventos",
+                "<Comportamentos>",
+                "Incenso prende o fantasma em seu cômodo e o impede de vagar por 60s"
             ]
         },
         {
@@ -283,19 +283,19 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
-                "Freezing",
-                "DOTs"
+                "EMF Nível 5",
+                "Temperaturas Negativas",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Drains 20% on ghost events, instead of 10%",
-                "Will <b><i>not</i></b> do 'ghost mist' event",
-                "More visible during hunts (See 'Guides' tab)",
-                "<Behaviors>",
-                "More active around multiple people",
-                "More likely to appear as full ghost model"
+                "<Dicas>",
+                "Drena a sanidade em 20% durante eventos, em vez de 10%",
+                "<b><i>Não</i></b> fará eventos de 'névoa fantasma'",
+                "Mais visível durante caças (Ver tab 'Guias')",
+                "<Comportamentos>",
+                "Mais ativo quando entre múltiplas pessoas",
+                "Mais chance de aparecer como modelo completo de fantasma"
             ]
         },
         {
@@ -310,18 +310,18 @@
             "hunt_sanity_high": "80%",
             "evidence": [
                 "Spirit Box",
-                "Ghost Orbs",
-                "DOTs"
+                "Orbe Fantasma",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Hearing/electronic detection distance is less than 2.5m during hunts",
-                "<Behaviors>",
-                "More active when talked to",
-                "Music box can be brought much closer to the ghost before it breaks",
-                "<Hunt Sanity>",
-                "Can hunt up to 80% sanity when talking near it, hunts normally at 50%"
+                "<Dicas>",
+                "Distância de detecção de audição/equipamentos eletrônicos é inferior a 2.5m durante caça",
+                "<Comportamentos>",
+                "Mais ativos quando jogadores falam próximo ao fantasma",
+                "Caixa de música pode ser levada mais próxima do fantasma antes de quebrar",
+                "<Sanidade para caça>",
+                "Pode caçar quando 80% de sanidade se jogadores falarem próximos ao fantasma, normalmente caça em 50%"
             ]
         },
         {
@@ -335,21 +335,21 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "Ultraviolet",
-                "Ghost Orbs",
-                "Freezing"
+                "Ultravioleta",
+                "Orbe Fantasma",
+                "Temperaturas Negativas"
             ],
-            "nightmare_evidence": "Freezing",
+            "nightmare_evidence": "Temperaturas Negativas",
             "behavior": [
-                "<Tells>",
-                "Ghost can have visible freezing breath in any room during hunts with the breaker off/broken",
-                "Cannot turn breaker on",
-                "<Behaviors>",
-                "High chance to turn breaker off",
-                "<Hunt Speed>",
-                "Faster in colder temperatures, <b>does not speed up in line-of-sight</b>",
-                "<Evidence>",
-                "Guaranteed freezing on Nightmare / Insanity mode"
+                "<Dicas>",
+                "Pode ter respiração gelada visível em qualquer cômodo durante caçadas com a caixa de dijuntores desligada/quebrada",
+                "Não consegue desligar a caixa de dijuntores",
+                "<Comportamentos>",
+                "Maior chance de desligar a caixa de dijuntores",
+                "<Velocidade da caça>",
+                "Mais rápido em temperaturas frias, <b>não acelera mesmo com linha de visão do jogador</b>",
+                "<Evidências>",
+                "Sempre apresenta temperaturas negativas em modo Pesadelo/Insanidade"
             ]
         },
         {
@@ -363,19 +363,19 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
-                "Ultraviolet",
-                "DOTs"
+                "EMF Nível 5",
+                "Ultravioleta",
+                "Projetor DOTs"
             ],
-            "nightmare_evidence": "DOTs",
+            "nightmare_evidence": "Projetor DOTs",
             "behavior": [
-                "<Tells>",
-                "DOTs only appear on video camera and will not show if a player is in the same room (DOTs state can start outside of room and enter a player's room)",
-                "<Behaviors>",
-                "Can not change favorite rooms",
-                "Does not leave room as often",
-                "<Evidence>",
-                "Guaranteed DOTs on Nightmare / Insanity mode"
+                "<Dicas>",
+                "DOTs só aparecem na câmera de vídeo e não aparecerão se um jogador estiver no mesmo cômodo (o estado DOTs pode iniciar fora do cômodo e entrar onde está o jogador)",
+                "<Comportamentos>",
+                "Não podem trocar de cômodo favorito",
+                "Não vagam para fora do cômodo com frequência",
+                "<Evidências>",
+                "Sempre apresenta DOTs em modo Pesadelo/Insanidade"
             ]
         },
         {
@@ -389,16 +389,16 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
-                "Ultraviolet",
-                "Writing"
+                "EMF Nível 5",
+                "Ultravioleta",
+                "Escrita Fantasma"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
+                "<Dicas>",
                 "Footsteps and vocals cannot be heard more than 12m away during hunts (normal is 20m)",
-                "<Behaviors>",
-                "Lots of paranormal sounds through paramic"
+                "<Comportamentos>",
+                "Emite vários sons pelo microfone parabólico"
             ]
         },
         {
@@ -413,18 +413,18 @@
             "hunt_sanity_high": "100%",
             "evidence": [
                 "Spirit Box",
-                "Ghost Orbs",
-                "Freezing"
+                "Orbe Fantasma",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Will hunt at any sanity after extinguishing every 3rd flame if no other flames or crucifix will prevent it",
-                "<Behaviors>",
-                "Flames act like crucifixes, will blow out a flame if it tries to hunt (within 4m)",
-                "More likely to extinguish a flame, the more players that are dead",
-                "<Hunt Sanity>",
-                "Can hunt at any sanity using its ability, hunts normally at 60%"
+                "<Dicas>",
+                "Caça a qualquer sanidade depois de apagar toda terceira chama se não houver outras chamas ou crucifixo que impeça a caça",
+                "<Comportamentos>",
+                "Chamas agem como crucifixos e irá apagar a chama se tentar iniciar uma caça (dentro de 4m)",
+                "Mais chances de apagar uma chama quando mais jogdores morrem",
+                "<Sanidade para caça>",
+                "Pode caçar a qualquer sanidade quando usam  sua habilidade, normalmente caça em 60%"
             ]
         },
         {
@@ -438,18 +438,18 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
+                "EMF Nível 5",
                 "Spirit Box",
-                "Freezing"
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Often do interactions at the same time (at physical location and ranged location)",
-                "<Behaviors>",
-                "Only triggers motion sensors, steps in salt, and gives spirit box at it's physical location",
-                "<Hunt Speed>",
-                "1.53m/s when hunting from physical location, 1.87m/s when hunting from ranged location"
+                "<Dicas>",
+                "Comumente faz interações ao mesmo tempo (no local físico do fantasma e em outro local dentro do raio de alcance)",
+                "<Comportamentos>",
+                "Somente ativa os sensores de movimento, pisa no sal, e responde a spirit box em sua localização física",
+                "<Velocidade da caça>",
+                "1.53m/s quando caça da sua localização física, 1.87m/s quando caça de outra localização dentro do raio de alcane"
             ]
         },
         {
@@ -463,20 +463,20 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "65%",
             "evidence": [
-                "EMF 5",
-                "Ghost Orbs",
-                "DOTs"
+                "EMF Nível 5",
+                "Orbe Fantasma",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "During a hunt, flickers electronics at 15m range instead of 10m",
-                "<Hunt Sanity>",
-                "Can hunt at 65% sanity near active player equipment",
-                "<Hunt Speed>",
-                "2.5m/s near active player equipment, 1.7m/s otherwise",
-                "<Evidence>",
-                "EMF 5 + Ghost Orbs on Nightmare mode confirms Raiju (not guaranteed evidence)"
+                "<Dicas>",
+                "Durante a caça, pisca os equipamento eletrônicos em um alcance de 15m em vez de 10m",
+                "<Sanidade para caça>",
+                "Pode caçar em 65% se próximo de equipamentos ligados",
+                "<Velocidade da caça>",
+                "2.5m/s se próximo de equipamentos ligados, se não, 1.7m/s",
+                "<Evidências>",
+                "EMF Nível 5 + Orbes modo Pesadelo confirma Raiju (não é evidência garantida)"
             ]
         },
         {
@@ -490,23 +490,23 @@
             "hunt_sanity_low": "50%",
             "hunt_sanity_high": "50%",
             "evidence": [
-                "EMF 5",
-                "Ultraviolet",
-                "Ghost Orbs"
+                "EMF Nível 5",
+                "Ultravioleta",
+                "Orbe Fantasma"
             ],
-            "nightmare_evidence": "Ultraviolet",
+            "nightmare_evidence": "Ultravioleta",
             "behavior": [
-                "<Tells>",
-                "Special 6 fingered fingerprints (See 'Guides' tab)",
-                "Has a 6.66% chance to change ghost models when flickering during hunts (guaranteed once per hunt, returns to original model)",
-                "Has a 25% chance to not leave ultraviolet evidence",
-                "Can make fingerprints disappear twice as fast if it uses it's ability",
-                "<Evidence>",
-                "Guaranteed ultraviolet on Nightmare / Insanity mode"
+                "<Dicas>",
+                "Digital especial de 6 dedos (Ver tab 'Guias')",
+                "Tem uma chance de 6.66% de alternar entre modelos de fantasmas durante as caças (uma vez por caça garantida, retornando ao modelo original depois)",
+                "Tem uma chance de 25% de não deixar evidência de ultravioleta",
+                "Pode apagar as digitais duas vezes mais rápido de utilizarem sua habilidade",
+                "<Evidências>",
+                "Sempre apresenta Ultravioleta em modo Pesadelo / Insanidade"
             ]
         },
         {
-            "ghost": "The Mimic",
+            "ghost": "Mímico",
             "min_speed": 1.7,
             "max_speed": null,
             "alt_speed": null,
@@ -517,19 +517,19 @@
             "hunt_sanity_high": "100%",
             "evidence": [
                 "Spirit Box",
-                "Ultraviolet",
-                "Freezing"
+                "Ultravioleta",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Tells>",
-                "Always shows orbs as additional fake evidence (4th evidence) even in 0 evidence",
-                "Copies the behavior and traits of other ghosts",
-                "Changes ghost behavior every 30 seconds to 2 minutes",
-                "<Hunt Sanity>",
-                "Copies behavior of currently mimicked ghost",
-                "<Hunt Speed>",
-                "Copies speed of currently mimicked ghost"
+                "<Dicas>",
+                "Sempre apresenta orbes como evidência falsa adicional (4ª evidência) mesmo com 0 evidências",
+                "Copia o comportamento e traços de outros fantasmas",
+                "Muda de comportamento a cada 30 a 2 minutos",
+                "<Sanidade para caça>",
+                "Copia a sanidade do fantasma copiado no momento",
+                "<Velocidade da caça>",
+                "Copia a velocidade do fantasma copiado no momento"
             ]
         },
         {
@@ -544,19 +544,19 @@
             "hunt_sanity_high": "50%",
             "evidence": [
                 "Spirit Box",
-                "Writing",
-                "Freezing"
+                "Escrita Fantasma",
+                "Temperaturas Negativas"
             ],
             "nightmare_evidence": "Spirit Box",
             "behavior": [
-                "<Tells>",
-                "Places curse on player when heard through paramic or spirit box, curse drops sanity 2x as fast",
-                "Incense blindness duration increased by 50% (7.5s instead of 5s)",
-                "<Hunt Speed>",
-                "Faster when average sanity is lower, can reach a speed of 3.71 m/s when in line of sight",
-                "Speed will decrease during a hunt if sanity medication is used",
-                "<Evidence>",
-                "Guaranteed spirit box on Nightmare / Insanity mode"
+                "<Dicas>",
+                "Coloca uma maldição no jogador que o ouve pela spirit box ou pelo microfone parabólico, maldição derruba a sanidade 2x mais rápido",
+                "Duração da cegueira pelo incenso aumenta 50% (7.5s em vez de 5s)",
+                "<Velocidade da caça>",
+                "Mais rápido quando a sanidade média está mais baixa, pode alcançar a velocidade de 3.71 m/s quando em linha de visão",
+                "Velocidade diminuirá durante a caça se medicação for tomada",
+                "<Evidências>",
+                "Sempre apresenta spirit box no modo Pesadelo / Insanidade"
             ]
         },
         {
@@ -571,18 +571,18 @@
             "hunt_sanity_high": "40%",
             "evidence": [
                 "Spirit Box",
-                "Writing",
-                "DOTs"
+                "Escrita Fantasma",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": "Spirit Box",
             "behavior": [
-                "<Tells>",
-                "Heavy breathing through spirit box when within 1m of the ghost  <span class=\"sound\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/deogen_breathing.mp3')\">🔊</span>",
-                "Cannot hide from a Deogen",
-                "<Hunt Speed>",
-                "3.0m/s when far away, drops to 0.4m/s when close to the player",
-                "<Evidence>",
-                "Guaranteed spirit box on Nightmare / Insanity mode"
+                "<Dicas>",
+                "Respiração ofegante pela spirit box quando a 1m do fantasma  <span class=\"som\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/deogen_breathing.mp3')\">🔊</span>",
+                "Não é possível se esconder de um Deogen",
+                "<Velocidade da caça>",
+                "3.0m/s quando longe, cai para 0.4m/s quando próximo do jogador",
+                "<Evidências>",
+                "Sempre apresenta spirit box no modo Pesadelo / Insanidade"
             ]
         },
         {
@@ -596,33 +596,33 @@
             "hunt_sanity_low": "35%",
             "hunt_sanity_high": "75%",
             "evidence": [
-                "Ghost Orbs",
-                "Writing",
-                "DOTs"
+                "Orbe Fantasma",
+                "Escrita Fantasma",
+                "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
-                "<Behaviors>",
-                "Ghost ages over time (every 1-2 minutes) while player is nearby",
-                "More active when younger",
-                "Age response on Ouija board increases as Thaye ages",
-                "<Hunt Sanity>",
-                "Hunts at 75% at its youngest, 15% at its oldest",
-                "<Hunt Speed>",
-                "2.75m/s at its youngest, 1.0m/s at its oldest <b>does not speed up in line-of-sight</b>",
-                "<Evidence>",
-                "Writing + DOTs on Nightmare mode confirms Thaye (not guaranteed evidence)"
+                "<Comportamentos>",
+                "O fantasma envelhece durante o tempo (a cada 1-2 minutos) quando o jogador está próximo",
+                "Mais ativo quando jovem",
+                "A resposta à pergunta da idade na Tábua Ouija muda a medida que o Thaye envelhece",
+                "<Sanidade para caça>",
+                "Caça geralmente a 75% quando mais jovem, 15% quando mais velho",
+                "<Velocidade da caça>",
+                "2.75m/s quando mais jovem, 1.0m/s quando mais velho <b>não acelera em linha de visão</b>",
+                "<Evidências>",
+                "Escrita fantasma + DOTs no modo Pesadelo confirma Thaye (não é evidência garantida)"
             ]
         }
     ],
-    "version": "v0.9.2.0",
+    "version": "v0.9.3.0",
     "evidence": [
-        "EMF 5",
-        "Ultraviolet",
-        "Writing",
-        "Freezing",
-        "DOTs",
-        "Ghost Orbs",
+        "EMF Nível 5",
+        "Ultravioleta",
+        "Escrita Fantasma",
+        "Temperaturas Negativas",
+        "Projetor DOTs",
+        "Orbe Fantasma",
         "Spirit Box"
     ]
 }

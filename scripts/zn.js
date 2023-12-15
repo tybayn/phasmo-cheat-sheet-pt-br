@@ -1,6 +1,18 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
+function loadLanguage(){
+    var llang = document.getElementById("language").value
+    if(llang != lang){
+        if(llang == 'en'){
+            window.location.href = `https://tybayn.github.io/phasmo-cheat-sheet/`
+        }
+        else{
+            window.location.href = `https://tybayn.github.io/phasmo-cheat-sheet-${llang}/`
+        }
+    }
+}
+
 function heartbeat(){
     if(znid != "no-connection-to-server"){
         state['settings'] = JSON.stringify(user_settings)

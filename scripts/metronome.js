@@ -265,7 +265,7 @@ function mark_ghosts(ms){
             }
 
             if(document.getElementById("bpm_type").checked){
-                if ((speed_type == "range" && min_speed <= ms && ms <= max_speed) || name == "The Mimic"){
+                if ((speed_type == "range" && min_speed <= ms && ms <= max_speed) || name == "Mímico"){
                     ghosts[i].style.boxShadow = '0px 0px 10px 0px #dbd994'
                     bpm_list.push(ghosts[i].id)
                 }
@@ -275,7 +275,7 @@ function mark_ghosts(ms){
                 }
             }
             else{
-                if ((speed_type == "range" && (min_speed - 0.05) <= ms && ms <= (max_speed + 0.05)) || name == "The Mimic"){
+                if ((speed_type == "range" && (min_speed - 0.05) <= ms && ms <= (max_speed + 0.05)) || name == "Mímico"){
                     ghosts[i].style.boxShadow = '0px 0px 10px 0px #dbd994'
                     bpm_list.push(ghosts[i].id)
                 }

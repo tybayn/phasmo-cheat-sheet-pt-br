@@ -4,7 +4,7 @@ let dlws = null
 var ws_ping;
 var dlws_ping;
 var await_dlws_pong = false
-const lang = "en"
+const lang = "pt-br"
 
 function auto_link(){
     var room_id = getCookie("room_id")
@@ -301,6 +301,7 @@ function link_link(){
                     send_timer_link("TIMER_VAL","0:00")
                     send_timer_link("COOLDOWN_VAL","0:00")
                     filter()
+                    await_dlws_pong = false
                     dlws_ping = setInterval(function(){
                         if (await_dlws_pong){
                             clearInterval(dlws_ping)
@@ -309,6 +310,7 @@ function link_link(){
                             $("#link_id_disconnect").hide()
                             document.getElementById("link_id_note").innerText = "ERROR: Link Lost Connection!"
                             document.getElementById("dllink_status").className = "error"
+                            document.getElementById("link_id").value = ""
                             setCookie("link_id","",-1)
                             hasDLLink=false
                             dlws.close()
@@ -338,23 +340,7 @@ function link_link(){
                     toggleFilterTools()
                 }
                 if(incoming_state['action'].toUpperCase() == "SAVERESET"){
-                    if(Object.keys(discord_user).length > 0){
-                        if(!hasSelected()){
-                            send_ghost_link("None Selected!",-1)
-                            $("#reset").removeClass("standard_reset")
-                            $("#reset").addClass("reset_pulse")
-                            $("#reset").html("No ghost selected!<div class='reset_note'>(say 'force reset' to save & reset)</div>")
-                            $("#reset").prop("onclick",null)
-                            $("#reset").prop("ondblclick","reset()")
-                            reset_voice_status()
-                        }
-                        else{
-                            reset()
-                        }
-                    }
-                    else{
-                        reset()
-                    }
+                    reset()
                 }
 
                 if (incoming_state['action'].toUpperCase() == "EVIDENCE"){
@@ -375,6 +361,7 @@ function link_link(){
             }
 
         } catch (error){
+            console.error(error)
             console.log(event.data)
         }
     }

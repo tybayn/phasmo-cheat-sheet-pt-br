@@ -28,12 +28,12 @@ const ZNLANG = {
         "thaye":[]
     },
     "evidence":{
-        "emf 5":[],
-        "dots":[],
-        "ultraviolet":[],
-        "freezing":[],
-        "ghost orbs":[],
-        "writing":[],
+        "emf nível 5":[],
+        "projetor dots":[],
+        "ultravioleta":[],
+        "temperaturas negativas":[],
+        "orbe fantasma":[],
+        "escrita fantasma":[],
         "spirit box":[]
     },
     "speed":{
