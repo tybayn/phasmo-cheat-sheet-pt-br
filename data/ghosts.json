@@ -64,7 +64,7 @@
             "behavior": [
                 "<Dicas>",
                 "Não aparece na foto de fantasma",
-                "Durante um evento ou no estado DOTs, tirar uma foto vai fazer o fantasma desaparecer",
+                "Durante um evento ou no DOTs, tirar uma foto vai fazer o fantasma desaparecer",
                 "Menos visível durante caças (Ver tab 'Guia')",
                 "<Comportamentos>",
                 "Pode vagar para qualquer jogador, deixando EMF Nível 2"
@@ -88,7 +88,7 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Can throw multiple objects at once, decreasing player sanity 2% per item thrown",
+                "Pode jogar múltiplos objetos de uma só vez, diminuindo a sanidade do jogador em 2% pra cada item jogado",
                 "Joga itens a cada 0.5s durante a caça",
                 "<Comportamentos>",
                 "Chance mais alta de mover e interagir com objetos",
@@ -115,9 +115,9 @@
                 "<Dicas>",
                 "Banshee emite um grito no microfone parabólico  <span class=\"sound\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/banshee_scream.mp3')\">🔊</span>",
                 "<Comportamentos>",
-                "Caçará somente seu alvo durante a caça (A menos que o alvo esteja fora do local)",
+                "Perseguirá somente seu alvo durante a caça (A menos que o alvo esteja fora do local)",
                 "Vagará até seu alvo, sem deixar EMF Nível 2",
-                "Tentará vagar até seu alvo durante o estado DOTs",
+                "Tentará vagar até seu alvo durante evidência DOTs",
                 "Tem preferência por eventos cantando",
                 "<Sanidade para caça>",
                 "Caça quando a sanidade de seu alvo está em 50% ou abaixo (mesmo se o alvo estiver fora do local), o que significa que pode caçar com uma média de 87% de sanidade quando em multiplayer"
@@ -141,11 +141,11 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Habilidade de derrubar 25% da sanidade de jogadores por perto, com EMF Nível 2 ou EMF Nível 5 na caixa de dijuntores (quando estiver ligado)",
+                "Habilidade de derrubar 25% da sanidade de jogadores por perto, com EMF Nível 2 ou EMF Nível 5 no disjuntor (quando estiver ligado)",
                 "<Comportamentos>",
-                "Não consegue desligar a caixa de dijuntores",
+                "Não consegue desligar o disjuntor",
                 "<Velocidade da caça>",
-                "2.5m/s quando os dijuntores estiverem ligados, tem LDV, e está a mais de 3m do jogador visto, se não, 1.7m/s"
+                "2.5m/s quando o disjuntor estiver ligado, tem linha de visão (LOS), e está a mais de 3m do jogador visto, se não, 1.7m/s"
             ]
         },
         {
@@ -193,7 +193,7 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Velocidade da caça>",
-                "3.0m/s assim que o jogador é notado (equipamento, voz ou LDV) até que o fantasma chegue no último local conhecido do jogador e então gradualmente diminuirá a velocidade para 1m/s"
+                "3.0m/s assim que o jogador é notado (equipamento, voz ou linha de visão) até que o fantasma chegue no último local conhecido do jogador e então gradualmente diminuirá a velocidade para 1m/s"
             ]
         },
         {
@@ -342,12 +342,12 @@
             "nightmare_evidence": "Temperaturas Negativas",
             "behavior": [
                 "<Dicas>",
-                "Pode ter respiração gelada visível em qualquer cômodo durante caçadas com a caixa de dijuntores desligada/quebrada",
-                "Não consegue desligar a caixa de dijuntores",
+                "Pode ter respiração gelada visível em qualquer cômodo durante caçadas com o disjuntor desligada/quebrada",
+                "Não consegue ligar o disjuntor",
                 "<Comportamentos>",
-                "Maior chance de desligar a caixa de dijuntores",
+                "Maior chance de desligar o disjuntor",
                 "<Velocidade da caça>",
-                "Mais rápido em temperaturas frias, <b>não acelera mesmo com linha de visão do jogador</b>",
+                "Mais rápido em temperaturas frias, <b>não acelera mesmo com linha de visão (LOS) do jogador</b>",
                 "<Evidências>",
                 "Sempre apresenta temperaturas negativas em modo Pesadelo/Insanidade"
             ]
@@ -370,7 +370,7 @@
             "nightmare_evidence": "Projetor DOTs",
             "behavior": [
                 "<Dicas>",
-                "DOTs só aparecem na câmera de vídeo e não aparecerão se um jogador estiver no mesmo cômodo (o estado DOTs pode iniciar fora do cômodo e entrar onde está o jogador)",
+                "DOTs só aparecem na câmera de vídeo e não aparecerão se um jogador estiver no mesmo cômodo (evidência DOTs pode iniciar fora do cômodo e entrar onde está o jogador)",
                 "<Comportamentos>",
                 "Não podem trocar de cômodo favorito",
                 "Não vagam para fora do cômodo com frequência",
@@ -396,7 +396,7 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Footsteps and vocals cannot be heard more than 12m away during hunts (normal is 20m)",
+                "Passos e grunidos não podem ser ouvidos a mais de 12 metros durante caçadas (normal é 20m)",
                 "<Comportamentos>",
                 "Emite vários sons pelo microfone parabólico"
             ]
@@ -419,12 +419,12 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Caça a qualquer sanidade depois de apagar toda terceira chama se não houver outras chamas ou crucifixo que impeça a caça",
+                "Caça a qualquer sanidade depois de apagar qualquer terceira chama, isso se não houver outras chamas ou crucifixo que impeça a caça",
                 "<Comportamentos>",
                 "Chamas agem como crucifixos e irá apagar a chama se tentar iniciar uma caça (dentro de 4m)",
-                "Mais chances de apagar uma chama quando mais jogdores morrem",
+                "Mais chances de apagar uma chama quando mais jogadores morrem",
                 "<Sanidade para caça>",
-                "Pode caçar a qualquer sanidade quando usam  sua habilidade, normalmente caça em 60%"
+                "Pode caçar a qualquer sanidade quando usam sua habilidade, normalmente caça em 60%"
             ]
         },
         {
@@ -476,7 +476,7 @@
                 "<Velocidade da caça>",
                 "2.5m/s se próximo de equipamentos ligados, se não, 1.7m/s",
                 "<Evidências>",
-                "EMF Nível 5 + Orbes modo Pesadelo confirma Raiju (não é evidência garantida)"
+                "EMF Nível 5 + Orbes no modo Pesadelo confirma Raiju (não é evidência garantida)"
             ]
         },
         {
@@ -500,7 +500,7 @@
                 "Digital especial de 6 dedos (Ver tab 'Guias')",
                 "Tem uma chance de 6.66% de alternar entre modelos de fantasmas durante as caças (uma vez por caça garantida, retornando ao modelo original depois)",
                 "Tem uma chance de 25% de não deixar evidência de ultravioleta",
-                "Pode apagar as digitais duas vezes mais rápido de utilizarem sua habilidade",
+                "Pode apagar as digitais duas vezes mais rápido ao utilizar sua habilidade",
                 "<Evidências>",
                 "Sempre apresenta Ultravioleta em modo Pesadelo / Insanidade"
             ]
@@ -525,11 +525,11 @@
                 "<Dicas>",
                 "Sempre apresenta orbes como evidência falsa adicional (4ª evidência) mesmo com 0 evidências",
                 "Copia o comportamento e traços de outros fantasmas",
-                "Muda de comportamento a cada 30 a 2 minutos",
+                "Muda de comportamento em um intervalo de 30 segundos a 2 minutos",
                 "<Sanidade para caça>",
-                "Copia a sanidade do fantasma copiado no momento",
+                "Mesma sanidade do fantasma copiado no momento",
                 "<Velocidade da caça>",
-                "Copia a velocidade do fantasma copiado no momento"
+                "Mesma velocidade do fantasma copiado no momento"
             ]
         },
         {
@@ -550,7 +550,7 @@
             "nightmare_evidence": "Spirit Box",
             "behavior": [
                 "<Dicas>",
-                "Coloca uma maldição no jogador que o ouve pela spirit box ou pelo microfone parabólico, maldição derruba a sanidade 2x mais rápido",
+                "Coloca uma maldição no jogador que o ouve pela spirit box ou pelo microfone parabólico, maldição drena a sanidade 2x mais rápido",
                 "Duração da cegueira pelo incenso aumenta 50% (7.5s em vez de 5s)",
                 "<Velocidade da caça>",
                 "Mais rápido quando a sanidade média está mais baixa, pode alcançar a velocidade de 3.71 m/s quando em linha de visão",
