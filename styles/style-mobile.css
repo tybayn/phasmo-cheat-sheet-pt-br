@@ -532,7 +532,7 @@
         padding: 8px;
         box-shadow: 0px -15px 20px 0px #000;
         z-index: 2;   
-        height: 620px;
+        height: 650px;
     }
 
     .tools-filter-buttons{
@@ -677,7 +677,7 @@
         font-size: 35px;
         padding: 2px 10px;
         margin: 10px;
-        font-family: 'October Crow';
+        font-family: 'Unutterable';
     }
 
     #game_mode{
@@ -1333,7 +1333,7 @@
         display: grid;
         width: calc(50% - 20px);
         border-radius: 5px;
-        grid-template-columns: 55% 45%;
+        grid-template-columns: 50% 50%;
         grid-template-rows: auto 300px auto auto;
         color: white;
         background-color: #313248;
@@ -1348,9 +1348,8 @@
     .ghost_name{
         grid-column: 1;
         grid-row: 1;
-        font-family:"October Crow";
-        font-size: 30px;
-        font-weight: bold;
+        font-family:"Unutterable";
+        font-size: 27px;
         padding: 10px 0px 10px 10px;
         text-align: center;
         letter-spacing: 4px;
@@ -1370,6 +1369,10 @@
 
     .ghost_evidence_item{
         height: fit-content;
+        display: flex;
+        flex-direction: row;
+        align-items: flex-start;
+        text-align: left;
     }
 
     .ghost_evidence_item img{
@@ -1517,7 +1520,7 @@
         position: relative;
         margin: 10px 0px;
         cursor: pointer;
-        font-size: 30px;
+        font-size: 26px;
         font-family: "Yahfie";
         display: grid;
         justify-content: start;

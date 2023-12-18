@@ -430,7 +430,7 @@ function parse_speech(vtext){
         vtext = vtext.replace('hunt sanity', "").replace('sanity', "").trim()
         domovoi_msg += "marked hunt sanity "
 
-        var smallest_sanity = "Late"
+        var smallest_sanity = "Tarde"
         var smallest_val = 100
         var vvalue = 1
         if(vtext.startsWith("not ") || vtext.startsWith("knot ") || vtext.startsWith("knight ")|| vtext.startsWith("night ")){

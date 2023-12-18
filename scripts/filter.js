@@ -3,11 +3,11 @@ function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="e
 
 const all_evidence = ["Projetor DOTs","EMF Nível 5","Ultravioleta","Temperaturas Negativas","Orbe Fantasma","Escrita Fantasma","Spirit Box"]
 const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","Mímico","Moroi","Deogen","Thaye"]
-const all_speed = ["Slow","Normal","Fast"]
-const all_sanity = ["Late","Average","Early","VeryEarly"]
+const all_speed = ["Lento","Normal","Rápido"]
+const all_sanity = ["Tarde","Average","Cedo","MuitoCedo"]
 let bpm_list = []
 
-var state = {"evidence":{},"speed":{"Slow":0,"Normal":0,"Fast":0},"los":-1,"sanity":{"Late":0,"Average":0,"Early":0,"VeryEarly":0},"ghosts":{}}
+var state = {"evidence":{},"speed":{"Lento":0,"Normal":0,"Rápido":0},"los":-1,"sanity":{"Tarde":0,"Average":0,"Cedo":0,"MuitoCedo":0},"ghosts":{}}
 var user_settings = {"num_evidences":3,"ghost_modifier":2,"volume":50,"mute_timer_toggle":0,"mute_timer_countdown":0,"offset":0,"sound_type":0,"speed_logic_type":0,"bpm":0,"domo_side":0}
 
 let znid = getCookie("znid")
@@ -297,11 +297,11 @@ function revive(){
 
 function filter(ignore_link=false){
     state["evidence"] = {}
-    state["speed"] = {"Slow":0,"Normal":0,"Fast":0}
+    state["speed"] = {"Lento":0,"Normal":0,"Rápido":0}
     for (var i = 0; i < all_evidence.length; i++){
         state["evidence"][all_evidence[i]] = 0
     }
-    state["sanity"] = {"Late":0,"Average":0,"Early":0,"VeryEarly":0}
+    state["sanity"] = {"Tarde":0,"Average":0,"Cedo":0,"MuitoCedo":0}
     state["los"] = -1
 
     // Get values of checkboxes
@@ -311,7 +311,7 @@ function filter(ignore_link=false){
     var not_evi_array = [];
     var spe_array = [];
     var san_array = [];
-    var san_lookup = {"Late":0,"Average":40,"Early":50,"VeryEarly":75}
+    var san_lookup = {"Tarde":0,"Average":40,"Cedo":50,"MuitoCedo":75}
     var monkey_evi = ""
     if (document.querySelectorAll('[name="evidence"] .monkey-disabled').length > 0)
         monkey_evi = document.querySelectorAll('[name="evidence"] .monkey-disabled')[0].parentElement.value;
@@ -550,13 +550,13 @@ function filter(ignore_link=false){
 
             spe_array.forEach(function (item,index){
 
-                if (item == "Slow"){
+                if (item == "Lento"){
                     skeep = true
                 }
                 else if (item == "Normal"){
                     nkeep = true
                 }
-                else if (item == "Fast"){
+                else if (item == "Rápido"){
                     fkeep = true
                 }
             });
@@ -579,11 +579,11 @@ function filter(ignore_link=false){
         // Check if speed is being kept
         if (keep && loskeep){
             if(min_speed < base_speed || name == "Mímico"){
-                keep_speed.add('Slow')
+                keep_speed.add('Lento')
                 if (marked_not)
-                    fade_speed.add('Slow')
+                    fade_speed.add('Lento')
                 else
-                    not_fade_speed.add('Slow')
+                    not_fade_speed.add('Lento')
             }
             if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "Mímico"){
                 keep_speed.add('Normal')
@@ -600,19 +600,19 @@ function filter(ignore_link=false){
                     not_fade_speed.add('Normal')
             }
             if(max_speed > base_speed || name == "Mímico"){
-                keep_speed.add('Fast')
+                keep_speed.add('Rápido')
                 if (marked_not)
-                    fade_speed.add('Fast')
+                    fade_speed.add('Rápido')
                 else
-                    not_fade_speed.add('Fast')
+                    not_fade_speed.add('Rápido')
             }
 
-            if(sanity[0] > san_lookup['Late'] || sanity[1] > san_lookup['Late']){
-                keep_sanity.add('Late')
+            if(sanity[0] > san_lookup['Tarde'] || sanity[1] > san_lookup['Tarde']){
+                keep_sanity.add('Tarde')
                 if (marked_not)
-                    fade_sanity.add('Late')
+                    fade_sanity.add('Tarde')
                 else
-                    not_fade_sanity.add('Late')
+                    not_fade_sanity.add('Tarde')
             }
             if(sanity[0] > san_lookup['Average'] || sanity[1] > san_lookup['Average']){
                 keep_sanity.add('Average')
@@ -621,19 +621,19 @@ function filter(ignore_link=false){
                 else
                     not_fade_sanity.add('Average')
             }
-            if(sanity[0] > san_lookup['Early'] || sanity[1] > san_lookup['Early']){
-                keep_sanity.add('Early')
+            if(sanity[0] > san_lookup['Cedo'] || sanity[1] > san_lookup['Cedo']){
+                keep_sanity.add('Cedo')
                 if (marked_not)
-                    fade_sanity.add('Early')
+                    fade_sanity.add('Cedo')
                 else
-                    not_fade_sanity.add('Early')
+                    not_fade_sanity.add('Cedo')
             }
-            if(sanity[0] > san_lookup['VeryEarly'] || sanity[1] > san_lookup['VeryEarly']){
-                keep_sanity.add('VeryEarly')
+            if(sanity[0] > san_lookup['MuitoCedo'] || sanity[1] > san_lookup['MuitoCedo']){
+                keep_sanity.add('MuitoCedo')
                 if (marked_not)
-                    fade_sanity.add('VeryEarly')
+                    fade_sanity.add('MuitoCedo')
                 else
-                    not_fade_sanity.add('VeryEarly')
+                    not_fade_sanity.add('MuitoCedo')
             }
         }
 
@@ -975,7 +975,7 @@ function checkResetButton(){
 function resetResetButton(){
     $("#reset").removeClass("reset_pulse")
     $("#reset").addClass("standard_reset")
-    $("#reset").html(polled ? "Waiting for others..." : "Reset")
+    $("#reset").html(polled ? "Waiting for others..." : "Reiniciar")
     $("#reset").attr("ondblclick",null)
     $("#reset").attr("onclick","reset()")
 }

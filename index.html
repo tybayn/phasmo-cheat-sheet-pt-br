@@ -46,7 +46,7 @@
                 <div>O desenvolvedor deste guia (SeverelyZero) recebeu um distintivo VIP no jogo do Criador de Conteúdo Oficial 'JOJOsaysbreee' pela criação deste guia como um recurso comunitário (29/12/2022)</div>
             </div>
             <div class="thankyou_text">
-                Um agradecimento especial a JackSkelt por sua ajuda na tradução.<br>
+                Um agradecimento especial a @hafwayz e JackSkelt pela ajuda com a tradução.<br>
                 <strong>Encontrou um bug? Tem ideias? Quer jogar algumas partidas?</strong><br>
                 <p class="footer_link">
                     <a class="inline_image_text" style="color: #5865F2;" href="https://discord.gg/afpvC7Bf7Y" target="_blank">
@@ -325,7 +325,7 @@
                     </div>
                     <hr>
                     <div class="timer_block">
-                        <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">Temporizador entre caças</div>
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">Temporizador de Espera</div>
                         <div class="line_labels" onclick="toggle_cooldown_timer();send_cooldown_timer();">
                             <div class="cooldown_demon_line_label">Demon</div>
                         </div>
@@ -344,7 +344,7 @@
                     </div>
                 </div>
                 <div class="modifier_title yfont white">
-                    Tools
+                    Ferramentas
                 </div>
                 <div class="modifier">
                     <div class="modifier_ghost_speed yfont white">Velocidade do Fantasma</div>
@@ -395,7 +395,7 @@
                     Velocidade
                 </div>
                 <div class="speed">
-                    <button id="Slow" class="tricheck white" name="speed" onclick="dualstate(this)" value="Slow">
+                    <button id="Lento" class="tricheck white" name="speed" onclick="dualstate(this)" value="Lento">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Lento</div>
                     </button>
@@ -403,21 +403,21 @@
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Normal</div>
                     </button>
-                    <button id="Fast" class="tricheck white" name="speed" onclick="dualstate(this)" value="Fast">
+                    <button id="Rápido" class="tricheck white" name="speed" onclick="dualstate(this)" value="Rápido">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Rápido</div>
                     </button>
                     <hr>
                     <button id="LOS" class="tricheck white" name="los" onclick="tristate(this)" value="LOS">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
-                        <div class="label label-font-s">Aceleração de linha de visão (LOS)</div>
+                        <div class="label label-font-s">Aceleração de linha de visão (LDV)</div>
                     </button>
                 </div>
                 <div class="hunt_sanity_title yfont white">
-                    Sanidade de Caça
+                    Sanidade para Caça
                 </div>
                 <div class="hunt_sanity">
-                    <button id="Late" class="tricheck white" name="hunt-sanity" onclick="dualstate(this,false,true)" value="Late">
+                    <button id="Tarde" class="tricheck white" name="hunt-sanity" onclick="dualstate(this,false,true)" value="Tarde">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Tarde <span class="hunt_sanity_num">(&lt;40%)</span></div>
                     </button>
@@ -425,11 +425,11 @@
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Normal <span class="hunt_sanity_num">(>40%)</span></div>
                     </button>
-                    <button id="Early" class="tricheck white" name="hunt-sanity" onclick="dualstate(this,false,true)" value="Early">
+                    <button id="Cedo" class="tricheck white" name="hunt-sanity" onclick="dualstate(this,false,true)" value="Cedo">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Cedo <span class="hunt_sanity_num">(>50%)</span></div>
                     </button>
-                    <button id="VeryEarly" class="tricheck white" name="hunt-sanity" onclick="dualstate(this,false,true)" value="VeryEarly">
+                    <button id="MuitoCedo" class="tricheck white" name="hunt-sanity" onclick="dualstate(this,false,true)" value="MuitoCedo">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
                         <div class="label">Muito Cedo <span class="hunt_sanity_num">(>75%)</span></div>
                     </button>

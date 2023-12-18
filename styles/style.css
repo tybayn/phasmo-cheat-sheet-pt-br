@@ -1,6 +1,6 @@
 @font-face {
-    font-family: 'October Crow';
-    src: url('fonts/october_crow.ttf');
+    font-family: 'Unutterable';
+    src: url('fonts/unutterable.ttf');
 }
 
 @font-face {
@@ -45,7 +45,7 @@ hr{
 }
 
 .phasfont{
-    font-family:"October Crow";
+    font-family:"Unutterable";
     letter-spacing: 1;
 }
 
@@ -686,7 +686,7 @@ hr{
         width: 50%;
         margin-bottom: 10px;
         font-family: 'Yahfie';
-        font-size: 21px;
+        font-size: 17px;
     }
 
     .filter_tool_button_live{
@@ -803,13 +803,13 @@ hr{
     }
 
     .modifier_ghost_speed, .modifier_bpm_finder{
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 1px;
         padding: 10px 10px 0px 10px;
     }
 
     .modifier_smudge_timer{
-        font-size: 18px;
+        font-size: 14px;
         letter-spacing: 1px;
         padding: 10px;
     }
@@ -886,7 +886,7 @@ hr{
         font-size: 16px;
         padding: 0px 3px;
         padding-top: 1px;
-        font-family: 'October Crow';
+        font-family: 'Unutterable';
         float: right;
         cursor: pointer;
     }
@@ -954,9 +954,9 @@ hr{
     .hunt_sanity_title{
         grid-column: 1;
         grid-row: 5;
-        font-size: 26px;
+        font-size: 23px;
         z-index: 2;
-        margin-top: 8px;
+        margin-top: 12px;
     }
 
     .hunt_sanity{
@@ -1600,9 +1600,8 @@ hr{
     .ghost_name{
         grid-column: 1;
         grid-row: 1;
-        font-family:"October Crow";
-        font-size: 24px;
-        font-weight: bold;
+        font-family:"Unutterable";
+        font-size: 22px;
         padding:10px 10px 0px 10px;
         text-align: center;
         letter-spacing: 2px;

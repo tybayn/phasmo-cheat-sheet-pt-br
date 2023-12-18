@@ -64,7 +64,7 @@
             "behavior": [
                 "<Dicas>",
                 "Não aparece na foto de fantasma",
-                "Durante um evento ou no DOTs, tirar uma foto vai fazer o fantasma desaparecer",
+                "Durante um evento ou no estado DOTs, tirar uma foto vai fazer o fantasma desaparecer",
                 "Menos visível durante caças (Ver tab 'Guia')",
                 "<Comportamentos>",
                 "Pode vagar para qualquer jogador, deixando EMF Nível 2"
@@ -117,7 +117,7 @@
                 "<Comportamentos>",
                 "Perseguirá somente seu alvo durante a caça (A menos que o alvo esteja fora do local)",
                 "Vagará até seu alvo, sem deixar EMF Nível 2",
-                "Tentará vagar até seu alvo durante evidência DOTs",
+                "Tentará vagar até seu alvo durante o estado DOTs",
                 "Tem preferência por eventos cantando",
                 "<Sanidade para caça>",
                 "Caça quando a sanidade de seu alvo está em 50% ou abaixo (mesmo se o alvo estiver fora do local), o que significa que pode caçar com uma média de 87% de sanidade quando em multiplayer"
@@ -193,7 +193,7 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Velocidade da caça>",
-                "3.0m/s assim que o jogador é notado (equipamento, voz ou linha de visão) até que o fantasma chegue no último local conhecido do jogador e então gradualmente diminuirá a velocidade para 1m/s"
+                "3.0m/s assim que o jogador é notado (equipamento, voz ou LDV) até que o fantasma chegue no último local conhecido do jogador e então gradualmente diminuirá a velocidade para 1m/s"
             ]
         },
         {
@@ -347,7 +347,7 @@
                 "<Comportamentos>",
                 "Maior chance de desligar o disjuntor",
                 "<Velocidade da caça>",
-                "Mais rápido em temperaturas frias, <b>não acelera mesmo com linha de visão (LOS) do jogador</b>",
+                "Mais rápido em temperaturas frias, <b>não acelera mesmo com linha de visão do jogador</b>",
                 "<Evidências>",
                 "Sempre apresenta temperaturas negativas em modo Pesadelo/Insanidade"
             ]
