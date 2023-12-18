@@ -1,4 +1,4 @@
-# Unofficial Phasmo Cheat Sheet (template)
+# Unofficial Phasmo Cheat Sheet - Portuguese Brazil
 
 A client facing web-app guide for the horror video game Phasmophobia. This repo is intended to be forked and translated into other languages.
 
