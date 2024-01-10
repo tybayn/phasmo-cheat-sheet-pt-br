@@ -1,4 +1,4 @@
-# Unofficial Phasmo Cheat Sheet - (Portuguese - BR Translation)
+# Unofficial Phasmo Guia Phasmophobia - (Portuguese - BR Translation)
 
 A client facing web-app guide for the horror video game Phasmophobia. This repo has been translated from English to Portuguese by @hafwayz, D4v3sb, and @t_doctor.
 
@@ -8,7 +8,7 @@ In order to make this version work with other languages, the following features 
 - Live updating ghost data
 - Live event data
 
-The proprietary backend servers for the Unofficial Phasmo Cheat Sheet are in english only and cannot be translated correctly on the fly. As such, these versions of the website will contain static json files with the needed data that will need to be maintained by other community members that have the ability to translate.
+The proprietary backend servers for the Unofficial Phasmo Guia Phasmophobia are in english only and cannot be translated correctly on the fly. As such, these versions of the website will contain static json files with the needed data that will need to be maintained by other community members that have the ability to translate.
 
 ## Copyright Notice
 

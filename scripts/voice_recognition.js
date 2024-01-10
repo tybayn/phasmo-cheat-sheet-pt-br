@@ -640,7 +640,7 @@ function parse_speech(vtext){
         running_log[cur_idx]["Domo"] = domovoi_msg
         reset_voice_status()
     }
-    else if(vtext.startsWith('resetar cheat sheet')){
+    else if(vtext.startsWith('resetar guia phasmophobia')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
         console.log("Recognized resetar command")
