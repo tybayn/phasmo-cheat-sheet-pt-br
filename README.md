@@ -1,6 +1,6 @@
 # Unofficial Phasmo Cheat Sheet - (Portuguese - BR Translation)
 
-A client facing web-app guide for the horror video game Phasmophobia. This repo has been translated from English to Portuguese by @hafwayz and D4v3sb..
+A client facing web-app guide for the horror video game Phasmophobia. This repo has been translated from English to Portuguese by @hafwayz, D4v3sb, and @t_doctor.
 
 In order to make this version work with other languages, the following features from the original have been removed:
 - Discord Link

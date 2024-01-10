@@ -46,7 +46,7 @@
                 <div>O desenvolvedor deste guia (SeverelyZero) recebeu um distintivo VIP no jogo do Criador de Conteúdo Oficial 'JOJOsaysbreee' pela criação deste guia como um recurso comunitário (29/12/2022)</div>
             </div>
             <div class="thankyou_text">
-                Um agradecimento especial a @hafwayz e JackSkelt pela ajuda com a tradução.<br>
+                Um agradecimento especial a @hafwayz, @t_doctor, e JackSkelt pela ajuda com a tradução.<br>
                 <strong>Encontrou um bug? Tem ideias? Quer jogar algumas partidas?</strong><br>
                 <p class="footer_link">
                     <a class="inline_image_text" style="color: #5865F2;" href="https://discord.gg/afpvC7Bf7Y" target="_blank">
@@ -67,58 +67,58 @@
             <h3>Comandos de Voz</h3>
             <div class="info_text">Comandos de voz permitem que você controle o guia através da sua voz. Assim que você ativar, o guia começará a ouvir seus comandos de voz e permanecerá ativa entre reinicializações até que você a desative. 
                 Por padrão, ela usará o seu microfone padrão, então certifique-se de que está configurado corretamente. 
-                O reconhecimento de voz continuará funcionando mesmo se a página não estiver em foco e você estiver usando o mesmo microfone no jogo. O reconhecimento é feito somente em inglês</div>
+                O reconhecimento de voz continuará funcionando mesmo se a página não estiver em foco e você estiver usando o mesmo microfone no jogo.</div>
             <div class="info_block" style="margin-top: 10px; overflow-y: scroll; overflow-x: hidden;">
                 <strong>Evidências:</strong>
                 <ul>
-                    <li>"number of evidence &lt;num&gt;" or "difficulty &lt;num&gt;" -> Configura o número de evidências</li>
-                    <li>"evidence &lt;evidence&gt;" -> Marca como evidência encontrada</li>
-                    <li>"evidence not &lt;evidence&gt;" -> Desmarca como evidência</li>
-                    <li>"evidence clear &lt;evidence&gt;" -> Reinicia o estado de uma evidência</li>
-                    <li>"monkey paw &lt;evidence&gt;" -> Isto desmarcará a evidência com a lógica da pata de macaco.</li>
+                    <li>"quantidade de evidências &lt;num&gt;" -> Define o número de evidências</li>
+                    <li>"marcar evidência &lt;evidence&gt;" -> Marca uma evidência encontrada</li>
+                    <li>"descartar evidência &lt;evidência&gt;" -> Descarta uma evidência</li>
+                    <li>"resetar evidência &lt;evidência&gt;" -> Reseta o status da evidência</li>
+                    <li>"evidência descartada pela mão do macaco &lt;evidência&gt;" -> Isso vai marcar a evidência como descartada pela mão do macaco</li>
                 </ul>
                 <hr>
                 <strong>Velocidade:</strong>
                 <ul>
                     
-                    <li>"speed &lt;speed&gt;" -> Marca a velocidade especificada</li>
-                    <li>"speed clear &lt;speed&gt;" -> Reinicia o estado da velocidade especificada</li>
-                    <li>"speed [has] line of sight" -> Marca ter uma velocidade que varia com a linha de visão (LOS)</li>
-                    <li>"speed not line of sight" -> Marca não tem uma velocidade que varia com a linha de visão (LOS)</li>
-                    <li>"speed clear line of sight" -> Reinicia o filtro de linha de visão</li>
+                    <li>"velocidade &lt;velocidade&gt;" -> Marca a velocidade especificada</li>
+                    <li>"resetar velocidade &lt;velocidade&gt;" -> Reseta a velocidade especificada</li>
+                    <li>"aceleração normal com linha de visão" -> Marca velocidade em linha de visão como sendo normal</li>
+                    <li>"aceleração anormal enquanto em linha de visão" -> Marcar como tendo linha de visão</li>
+                    <li>"resetar linha de visão" -> Reseta o filtro de linha de visão</li>
                 </ul>
                 <hr>
                 <strong>Sanidade de Caça:</strong>
                 <ul>
-                    <li>"sanity &lt;sanity&gt;" -> Marca a sanidade de caça especificada</li>
-                    <li>"sanity clear &lt;sanity&gt;" -> Reinicia o estado da sanidade de caça especificada</li>
+                    <li>"sanidade de caçada <sanity>" -> Marca a sanidade de caça especificada</li>
+                    <li>"resetar sanidade <sanity>" -> Reseta a sanidade de caçada</li>
                 </ul>
                 <hr>
                 <strong>Fantasmas:</strong>
                 <ul id="ghost-commands">
-                    <li>"ghost not &lt;ghost&gt;" -> Desativa a carta do fantasma especificado</li>
-                    <li>"ghost clear &lt;ghost&gt;" -> Reinicia o estado da carta do fantasma especificado (excluindo cartas ocultas)</li>
-                    <li>"ghost select &lt;ghost&gt;" -> Seleciona uma carta do fantasma especificada</li>
-                    <li>"ghost remove &lt;ghost&gt;" -> Remove a carta do fantasma especificado da tela</li>
-                    <li>"ghost show|info &lt;ghost&gt;" -> Mostra as informações do fantasma especificado</li>
+                    <li>"descartar parcialmente o fantasma &lt;fantasma&gt;" -> Descarta parcialmente o fantasma</li>
+                    <li>"resetar fantasma &lt;fantasma&gt;" -> reseta o status do fantasma (exceto pelos fantasmas ocultados)</li>
+                    <li>"selecionar fantasma &lt;fantasma&gt;" -> Seleciona o fantasma especificado</li>
+                    <li>"descartar inteiramente o fantasma &lt;fantasma&gt;" -> Descarta inteiramente o fantasma da tela</li>
+                    <li>"visualizar fantasma &lt;fantasma&gt;" -> rola até o cartão do fantasma especificado ficar na tela</li>
                 </ul>
                 <hr>
                 <strong>Temporizador:</strong>
                 <ul>
-                    <li>"timer start" -> Inicia o Temporizador de incenso</li>
-                    <li>"timer stop " -> Para o Temporizador de incenso</li>
-                    <li>"cooldown start" -> Iniciar o Temporizador de tempo entre caças</li>
-                    <li>"cooldown stop " -> Para o Temporizador de tempo entre caças</li>
+                    <li>"iniciar temporizador do incenso" -> Inicia o temporizador do incenso</li>
+                    <li>"parar temporizador do incenso" -> Para o temporizador do incenso</li>
+                    <li>"iniciar temporizador de tempo de espera de caça" -> Inicia o temporizador de tempo de espera de caça do fantasma</li>
+                    <li>"parar temporizador de tempo de espera de caça" -> Para o temporizador de tempo de espera de caça do fantasma</li>
                 </ul>
                 <hr>
                 <strong>Diversos:</strong>
                 <ul>
-                    <li>"show filters" or "show tools" -> Muda o menu para mostrar os filtros/ferramentas</li>
-                    <li>"ghost speed &lt;percent&gt;" -> Define o modificador de velocidade do fantasma para 50%, 75%, 100%, 125% ou 150%</li>
-                    <li>"show map [&lt;map name&gt;]" -> Abre a aba do mapa e exibe o mapa</li>
-                    <li>"close map" or "hide map" -> Fecha a aba do mapa</li>
-                    <li>"reset journal" or "reset cheat sheet" -> Redefine o guia (salvará se vinculado ao Discord)</li>
-                    <li>"stop listening" -> Interrompe o reconhecimento de voz</li>
+                    <li>"mostrar filtros" ou "mostrar Ferramentas" -> Alterna entre filtros/ferramentas</li>
+                    <li>"velocidade do fantasma &lt;por cento&gt;" -> Define o modificador de velocidade do fantasma para 50%, 75%, 100%, 125%, ou 150%</li>
+                    <li>"mostrar mapa [&lt;nome do mapa&gt;]" -> Abre a aba de mapas e mostra o mapa</li>
+                    <li>"esconder mapa" -> Fecha o mapa</li>
+                    <li>"resetar cheat sheet" -> Reseta a Cheat Sheet</li>
+                    <li>"parar de detectar voz" -> Interrompe o reconhecimento de voz</li>
                 </ul>
             </div>
             <h3>Privacidade dos Dados</h3>
@@ -463,7 +463,7 @@
     <script src="scripts/wslink.js"></script>
     <script src="scripts/zn.js"></script>
     <script src="events/events.js"></script>
-    <script src="scripts/voice_en.js"></script>
+    <script src="scripts/voice_pt.js"></script>
     <script src="scripts/voice_recognition.js"></script>
     <script src="scripts/sparkles.js"></script>
     <script>

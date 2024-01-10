@@ -976,7 +976,7 @@ function checkResetButton(){
 function resetResetButton(){
     $("#reset").removeClass("reset_pulse")
     $("#reset").addClass("standard_reset")
-    $("#reset").html(polled ? "Waiting for others..." : "Reiniciar")
+    $("#reset").html(polled ? "Esperando por outros..." : "Reiniciar")
     $("#reset").attr("ondblclick",null)
     $("#reset").attr("onclick","reset()")
 }
@@ -1130,8 +1130,8 @@ function showLanguage(){
 
 function flashMode(){
     var cur_evidence = parseInt(document.getElementById("num_evidence").value)
-    var mode_text = ["Apocalypse","Insanity","Nightmare","Professional"][cur_evidence]
-    document.getElementById("game_mode").innerHTML = `${mode_text}<span>(${cur_evidence} evidence)</span>`
+    var mode_text = ["Apocalipse","Insanidade","Pesadelo","Profissional"][cur_evidence]
+    document.getElementById("game_mode").innerHTML = `${mode_text}<span>(${cur_evidence} evidência)</span>`
     $("#game_mode").fadeIn(500,function () {
         $("#game_mode").delay(500).fadeOut(500);
       });

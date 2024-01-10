@@ -474,9 +474,7 @@
                 "<Sanidade para caça>",
                 "Pode caçar em 65% se próximo de equipamentos ligados",
                 "<Velocidade da caça>",
-                "2.5m/s se próximo de equipamentos ligados, se não, 1.7m/s",
-                "<Evidências>",
-                "EMF Nível 5 + Orbes no modo Pesadelo confirma Raiju (não é evidência garantida)"
+                "2.5m/s se próximo de equipamentos ligados, se não, 1.7m/s"
             ]
         },
         {
@@ -609,13 +607,11 @@
                 "<Sanidade para caça>",
                 "Caça geralmente a 75% quando mais jovem, 15% quando mais velho",
                 "<Velocidade da caça>",
-                "2.75m/s quando mais jovem, 1.0m/s quando mais velho <b>não acelera em linha de visão</b>",
-                "<Evidências>",
-                "Escrita fantasma + DOTs no modo Pesadelo confirma Thaye (não é evidência garantida)"
+                "2.75m/s quando mais jovem, 1.0m/s quando mais velho <b>não acelera em linha de visão</b>"
             ]
         }
     ],
-    "version": "v0.9.3.1",
+    "version": "v0.9.4.0",
     "evidence": [
         "EMF Nível 5",
         "Ultravioleta",

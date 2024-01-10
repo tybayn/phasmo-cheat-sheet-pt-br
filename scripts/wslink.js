@@ -89,14 +89,14 @@ function link_room(){
         $("#room_id_create").hide()
         $("#room_id_link").hide()
         $("#room_id_disconnect").show()
-        document.getElementById("room_id_note").innerText = "STATUS: Connected"
+        document.getElementById("room_id_note").innerText = "STATUS: Conectado"
         document.getElementById("settings_status").className = "connected"
         ws_ping = setInterval(function(){
             send_ping()
         }, 30000)
     }
     ws.onerror = function(event){
-        document.getElementById("room_id_note").innerText = "ERROR: Could not connect!"
+        document.getElementById("room_id_note").innerText = "ERRO: Não foi possível conectar!"
         document.getElementById("settings_status").className = "error"
         setCookie("room_id","",-1)
     }
@@ -130,26 +130,26 @@ function link_room(){
                     }
                 }
                 if (incoming_state['action'].toUpperCase() == "CHANGE"){
-                    document.getElementById("room_id_note").innerText = `STATUS: Connected (${incoming_state['players']})`
+                    document.getElementById("room_id_note").innerText = `STATUS: Conectado (${incoming_state['players']})`
                 }
                 if (incoming_state['action'].toUpperCase() == "POLL"){
                     polled = true
                     if(Object.keys(discord_user).length > 0){
                         if (hasSelected()){
                             ws.send('{"action":"READY"}')
-                            $("#reset").html("Waiting for others...")
+                            $("#reset").html("Esperando por outros...")
                         }
                         else{
                             $("#reset").removeClass("standard_reset")
                             $("#reset").addClass("reset_pulse")
-                            $("#reset").html("No ghost selected!<div class='reset_note'>(double click to save & reset)</div>")
+                            $("#reset").html("Nenhum fantasma selecionado!<div class='reset_note'>(clique duas vezes para salvar e resetar)</div>")
                             $("#reset").attr("onclick",null)
                             $("#reset").attr("ondblclick","reset()")
                         }
                     }
                     else{
                         ws.send('{"action":"READY"}')
-                        $("#reset").html("Waiting for others...")
+                        $("#reset").html("Esperando por outros...")
                     }
                 }
                 return
@@ -269,11 +269,11 @@ function link_link(){
         hasDLLink = true;
         $("#link_id_create").hide()
         $("#link_id_disconnect").show()
-        document.getElementById("link_id_note").innerText = "STATUS: Awaiting Desktop Link"
+        document.getElementById("link_id_note").innerText = "STATUS: Esperando Desktop Link "
         document.getElementById("dllink_status").className = "pending"
     }
     dlws.onerror = function(event){
-        document.getElementById("link_id_note").innerText = "ERROR: Could not connect!"
+        document.getElementById("link_id_note").innerText = "ERRO: Não foi possível conectar!"
         document.getElementById("dllink_status").className = "error"
         setCookie("link_id","",-1)
     }
@@ -308,7 +308,7 @@ function link_link(){
                             dlws.send('{"action":"PINGKILL"}')
                             $("#link_id_create").show()
                             $("#link_id_disconnect").hide()
-                            document.getElementById("link_id_note").innerText = "ERROR: Link Lost Connection!"
+                            document.getElementById("link_id_note").innerText = "ERRO: Conexão com o Desktop Link perdida!"
                             document.getElementById("dllink_status").className = "error"
                             document.getElementById("link_id").value = ""
                             setCookie("link_id","",-1)
@@ -371,7 +371,7 @@ function continue_session(){
     if(hasLink){
         ws.send('{"action":"READY"}')
         polled = true
-        $("#reset").html("Waiting for others...")
+        $("#reset").html("Esperando por outros...")
         return false
     }
     return true

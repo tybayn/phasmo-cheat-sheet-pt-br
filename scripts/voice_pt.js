@@ -22,7 +22,7 @@ const ZNLANG = {
         "the twins":["twins"],
         "raiju":[],
         "obake":[],
-        "the mimic":["mimic"],
+        "mímico":[],
         "moroi":[],
         "deogen":[],
         "thaye":[]
@@ -37,14 +37,14 @@ const ZNLANG = {
         "spirit box":[]
     },
     "speed":{
-        "slow":[],
+        "lento":[],
         "normal":[],
-        "fast":[]
+        "rápido":[]
     },
     "sanity":{
-        "late":[],
+        "tarde":[],
         "average":["normal"],
-        "early":[],
-        "very early":[]
+        "cedo":[],
+        "muito cedo":[]
     }
 }
