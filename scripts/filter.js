@@ -1,10 +1,10 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
-const all_evidence = ["Projetor DOTs","EMF Nível 5","Ultravioleta","Temperaturas Negativas","Orbe Fantasma","Escrita Fantasma","Spirit Box"]
-const all_ghosts = ["Spirit","Wraith","Phantom","Poltergeist","Banshee","Jinn","Mare","Revenant","Shade","Demon","Yurei","Oni","Yokai","Hantu","Goryo","Myling","Onryo","The Twins","Raiju","Obake","Mímico","Moroi","Deogen","Thaye"]
 const all_speed = ["Lento","Normal","Rápido"]
 const all_sanity = ["Tarde","Average","Cedo","MuitoCedo"]
+let all_evidence = []
+let all_ghosts = []
 let bpm_list = []
 
 var state = {"evidence":{},"speed":{"Lento":0,"Normal":0,"Rápido":0},"los":-1,"sanity":{"Tarde":0,"Average":0,"Cedo":0,"MuitoCedo":0},"ghosts":{}}
@@ -62,6 +62,7 @@ function toggleFilterTools(){
             $('#filter-content').removeClass('spin_hide')
             $('#tools-content').addClass('spin_show')
             $('#tools-content').toggle()
+            draw_graph(false)
         },150)
     }
 }
@@ -1143,7 +1144,7 @@ function saveSettings(reset = false){
     user_settings['offset'] = parseInt(document.getElementById("offset_value").innerText.replace(/\d+(?:-\d+)+/g,""))
     user_settings['ghost_modifier'] = parseInt(document.getElementById("ghost_modifier_speed").value)
     user_settings['num_evidences'] = parseInt(document.getElementById("num_evidence").value)
-    user_settings['sound_type'] = document.getElementById("modifier_sound_type").checked ? 1 : 0;
+    user_settings['sound_type'] = document.getElementById("modifier_sound_type").value;
     user_settings['speed_logic_type'] = document.getElementById("speed_logic_type").checked ? 1 : 0;
     user_settings['bpm_type'] = document.getElementById("bpm_type").checked ? 1 : 0;
     user_settings['bpm'] = reset ? 0 : parseInt(document.getElementById('input_bpm').innerHTML.split("<br>")[0])
@@ -1163,7 +1164,7 @@ function loadSettings(){
     document.getElementById("offset_value").innerText = ` ${user_settings['offset'] ?? 0}% `
     document.getElementById("ghost_modifier_speed").value = user_settings['ghost_modifier'] ?? 2
     document.getElementById("num_evidence").value = user_settings['num_evidences'] ?? 3
-    document.getElementById("modifier_sound_type").checked = user_settings['sound_type'] ?? 0 == 1
+    document.getElementById("modifier_sound_type").value = user_settings['sound_type'] ?? 0
     document.getElementById("speed_logic_type").checked = user_settings['speed_logic_type'] ?? 0 == 1
     document.getElementById("bpm_type").checked = user_settings['bpm_type'] ?? 0 == 1
     if (user_settings['domo_side'] == 1){
@@ -1214,7 +1215,7 @@ function changeMap(elem,map){
 
     $(".maps_button").removeClass("selected_map")
     $(elem).addClass("selected_map")
-    $(".map_image").css("background-image","url(https://zero-network.net/phasmophobia/static/imgs/maps/"+map+")")
+    $(".map_image").css("background-image","url("+map+")")
 }
 
 function zoomMap(elem){

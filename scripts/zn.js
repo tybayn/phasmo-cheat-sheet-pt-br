@@ -2,15 +2,8 @@ function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
 function loadLanguage(){
-    var llang = document.getElementById("language").value
-    if(llang != lang){
-        if(llang == 'en'){
-            window.location.href = `https://tybayn.github.io/phasmo-cheat-sheet/`
-        }
-        else{
-            window.location.href = `https://tybayn.github.io/phasmo-cheat-sheet-${llang}/`
-        }
-    }
+    var lang_url = document.getElementById("language").value
+    window.location.href = lang_url
 }
 
 function heartbeat(){
@@ -95,6 +88,9 @@ function loadAllAndConnect(){
         .then(data => {
             loadSettings()
     
+            all_ghosts = data.ghosts.map(a => a.ghost)
+            all_evidence = data.evidence
+
             var cards = document.getElementById('cards')
             var cur_version = document.getElementById('current-version-label')
             var evidence_list = document.getElementById('evidence')
@@ -199,7 +195,46 @@ function loadAllAndConnect(){
         })
     })
 
-    Promise.all([loadZN,loadData])
+    let loadMaps = new Promise((resolve, reject) => {
+        fetch("https://zero-network.net/phasmophobia/data/maps", {signal: AbortSignal.timeout(6000)})
+        .then(data => data.json())
+        .then(data => {
+            var map_html = ""
+            var first = true
+            for(var i = 0; i < data.length; i++) {
+                map_html += `<button class="maps_button${first ? " selected_map" : ""}" id="${data[i]['div_id']}" onclick="changeMap(this,'${data[i]['file_url']}')"><div class="map_size ${data[i]['size'].toLowerCase()}">${data[i]['size']}</div>${data[i]['name']}</button>`
+                first = false
+            }
+            $("#maps_list").html(map_html)
+
+            resolve("Map data loaded")
+        })
+        .catch(error => {
+            reject("Failed to load map data")
+        })
+
+    })
+
+    let loadLanguages = new Promise((resolve, reject) => {
+        fetch("https://zero-network.net/phasmophobia/languages", {signal: AbortSignal.timeout(6000)})
+        .then(data => data.json())
+        .then(data => {
+            var lang_html = ""
+            for(let i = 0; i < data.length; i++){
+                lang_html += `<option value=${data[i]['url']} ${data[i]['lang'] == lang ? "selected" : ""}>${data[i]['lang_option']}</option>`
+            }
+            $("#language").html(lang_html)
+
+            resolve("Language data loaded")
+        })
+        .catch(error => {
+            reject("Failed to load language data")
+        })
+
+    })
+
+
+    Promise.all([loadZN,loadData,loadMaps,loadLanguages])
     .then(x => {
         auto_link()
     })

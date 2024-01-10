@@ -989,7 +989,7 @@
         justify-content: center;
     }
 
-    .modifier_note_2{
+    .modifier_note_2, .modifier_note_3{
         display:none;
     }
 
@@ -1190,7 +1190,11 @@
         grid-column: 2;
         grid-row: 4;
         font-weight: bold;
-        margin: 0px 10px;
+       margin: 0px 10px;
+    }
+
+    .legend{
+        display: none
     }
 
     .modifier_volume{
@@ -1217,6 +1221,10 @@
         font-size: 35px;
         grid-column: 2;
         grid-row: 1;
+    }
+
+    #bpm_hist{
+        display: none;
     }
 
     .cards{

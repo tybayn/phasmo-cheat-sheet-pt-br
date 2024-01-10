@@ -253,24 +253,7 @@
             <div class="hover_zoom">+ Passe o mouse para ampliar</div>
         </div>
         <div class="maps_credit">As imagens do mapa pertencem a <a href="https://www.reddit.com/user/Fantismal" target="_blank">Fantismal</a> (<a href="https://imgur.com/a/iEI0tJo" target="_blank">Images</a>)</div>
-        <div class="maps_buttons">
-            <button class="maps_button selected_map" id="tanglewood" onclick="changeMap(this,'tanglewood.png')"><div class="map_size s">S</div>6 Tanglewood Drive</button>
-            <button class="maps_button" id="edgefield" onclick="changeMap(this,'edgefield.png')"><div class="map_size s">S</div>42 Edgefield Road</button>
-            <button class="maps_button" id="ridgeview" onclick="changeMap(this,'ridgeview.png')"><div class="map_size s">S</div>10 Ridgeview Court</button>
-            <button class="maps_button" id="grafton" onclick="changeMap(this,'grafton.png')"><div class="map_size s">S</div>Grafton Farmhouse</button>
-            <button class="maps_button" id="willow" onclick="changeMap(this,'willow.png')"><div class="map_size s">S</div>13 Willow Street</button>
-            <button class="maps_button" id="brownstone" onclick="changeMap(this,'brownstone.png')"><div class="map_size l">L</div>Brownstone High School</button>
-            <button class="maps_button" id="bleasdale" onclick="changeMap(this,'bleasdale.png')"><div class="map_size s">S</div>Bleasdale Farmhouse</button>
-            <button class="maps_button" id="sunnymeadows" onclick="changeMap(this,'sunnymeadows.png')"><div class="map_size l">L</div>Sunny Meadows</button>
-            <button class="maps_button" id="sunnymeadows_courtyard" onclick="changeMap(this,'sunnymeadows_courtyard.png')"><div class="map_size s">S</div>SM Restricted - Courtyard</button>
-            <button class="maps_button" id="sunnymeadows_male" onclick="changeMap(this,'sunnymeadows_male.png')"><div class="map_size s">S</div>SM Restricted - Male Wing</button>
-            <button class="maps_button" id="sunnymeadows_female" onclick="changeMap(this,'sunnymeadows_female.png')"><div class="map_size s">S</div>SM Restricted - Female Wing</button>
-            <button class="maps_button" id="sunnymeadows_hospital" onclick="changeMap(this,'sunnymeadows_hospital.png')"><div class="map_size s">S</div>SM Restricted - Hospital</button>
-            <button class="maps_button" id="sunnymeadows_restricted" onclick="changeMap(this,'sunnymeadows_restricted.png')"><div class="map_size s">S</div>SM Restricted - Restricted</button>
-            <button class="maps_button" id="prison" onclick="changeMap(this,'prison.png')"><div class="map_size m">M</div>Prison</button>
-            <button class="maps_button" id="maplelodge" onclick="changeMap(this,'maplelodge.png')"><div class="map_size m">M</div>Maple Lodge Campsite</button>
-            <button class="maps_button" id="woodwind" onclick="changeMap(this,'woodwind.png')"><div class="map_size s">S</div>Camp Woodwind</button>
-        </div>
+        <div id="maps_list" class="maps_buttons"></div>
     </div>
 
     <div id="lang_blackout" style="display: none;"></div>
@@ -281,13 +264,6 @@
         <span class="icon" onclick="showLanguage()"></span>
         <div class="settings_title yfont white">
             <select name="language" id="language" class="language" onchange="loadLanguage();">
-                <option value="en">English 🇺🇸 / 🇬🇧 / 🇦🇺</option>
-                <option value="fr">French 🇫🇷</option>
-                <option value="de">German 🇩🇪</option>
-                <option value="pl">Polish 🇵🇱</option>
-                <option value="pl" selected>Portuguese 🇧🇷</option>
-                <option value="ru">Russian 🇷🇺</option>
-                <option value="tr">Turkish 🇹🇷</option>
             </select>
         </div>
     </div>
@@ -359,11 +335,14 @@
                     </div>
                     <div class="modifier_sound_select">
                         <img src="imgs/footsteps.png">
-                        <label for="modifier_sound_type" onchange="setSoundType();saveSettings();">
-                            <input type="checkbox" name="" id="modifier_sound_type">
-                            <div class="toggle"></div>
-                        </label>
-                        <img src="imgs/metronome.png">
+                        <select id="modifier_sound_type" onchange="setSoundType();saveSettings();">
+                            <option value=0 selected>Padrão</option>
+                            <option value=1>Asfalto / Concreto</option>
+                            <option value=2>Carpete</option>
+                            <option value=3>Cascalho / Grama</option>
+                            <option value=4>Madeira</option>
+                            <option value=5>Metrônomo</option>
+                        </select>
                     </div>
                     <div class="modifier_note">(Clique <span class="sound" onclick="toggleSound(1.7,'spirit0')">&#128266;</span> nas cartas para ouvir os passos)</div>
                     <hr>
@@ -373,8 +352,18 @@
                         <div>Toque<div class="tap_note">(ou aperte 'F')</div></div>
                         <div id="input_speed">0<br>m/s</div>
                     </button>
+                    <canvas id="bpm_hist" height="85" width="150"></canvas>
                     <div id="tap_viz"></div>
+                    <div class="legend">
+                        <div class="legend_box" style="box-shadow: 0px 0px 4px 1px #dbd994"></div>
+                        <div class="modifier_note_2">Corresponde à<br>velocidade base</div>
+                    </div>
+                    <div class="legend">
+                        <div class="legend_box" style="box-shadow: -3px 0px 2px -1px #dbd994;"></div>
+                        <div class="modifier_note_2">Velocidade LOS possível</div>
+                    </div>                    
                     <div class="modifier_note_2">(Aperte 'R' para reiniciar)</div>
+                    <!-- <div class="modifier_note_3">See "Guides >> Hunts >> Speed & Line-of-sight (LOS)" for info on how to read the graph</div> -->
                 </div>
             </div>
             <div id="filter-content" class="filter-content">
