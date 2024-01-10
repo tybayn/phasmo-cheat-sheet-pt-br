@@ -240,6 +240,135 @@
         <div class="text">Durante a caçada, vários fantasmas podem tem diferentes comportamentos dependendo o quão longe estão do jogador. A imagem a seguir mostra o raio básico do jogador para vários dos fantasmas e suas habilidades. (Mapa de Sunny Meadows)</div>
         <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/hunt_ranges.png">
     </div>
+    <div class="wiki_title accordian" onclick="accordian(this)">Duração da caça</div>
+    <div class="wiki_details" style="height: 0px;">
+        <div class="text">A duração da caça depende de vários fatores incluindo a configuração de Duração de Caça e o tamanho do mapa. Dificuldades e mapas maiores resultam em durações maiores de caça.</div>
+
+        <table id="hantu_speed_breakdown">
+            <thead>
+                <tr>
+                    <th>Dificuldade<br><span style="color: #999">(Duração)</span></th>
+                    <th>Mapa Pequeno</th>
+                    <th>Mapa Médio</th>
+                    <th>Mapa Grande</th>
+                    <th>Caça Amaldiçoada</th>
+                </tr>
+            </thead>
+            <tr>
+                <td style="text-align: left; width:30%; padding-left: 5px;">- Amador<br><span style="color: #999">- (Curta)</span></td>
+                <td>15s</td>
+                <td>30s</td>
+                <td>40s</td>
+                <td>+20s</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; width:30%; padding-left: 5px;">- Intermediário<br><span style="color: #999">- (Média)</span></td>
+                <td>20s</td>
+                <td>40s</td>
+                <td>50s</td>
+                <td>+20s</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; width:30%; padding-left: 5px;">- Profissional<br>- Pesadelo<br>- Insanidade<br><span style="color: #999">- (Longa)</span></td>
+                <td>30s</td>
+                <td>50s</td>
+                <td>60s</td>
+                <td>+20s</td>
+            </tr>
+        </table>
+
+        <h4>Caça Amaldiçoada</h4>
+        <div class="text">Usar qualquer Objeto Amaldiçoado pra iniciar uma caça vai resultar em uma caça amaldiçoada que extenderá a duração por 20s em comparação a duração original. Todas as caças seguintes serão amaldiçoadas.</div>
+
+        <h4>Mortes Estendem a Caça</h4>
+        <div class="text">Essa configuração vai fazer a caça continuar e estender se matar um jogador, valendo apenas pra essa caça. A duração extendida da caça também depende da dificuldade.</div>
+
+        <table id="hantu_speed_breakdown">
+            <thead>
+                <tr>
+                    <th>Dificuldade<br><span style="color: #999">(Duração)</span></th>
+                    <th>Mortes Estendem a Caça</th>
+                </tr>
+            </thead>
+            <tr>
+                <td style="text-align: left; width:35%; padding-left: 5px;">- Amador<br>- Intermediário<br> - Profissional<br><span style="color: #999">- (Desligado)</span></td>
+                <td>Fim da caçada</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; width:35%; padding-left: 5px;">- Pesadelo<br>- Insanidade<br><span style="color: #999">- (Curta)</span></td>
+                <td>+15s</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; width:35%; padding-left: 5px;"><span style="color: #999">- (Média)</span></td>
+                <td>+25s</td>
+            </tr>
+            <tr>
+                <td style="text-align: left; width:35%; padding-left: 5px;"><span style="color: #999">- (Longa)</span></td>
+                <td>+35s</td>
+            </tr>
+        </table>
+    </div>
+    <div class="wiki_title accordian" onclick="accordian(this)">Velocidade & Linha de visão (LdV)</div>
+    <div class="wiki_details" style="height: 0px;">
+        <div class="text">A Maioria dos fantasmas vai aumentar sua velocidade gradualmente enquanto possui Linha de Visão (LdV) com um jogador, até atingir o máximo de 1.65x de sua velocidade base. Após quebrar LdV, o fantasma irá manter sua velocidade já aumentada até alcançar a última localização onde viu o jogador. Se não conseguir LdV novamente nesse ponto, o fantasma vai desacelerar até atingir sua velocidade base.</div>
+        <div class="text">Enquanto estiver usando o Monitor BPM, a Cheat Sheet vai gerar um gráfico da velocidade que você pressionou com o tempo. Diferentes velocidades durante caça, incluindo LdV, podem ser observados a partir desse gráfico, como mostrado abaixo.</div>
+        <div class="text">
+            <b>Normal (Com LdV):</b><br>
+            Um fantasma com velocidade normal irá caçar a 1.7m/s. Uma vez que o fantasma tenha LdV com o jogador (A), o fantasma vai aumentar sua velocidade durante 13 segundos enquanto mantiver LdV até atingir sua velocidade máxima de 1.65x a velocidade base (B).<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_standard_los.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>The Twins:</b><br>
+            The Twins se move em diferentes velocidades durante uma caça. O gêmeo principal é 10% mais lento do que um fantasma comum, enquanto o gêmeo "vagante" é 10% mais rápido.<br><br>
+            TO Gráfico de BPM vai manter um histórico das caças anteriores com uma linha vermelha, conforme o BPM foi pressionado. Usando essa linha você consegue visualizar e comparar as caças anteriores com a atual. Uma diferença na velocidade base pode indicar the Twins.<br><br>
+            No exemplo abaixo, você pode ver que na caça anterior sua velocidade era 1.53m/s enquanto na próxima caça era 1.87m/s. <br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_twins.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>Raiju:</b><br>
+            Um Raiju sempre vai se mover na velocidade fixa de 2.5m/s (com a velocidade do fantasma definida como 100%) enquanto estiver perto de equipamentos eletrônicos tanto posicionados quanto sendo usados pelo jogador. Isso resulta na linha reta perto de 2.5m/s diferente de um gráfico normal de caça.<br><br>
+            No exemplo a seguir, o Raiju entra no raio de alcance dos eletrônicos (A) e imediatamente acelera até que esteja fora do alcance (B). O Raiju então ganha LdV (C) e começa a aumentar sua velocidade até chegar no raio de alcance dos eletrônicos novamente (D). Uma vez que sai do alcance, o Raiju retorna a sua velocidade de LdV (E) e continua aumentando sua velocidade de LdV até alcançar a velocidade máxima de LdV (F).<br><br>
+            O Raiju se entrega quando há múltiplas linhas retas em 2.5m/s (A-B & D-E).<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_raiju.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>Revenant:</b><br>
+            O Revenant não possui velocidade normal em LdV. Ao invés disso, ele possui velocidade base de 1.0m/s até detectar um jogador (A), seja por avistamento, som, ou equipamento eletrônico. Ele vai imediatamente aumentar sua velocidade para 3.0m/s até perder o rastro do jogador e alcançar sua última localização conhecida (B). Nesse ponto, ele vai gradualmente desacelerar até chegar em sua velocidade base 1.0m/s (C).<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_revenant.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>Hantu:</b><br>
+            O Hantu não aumenta sua velocidade em LdV, mas sua velocidade base vai ser alterada conforme a temperatura do cômodo em que ele está. Isso leva a uma instabilidade frequente em sua velocidade enquanto está em caça <b><i>IF</i></b> ele vaga em diferentes temperaturas em diferentes cômodos durante a caça. Quanto mais o Hantu estiver em um cômodo, mais frio o cômodo vai ficar, e isso afetará sua velocidade.<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_hantu.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>Moroi (Com LdV + Incenso):</b><br>
+            A velocidade de um Moroi depende da média de sandidade da equipe. Com 0% de média, a velocidade base de um Moroi é 2.25m/s até entrar em LdV (A). Com 13 segundos continuos em LdV, um Moroi consegue alcançar até 3.71m/s (D), o mais veloz dos fantasmas.<br><br>
+            Um Moroi também é o único fantasma que permanece "cego" por duração maior quando incensado. Se um Moroi possuir LdV quando incensado (B), a velocidade vai lentamente diminuir por 7.5 segundos ao invés dos 5 segundos padrão. Quando o efeito do incenso cessar, se ele entrar em LdV novamente (C), a velocidade vai continuar aumentando.<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_moroi.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>Moroi vs Thaye:</b><br>
+            O Moroi e o Thaye são alguns dos fantasmas mais rápidos do jogo e as vezes pode ser dificil distingui-los, mas tem uma diferença essencial: Um Thaye nunca vai aumentar sua velocidade com LdV.<br><br>
+            Thaye:<br>
+            O Thaye envelhece, enfraquece e se torna mais lento conforme jogadores estão ao seu redor. Um Thaye jovem sempre vai se mover a 2.75m/s, em 100% de sua velocidade, mesmo com LdV e vai se tornar mais lento em cada caça conforme é exposto a presença de jogadores.<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_thaye.png" style="max-width: 60%; padding: 10px 0px;"><br>
+            Moroi:<br>
+            O Moroi sem LdV vai ser sempre mais lento que um Thaye jovem, se movendo a 2.25m/s (linha pontilhada), mas ele é capaz de alcançar velocidades muito mais altas do que um Thaye em LdV (linha reta).<br>
+            <img src="https://zero-network.net/phasmophobia/static/imgs/wiki/graph_moroi2.png" style="max-width: 60%; padding: 10px 0px;">
+        </div>
+        <hr>
+        <div class="text">
+            <b>Mimic</b><br>
+            O Mímico é capaz de reproduzir QUALQUER comportamento de caça e deve ser lembrado.
+        </div>
+    </div>
 </div>
 
 <div class="wiki_title accordian" onclick="accordian(this)">Pata de Macaco</div>
