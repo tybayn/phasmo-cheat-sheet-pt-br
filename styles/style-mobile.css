@@ -48,10 +48,10 @@
         position: absolute;
         transform: rotate(-90deg);
         height: 40px;
-        width: 200px;
+        width: 256px;
         text-align: center;
-        top: 96px;
-        right: -132px;
+        top: 120px;
+        right: -160px;
         background-color: #313248;
         padding: 5px;
         cursor: pointer;
@@ -164,7 +164,7 @@
         height: 40px;
         width: 200px;
         text-align: center;
-        top: 325px;
+        top: 375px;
         right: -132px;
         background-color: #313248;
         padding: 5px;
@@ -199,7 +199,7 @@
         height: 40px;
         width: 200px;
         text-align: center;
-        top: 555px;
+        top: 605px;
         right: -132px;
         background-color: #313248;
         padding: 5px;

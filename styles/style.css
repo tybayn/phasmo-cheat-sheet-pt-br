@@ -96,10 +96,10 @@ hr{
         position: absolute;
         transform: rotate(-90deg);
         height: 15px;
-        width: 90px;
+        width: 120px;
         text-align: center;
-        top: 44px;
-        right: -64px;
+        top: 59px;
+        right: -79px;
         background-color: #313248;
         padding: 5px;
         cursor: pointer;
@@ -209,7 +209,7 @@ hr{
         height: 15px;
         width: 90px;
         text-align: center;
-        top: 153px;
+        top: 183px;
         right: -64px;
         background-color: #313248;
         padding: 5px;
@@ -244,7 +244,7 @@ hr{
         height: 15px;
         width: 90px;
         text-align: center;
-        top: 262px;
+        top: 292px;
         right: -64px;
         background-color: #313248;
         padding: 5px;
@@ -291,7 +291,7 @@ hr{
         height: 15px;
         width: 90px;
         text-align: center;
-        top: 371px;
+        top: 401px;
         right: -64px;
         background-color: #313248;
         padding: 5px;
