@@ -1,6 +1,19 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
 
+function checkLink(){
+    return new Promise((resolve, reject) => {
+        params = new URL(window.location.href).searchParams
+
+        if (params.get('journal')){
+            setCookie("room_id",params.get('journal'),1)
+            window.location.href = window.location.href.split("?")[0]
+        }
+
+        resolve("URL parsed")
+    })
+}
+
 function loadLanguage(){
     var lang_url = document.getElementById("language").value
     window.location.href = lang_url

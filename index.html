@@ -67,7 +67,8 @@
             <h3>Comandos de Voz</h3>
             <div class="info_text">Comandos de voz permitem que você controle o guia através da sua voz. Assim que você ativar, o guia começará a ouvir seus comandos de voz e permanecerá ativa entre reinicializações até que você a desative. 
                 Por padrão, ela usará o seu microfone padrão, então certifique-se de que está configurado corretamente. 
-                O reconhecimento de voz continuará funcionando mesmo se a página não estiver em foco e você estiver usando o mesmo microfone no jogo.</div>
+                O reconhecimento de voz continuará funcionando mesmo se a página não estiver em foco e você estiver usando o mesmo microfone no jogo.
+                <b>Os Comandos de Voz estão em desenvolvimento e são sujeitos a mudança</b></div>
             <div class="info_block" style="margin-top: 10px; overflow-y: scroll; overflow-x: hidden;">
                 <strong>Evidências:</strong>
                 <ul>
@@ -472,7 +473,7 @@
                 $("#wiki-body").load("wiki/wiki.html")
                 resolve("Ghost data loaded")
             })
-            Promise.all([load_wiki])
+            Promise.all([load_wiki,checkLink()])
             .then(x => {
                 loadAllAndConnect()
                 if(getCookie("voice_recognition_on")){
