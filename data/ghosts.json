@@ -114,6 +114,7 @@
             "behavior": [
                 "<Dicas>",
                 "Banshee emite um grito no microfone parabólico  <span class=\"sound\" onClick=\"playSound('https://zero-network.net/phasmophobia/static/assets/banshee_scream.mp3')\">🔊</span>",
+                "Se o alvo encostar no fantasma cantando durante um evento, perderá 15% de sanidade (normalmente é 10%)",
                 "<Comportamentos>",
                 "Perseguirá somente seu alvo durante a caça (A menos que o alvo esteja fora do local)",
                 "Vagará até seu alvo, sem deixar EMF Nível 2",
