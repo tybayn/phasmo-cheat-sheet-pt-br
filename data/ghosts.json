@@ -65,7 +65,7 @@
                 "<Dicas>",
                 "Não aparece na foto de fantasma",
                 "Durante um evento ou no estado DOTs, tirar uma foto vai fazer o fantasma desaparecer",
-                "Menos visível durante caças (Ver tab 'Guia')",
+                "Menos visível durante caças (Ver aba 'Guia')",
                 "<Comportamentos>",
                 "Pode vagar para qualquer jogador, deixando EMF Nível 2"
             ]
@@ -91,7 +91,7 @@
                 "Pode jogar múltiplos objetos de uma só vez, diminuindo a sanidade do jogador em 2% pra cada item jogado",
                 "Joga itens a cada 0.5s durante a caça",
                 "<Comportamentos>",
-                "Chance mais alta de mover e interagir com objetos",
+                "Maior chance de mover e interagir com objetos",
                 "Pode atirar objetos mais rápido e mais longe"
             ]
         },
@@ -136,16 +136,16 @@
             "evidence": [
                 "EMF Nível 5",
                 "Ultravioleta",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Habilidade de derrubar 25% da sanidade de jogadores por perto, com EMF Nível 2 ou EMF Nível 5 no disjuntor (quando estiver ligado)",
+                "Habilidade de diminuir em 25% a sanidade de jogadores por perto, deixando EMF Nível 2 ou EMF Nível 5 no disjuntor (quando estiver ligado)",
                 "<Comportamentos>",
                 "Não consegue desligar o disjuntor",
                 "<Velocidade da caça>",
-                "2.5m/s quando o disjuntor estiver ligado, tem linha de visão (LOS), e está a mais de 3m do jogador visto, se não, 1.7m/s"
+                "2.5m/s quando o disjuntor estiver ligado, possuir linha de visão (LdV), e sua distância do jogador avistado for maior que 3m, senão sua velocidade será 1.7m/s"
             ]
         },
         {
@@ -172,7 +172,7 @@
                 "Mais chance de desligar e estourar luzes",
                 "Mais chance de trocar de cômodo para onde as luzes estão desligadas",
                 "<Sanidade para caça>",
-                "60% quando as luzes estão desligadas no cômodo favorito do fantasma, 40% quando ligadas"
+                "60% quando as luzes estão desligadas no cômodo em que o fantasma está, 40% quando ligadas"
             ]
         },
         {
@@ -188,7 +188,7 @@
             "evidence": [
                 "Orbe Fantasma",
                 "Escrita Fantasma",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -209,12 +209,12 @@
             "evidence": [
                 "EMF Nível 5",
                 "Escrita Fantasma",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Não dá interações que resultem em EMF Nível 2, 3 ou 5 com um jogador no mesmo local (exceto escrita fantasma e apagar chamas)",
+                "Nunca dá interações que resultem em EMF Nível 2, 3 ou 5 com um jogador no mesmo cômodo (exceto por escrita fantasma e apagar chamas)",
                 "Não iniciará caça quando alguém estiver no mesmo cômodo",
                 "<Comportamentos>",
                 "Realiza mais eventos quando a sanidade média está baixa (não consegue realizar eventos quando a sanidade está a 100%)",
@@ -235,7 +235,7 @@
             "evidence": [
                 "Ultravioleta",
                 "Escrita Fantasma",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -260,16 +260,16 @@
             "hunt_sanity_high": "50%",
             "evidence": [
                 "Orbe Fantasma",
-                "Temperaturas Negativas",
+                "Temperatura Negativa",
                 "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Pode fechar uma porta e derrubar a sanidade de jogadores por perto em 15% <b><i>se</i></b> existe uma porta no cômodo",
-                "O único fantasma que pode interagir com as portas de entrada ou saída, exceto caças ou eventos",
+                "Pode fechar uma porta e diminuir a sanidade de jogadores por perto em 15%, <b><i>se</i></b> existir uma porta no cômodo",
+                "O único fantasma que pode interagir com as portas de entrada ou saída, exceto em caça ou eventos",
                 "<Comportamentos>",
-                "Incenso prende o fantasma em seu cômodo e o impede de vagar por 60s"
+                "Incenso prende o fantasma em cômodo favorito e o impede de vagar por 60s"
             ]
         },
         {
@@ -284,15 +284,15 @@
             "hunt_sanity_high": "50%",
             "evidence": [
                 "EMF Nível 5",
-                "Temperaturas Negativas",
+                "Temperatura Negativa",
                 "Projetor DOTs"
             ],
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
                 "Drena a sanidade em 20% durante eventos, em vez de 10%",
-                "<b><i>Não</i></b> fará eventos de 'névoa fantasma'",
-                "Mais visível durante caças (Ver tab 'Guias')",
+                "<b><i>Nunca</i></b> fará o evento da 'bola de ar (névoa)'",
+                "Mais visível durante caças (Ver aba 'Guias')",
                 "<Comportamentos>",
                 "Mais ativo quando entre múltiplas pessoas",
                 "Mais chance de aparecer como modelo completo de fantasma"
@@ -337,19 +337,19 @@
             "evidence": [
                 "Ultravioleta",
                 "Orbe Fantasma",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
-            "nightmare_evidence": "Temperaturas Negativas",
+            "nightmare_evidence": "Temperatura Negativa",
             "behavior": [
                 "<Dicas>",
-                "Pode ter respiração gelada visível em qualquer cômodo durante caçadas com o disjuntor desligada/quebrada",
+                "Possui um 'bafo congelante' que é visível em qualquer cômodo durante as caças com o disjuntor desligado/quebrado",
                 "Não consegue ligar o disjuntor",
                 "<Comportamentos>",
                 "Maior chance de desligar o disjuntor",
                 "<Velocidade da caça>",
                 "Mais rápido em temperaturas frias, <b>não acelera mesmo com linha de visão do jogador</b>",
                 "<Evidências>",
-                "Sempre apresenta temperaturas negativas em modo Pesadelo/Insanidade"
+                "Sempre apresenta Temperatura Negativa em modo Pesadelo/Insanidade"
             ]
         },
         {
@@ -373,7 +373,7 @@
                 "DOTs só aparecem na câmera de vídeo e não aparecerão se um jogador estiver no mesmo cômodo (evidência DOTs pode iniciar fora do cômodo e entrar onde está o jogador)",
                 "<Comportamentos>",
                 "Não podem trocar de cômodo favorito",
-                "Não vagam para fora do cômodo com frequência",
+                "Não vagam para fora do cômodo favorito com frequência",
                 "<Evidências>",
                 "Sempre apresenta DOTs em modo Pesadelo/Insanidade"
             ]
@@ -398,7 +398,7 @@
                 "<Dicas>",
                 "Passos e grunidos não podem ser ouvidos a mais de 12 metros durante caçadas (normal é 20m)",
                 "<Comportamentos>",
-                "Emite vários sons pelo microfone parabólico"
+                "Emite sons no microfone parabólico com mais frequência"
             ]
         },
         {
@@ -414,14 +414,14 @@
             "evidence": [
                 "Spirit Box",
                 "Orbe Fantasma",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Caça a qualquer sanidade depois de apagar qualquer terceira chama, isso se não houver outras chamas ou crucifixo que impeça a caça",
+                "Iniciará uma caça sempre que apagar a terceira chama caso não haja outra chama ou crucifixo que o impeça",
                 "<Comportamentos>",
-                "Chamas agem como crucifixos e irá apagar a chama se tentar iniciar uma caça (dentro de 4m)",
+                "Chamas agem como crucifixos e irá apagar uma chama se tentar iniciar uma caça (alcance de 4m)",
                 "Mais chances de apagar uma chama quando mais jogadores morrem",
                 "<Sanidade para caça>",
                 "Pode caçar a qualquer sanidade quando usam sua habilidade, normalmente caça em 60%"
@@ -440,14 +440,14 @@
             "evidence": [
                 "EMF Nível 5",
                 "Spirit Box",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
                 "Comumente faz interações ao mesmo tempo (no local físico do fantasma e em outro local dentro do raio de alcance)",
                 "<Comportamentos>",
-                "Somente ativa os sensores de movimento, pisa no sal, e responde a spirit box em sua localização física",
+                "Ativa os sensores de movimento, pisa no sal, e responde a spirit box somente em sua localização física",
                 "<Velocidade da caça>",
                 "1.53m/s quando caça da sua localização física, 1.87m/s quando caça de outra localização dentro do raio de alcane"
             ]
@@ -470,9 +470,9 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Durante a caça, pisca os equipamento eletrônicos em um alcance de 15m em vez de 10m",
+                "Durante a caça, interfere nos equipamento eletrônicos em um alcance de 15m em vez de 10m",
                 "<Sanidade para caça>",
-                "Pode caçar em 65% se próximo de equipamentos ligados",
+                "Pode caçar em 65% se estiver próximo de equipamentos ligados",
                 "<Velocidade da caça>",
                 "2.5m/s se próximo de equipamentos ligados, se não, 1.7m/s"
             ]
@@ -495,8 +495,8 @@
             "nightmare_evidence": "Ultravioleta",
             "behavior": [
                 "<Dicas>",
-                "Digital especial de 6 dedos (Ver tab 'Guias')",
-                "Tem uma chance de 6.66% de alternar entre modelos de fantasmas durante as caças (uma vez por caça garantida, retornando ao modelo original depois)",
+                "Digital especial de 6 dedos (Ver aba 'Guias')",
+                "Tem uma chance de 6.66% de alternar entre modelos de fantasmas enquanto pisca durante uma caça (pelo menos uma vez por caça, retornando ao modelo original depois)",
                 "Tem uma chance de 25% de não deixar evidência de ultravioleta",
                 "Pode apagar as digitais duas vezes mais rápido ao utilizar sua habilidade",
                 "<Evidências>",
@@ -516,7 +516,7 @@
             "evidence": [
                 "Spirit Box",
                 "Ultravioleta",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": null,
             "behavior": [
@@ -543,7 +543,7 @@
             "evidence": [
                 "Spirit Box",
                 "Escrita Fantasma",
-                "Temperaturas Negativas"
+                "Temperatura Negativa"
             ],
             "nightmare_evidence": "Spirit Box",
             "behavior": [
@@ -552,7 +552,7 @@
                 "Duração da cegueira pelo incenso aumenta 50% (7.5s em vez de 5s)",
                 "<Velocidade da caça>",
                 "Mais rápido quando a sanidade média está mais baixa, pode alcançar a velocidade de 3.71 m/s quando em linha de visão",
-                "Velocidade diminuirá durante a caça se medicação for tomada",
+                "Velocidade diminuirá durante a caça se o remédio para sanidade for utilizado",
                 "<Evidências>",
                 "Sempre apresenta spirit box no modo Pesadelo / Insanidade"
             ]
@@ -601,13 +601,13 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Comportamentos>",
-                "O fantasma envelhece durante o tempo (a cada 1-2 minutos) quando o jogador está próximo",
+                "O fantasma envelhece durante o tempo (a cada 1-2 minutos) quando algum jogador está próximo",
                 "Mais ativo quando jovem",
                 "A resposta à pergunta da idade na Tábua Ouija muda a medida que o Thaye envelhece",
                 "<Sanidade para caça>",
                 "Caça geralmente a 75% quando mais jovem, 15% quando mais velho",
                 "<Velocidade da caça>",
-                "2.75m/s quando mais jovem, 1.0m/s quando mais velho <b>não acelera em linha de visão</b>"
+                "2.75m/s quando mais jovem, 1.0m/s quando mais velho. <b>Não acelera em linha de visão</b>"
             ]
         }
     ],
@@ -616,7 +616,7 @@
         "EMF Nível 5",
         "Ultravioleta",
         "Escrita Fantasma",
-        "Temperaturas Negativas",
+        "Temperatura Negativa",
         "Projetor DOTs",
         "Orbe Fantasma",
         "Spirit Box"

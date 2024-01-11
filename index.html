@@ -3,7 +3,7 @@
     <title>Guia Phasmophobia - Não oficial</title>
     
     <link rel="icon" type="image/x-icon" href="https://zero-network.net/phasmophobia/static/imgs/favicon.ico">
-    <meta name="Description" content="A Guia Não Oficial do Phasmo é o guia definitivo para o popular jogo de terror Phasmophobia. Ela inclui recursos como Localizador de BPM, Link Compartilhado para o Diário, Link para Desktop e mais, para ajudar a tornar suas empreitadas de caça aos fantasmas mais bem-sucedidas." />
+    <meta name="Description" content="O Guia Não Oficial do Phasmo é o guia definitivo para o popular jogo de terror Phasmophobia. Ela inclui recursos como Localizador de BPM, Link Compartilhado para o Diário, Link para Desktop e mais, para ajudar a tornar suas empreitadas de caça aos fantasmas mais bem-sucedidas." />
     <meta name="viewport" content="user-scalable=0" />
     <script>
         AbortSignal.timeout = ms => {
@@ -72,7 +72,7 @@
                 <strong>Evidências:</strong>
                 <ul>
                     <li>"quantidade de evidências &lt;num&gt;" -> Define o número de evidências</li>
-                    <li>"marcar evidência &lt;evidence&gt;" -> Marca uma evidência encontrada</li>
+                    <li>"marcar evidência &lt;evidência&gt;" -> Marca uma evidência encontrada</li>
                     <li>"descartar evidência &lt;evidência&gt;" -> Descarta uma evidência</li>
                     <li>"resetar evidência &lt;evidência&gt;" -> Reseta o status da evidência</li>
                     <li>"evidência descartada pela mão do macaco &lt;evidência&gt;" -> Isso vai marcar a evidência como descartada pela mão do macaco</li>
@@ -84,14 +84,14 @@
                     <li>"velocidade &lt;velocidade&gt;" -> Marca a velocidade especificada</li>
                     <li>"resetar velocidade &lt;velocidade&gt;" -> Reseta a velocidade especificada</li>
                     <li>"aceleração normal com linha de visão" -> Marca velocidade em linha de visão como sendo normal</li>
-                    <li>"aceleração anormal enquanto em linha de visão" -> Marcar como tendo linha de visão</li>
+                    <li>"aceleração anormal enquanto em linha de visão" -> Marcar velocidade em linha de visão como sendo anormal</li>
                     <li>"resetar linha de visão" -> Reseta o filtro de linha de visão</li>
                 </ul>
                 <hr>
                 <strong>Sanidade de Caça:</strong>
                 <ul>
-                    <li>"sanidade de caçada <sanity>" -> Marca a sanidade de caça especificada</li>
-                    <li>"resetar sanidade <sanity>" -> Reseta a sanidade de caçada</li>
+                    <li>"sanidade de caça &lt;sanidade&gt;" -> Marca a sanidade de caça especificada</li>
+                    <li>"resetar sanidade &lt;sanidade&gt;" -> Reseta a sanidade de caçada</li>
                 </ul>
                 <hr>
                 <strong>Fantasmas:</strong>
@@ -117,7 +117,7 @@
                     <li>"velocidade do fantasma &lt;por cento&gt;" -> Define o modificador de velocidade do fantasma para 50%, 75%, 100%, 125%, ou 150%</li>
                     <li>"mostrar mapa [&lt;nome do mapa&gt;]" -> Abre a aba de mapas e mostra o mapa</li>
                     <li>"esconder mapa" -> Fecha o mapa</li>
-                    <li>"resetar guia phasmophobia" -> Reseta a Guia Phasmophobia</li>
+                    <li>"resetar guia phasmophobia" -> Reseta o Guia Phasmophobia</li>
                     <li>"parar de detectar voz" -> Interrompe o reconhecimento de voz</li>
                 </ul>
             </div>
@@ -156,7 +156,7 @@
                 <input type="checkbox" id="mute_timer_toggle" name="mute_timer_toggle" class="settings_check" onclick="mute('toggle');saveSettings();"><label for="mute_timer_toggle">Ativar/Desativar Silenciamento do Temporizador</label>
             </div>
             <hr>
-            <div class="modifier_volume yfont white">Deslocamento de Velocidade (offset)</div>
+            <div class="modifier_volume yfont white">Ajuste de Reprodução</div>
             <div id="speed_offset">
                 <span id="minus_speed" class="speed_icon" onclick="adjustOffset(-1);setTempo();saveSettings();">-</span>
                 <span id="offset_value"> 0% </span>

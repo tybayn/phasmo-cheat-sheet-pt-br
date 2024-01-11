@@ -31,7 +31,7 @@ const ZNLANG = {
         "emf nível 5":[],
         "projetor dots":[],
         "ultravioleta":[],
-        "temperaturas negativas":[],
+        "temperatura negativa":["temperaturas negativas"],
         "orbe fantasma":[],
         "escrita fantasma":[],
         "spirit box":[]
