@@ -154,8 +154,8 @@ function parse_speech(vtext){
         var smallest_ghost = "Spirit"
         var smallest_val = 100
         var vvalue = 0
-        if(vtext.startsWith("descartar parcialmente o ")){
-            vtext = vtext.replace('descartar parcialmente o ', "").trim()
+        if(vtext.startsWith("descartar ")){
+            vtext = vtext.replace('descartar ', "").trim()
             vvalue = 0
             domovoi_msg = "descartado parcialmente "
         }
@@ -169,13 +169,13 @@ function parse_speech(vtext){
             vvalue = 2
             domovoi_msg = "selecionado "
         }
-        else if(vtext.startsWith("descartar inteiramente o  ")){
-            vtext = vtext.replace('descartar inteiramente o  ', "").trim()
+        else if(vtext.startsWith("excluir ")){
+            vtext = vtext.replace('excluir ', "").trim()
             vvalue = -1
             domovoi_msg = "descartado "
         }
-        else if(vtext.startsWith("visualizar ")){
-            vtext = vtext.replace('visualizar ', "").trim()
+        else if(vtext.startsWith("ver ")){
+            vtext = vtext.replace('ver ', "").trim()
             vvalue = -10
             domovoi_msg = "visualizada informação de "
         }
@@ -289,13 +289,13 @@ function parse_speech(vtext){
         reset_voice_status()
 
     }
-    else if(vtext.startsWith('evidência descartada pela mão do macaco')){
+    else if(vtext.startsWith('mão do macaco ')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
         console.log("Recognized mão do macaco command")
         running_log[cur_idx]["Type"] = "mão do macaco"
         console.log(`Heard '${vtext}'`)
-        vtext = vtext.replace('evidência descartada pela mão do macaco', "").trim()
+        vtext = vtext.replace('mão do macaco ', "").trim()
         domovoi_msg += "marcada "
 
         var smallest_evidence = "emf nível 5"
@@ -390,20 +390,20 @@ function parse_speech(vtext){
         reset_voice_status()
 
     }
-    else if (vtext.endsWith("linha de visão")){
+    else if (vtext.endsWith("linha de visão") || vtext.startsWith("aceleração")){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
         console.log("Recognized linha de visão command")
         running_log[cur_idx]["Type"] = "linha de visão"
         console.log(`Heard '${vtext}'`)
-        vtext = vtext.replace(' linha de visão', "").replace('aceleração normal com', "").trim()
-        domovoi_msg += "marcada linha de visão"
+        vtext = vtext.replace(' linha de visão', "").replace('aceleração ', "").replace("normal","").trim()
+        domovoi_msg += "marcada aceleração normal"
 
         var vvalue = 1
-        if(vtext.startsWith("aceleração anormal enquanto em ")){
-            vtext = vtext.replace('aceleração anormal enquanto em ', "").trim()
+        if(vtext.endsWith("incomum ")){
+            vtext = vtext.replace('incomum ', "").trim()
             vvalue = 0
-            domovoi_msg = "descartada linha de visão"
+            domovoi_msg = "marcada aceleração incomum"
         }
         else if(vtext.startsWith("resetar ")){
             vtext = vtext.replace('resetar ', "").trim()
@@ -482,13 +482,13 @@ function parse_speech(vtext){
         reset_voice_status()
 
     }
-    else if(vtext.endsWith('temporizador do incenso')){
+    else if(vtext.endsWith(' temporizador')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
-        console.log("Recognized temporizador do incenso command")
-        running_log[cur_idx]["Type"] = "temporizador do incenso"
+        console.log("Recognized temporizador command")
+        running_log[cur_idx]["Type"] = "temporizador"
         console.log(`Heard '${vtext}'`)
-        vtext = vtext.replace('temporizador do incenso', "").trim()
+        vtext = vtext.replace(' temporizador', "").trim()
         
 
         if(vtext == "iniciar"){
@@ -507,13 +507,13 @@ function parse_speech(vtext){
         running_log[cur_idx]["Domo"] = domovoi_msg
         reset_voice_status()
     }
-    else if(vtext.endsWith('temporizador de tempo de espera de caça')){
+    else if(vtext.endsWith(' espera')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
-        console.log("Recognized temporizador de tempo de espera de caça command")
-        running_log[cur_idx]["Type"] = "temporizador de tempo de espera de caça"
+        console.log("Recognized espera command")
+        running_log[cur_idx]["Type"] = "espera"
         console.log(`Heard '${vtext}'`)
-        vtext = vtext.replace('temporizador de tempo de espera de caça', "").trim()
+        vtext = vtext.replace(' espera', "").trim()
         
         if(vtext == "iniciar"){
             domovoi_msg += "iniciado o temporizador de tempo de espera de caça"
