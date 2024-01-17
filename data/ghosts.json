@@ -66,6 +66,7 @@
                 "Não aparece na foto de fantasma",
                 "Durante um evento ou no estado DOTs, tirar uma foto vai fazer o fantasma desaparecer",
                 "Menos visível durante caças (Ver aba 'Guia')",
+                "Drena 0.5%/s de sanidade enquanto estiver visível ao jogador em caças/eventos, em um alcance de 10m",
                 "<Comportamentos>",
                 "Pode vagar para qualquer jogador, deixando EMF Nível 2"
             ]
