@@ -1,6 +1,12 @@
 const ZNLANG = {
     "overall":{
-		
+		"número de evidências":["número de Evidências"],
+		"resetar evidência":["resultar evidência"],
+		"resetar velocidade":["resultar velocidade"],
+		"resetar fantasma":["resultar fantasma"],
+		"resetar linha de visão":["resultar linha de visão"],
+		"resetar sanidade":["resultar sanidade"],
+		"resetar guia Phasmophobia":["resultar guia", "Resetar guia"]
     },
     "ghosts":{
         "spirit":["espirit", "spirit"],
@@ -30,7 +36,7 @@ const ZNLANG = {
     },
     "evidence":{
         "emf nível 5":["EMF"],
-        "projetor dots":["Dots"],
+        "projetor dots":["Dots", "Dotz"],
         "ultravioleta":["Ultravioleta"],
         "temperatura negativa":["temperaturas negativas", "temperatura"],
         "orbe fantasma":["Orbe"],
@@ -47,5 +53,11 @@ const ZNLANG = {
         "average":["normal"],
         "cedo":[],
         "muito cedo":[]
+    },
+    "maps":{
+        "sunnymeadows":["sm"],
+        "brownstone":["high school"],
+        "prison":["prisoner"],
+        "":["restricted ","street","drive","road","farmhouse"," high school","campsite","camp","wing"]
     }
 }

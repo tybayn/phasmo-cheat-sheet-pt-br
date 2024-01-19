@@ -230,6 +230,45 @@ function parse_speech(vtext){
         running_log[cur_idx]["Domo"] = domovoi_msg
         reset_voice_status()
     }
+    else if(vtext.startsWith('quantidade de evidências') || vtext.startsWith('número de evidências')){
+        document.getElementById("voice_recognition_status").className = null
+        document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
+        console.log("Recognized número de evidências command")
+        running_log[cur_idx]["Type"] = "número de evidências"
+        console.log(`Heard '${vtext}'`)
+        vtext = vtext.replace('número de evidências', "").trim()
+        domovoi_msg += "define # de evidências para "
+
+        vtext = vtext.replace('três','3')
+        vtext = vtext.replace('dois','2')
+        vtext = vtext.replace('um','1')
+        vtext = vtext.replace('zero','0')
+
+        var smallest_num = 3
+        var smallest_val = 100
+        var prev_value = document.getElementById("num_evidence").value
+        var all_difficulty = ['0','1','2','3']
+
+        for(var i = 0; i < all_difficulty.length; i++){
+            var leven_val = levenshtein_distance(all_difficulty[i],vtext)
+            if(leven_val < smallest_val){
+                smallest_val = leven_val 
+                smallest_num = all_difficulty[i]
+            }
+        }
+        domovoi_msg += smallest_num
+
+        document.getElementById("num_evidence").value = smallest_num ?? 3
+        if(prev_value != smallest_num){
+            filter()
+            flashMode()
+            saveSettings()
+        }
+
+        domovoi_heard(domovoi_msg)
+        running_log[cur_idx]["Domo"] = domovoi_msg
+        reset_voice_status()
+    }
     else if(vtext.includes('evidência')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
@@ -393,20 +432,20 @@ function parse_speech(vtext){
     else if (vtext.endsWith("linha de visão") || vtext.startsWith("aceleração")){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
-        console.log("Recognized linha de visão command")
+        console.log("Recognized linha de visão / aceleração command")
         running_log[cur_idx]["Type"] = "linha de visão"
         console.log(`Heard '${vtext}'`)
         vtext = vtext.replace(' linha de visão', "").replace('aceleração ', "").replace("normal","").trim()
         domovoi_msg += "marcada aceleração normal"
 
         var vvalue = 1
-        if(vtext.endsWith("incomum ")){
-            vtext = vtext.replace('incomum ', "").trim()
+        if(vtext.endsWith("incomum")){
+            vtext = vtext.replace('incomum', "").trim()
             vvalue = 0
             domovoi_msg = "marcada aceleração incomum"
         }
-        else if(vtext.startsWith("resetar ")){
-            vtext = vtext.replace('resetar ', "").trim()
+        else if(vtext.startsWith("resetar")){
+            vtext = vtext.replace('resetar', "").trim()
             vvalue = -1
             domovoi_msg = "linha de visão resetada"
         }
@@ -530,45 +569,6 @@ function parse_speech(vtext){
         running_log[cur_idx]["Domo"] = domovoi_msg
         reset_voice_status()
     }
-    else if(vtext.startsWith('quantidade de evidências')){
-        document.getElementById("voice_recognition_status").className = null
-        document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
-        console.log("Recognized quantidade de evidências command")
-        running_log[cur_idx]["Type"] = "quantidade de evidências"
-        console.log(`Heard '${vtext}'`)
-        vtext = vtext.replace('quantidade de evidências', "").trim()
-        domovoi_msg += "define # de evidências para "
-
-        vtext = vtext.replace('três','3')
-        vtext = vtext.replace('dois','2')
-        vtext = vtext.replace('um','1')
-        vtext = vtext.replace('zero','0')
-
-        var smallest_num = 3
-        var smallest_val = 100
-        var prev_value = document.getElementById("num_evidence").value
-        var all_difficulty = ['0','1','2','3']
-
-        for(var i = 0; i < all_difficulty.length; i++){
-            var leven_val = levenshtein_distance(all_difficulty[i],vtext)
-            if(leven_val < smallest_val){
-                smallest_val = leven_val 
-                smallest_num = all_difficulty[i]
-            }
-        }
-        domovoi_msg += smallest_num
-
-        document.getElementById("num_evidence").value = smallest_num ?? 3
-        if(prev_value != smallest_num){
-            filter()
-            flashMode()
-            saveSettings()
-        }
-
-        domovoi_heard(domovoi_msg)
-        running_log[cur_idx]["Domo"] = domovoi_msg
-        reset_voice_status()
-    }
     else if(vtext.startsWith('mostrar filtros') || vtext.startsWith('mostrar Ferramentas')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
@@ -645,22 +645,7 @@ function parse_speech(vtext){
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
         console.log("Recognized resetar command")
         console.log(`Heard '${vtext}'`)
-        if(Object.keys(discord_user).length > 0){
-            if(!hasSelected()){
-                $("#reset").removeClass("standard_reset")
-                $("#reset").addClass("reset_pulse")
-                $("#reset").html("Nenhum fantasma selecionado!<div class='reset_note'>(say 'force reset' to save & reset)</div>")
-                $("#reset").prop("onclick",null)
-                $("#reset").prop("ondblclick","reset()")
-                reset_voice_status()
-            }
-            else{
-                reset()
-            }
-        }
-        else{
-            reset()
-        }
+        reset()
     }
     else if(vtext.startsWith('parar de detectar voz')){
         document.getElementById("voice_recognition_status").className = null
