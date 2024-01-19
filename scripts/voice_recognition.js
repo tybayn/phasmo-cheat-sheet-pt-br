@@ -148,7 +148,7 @@ function parse_speech(vtext){
         console.log("Recognized fantasma command")
         running_log[cur_idx]["Type"] = "fantasma"
         console.log(`Heard '${vtext}'`)
-        vtext = vtext.replace('ghost', "").trim()
+        vtext = vtext.replace('fantasma ', "").trim()
         domovoi_msg += "marcado "
 
         var smallest_ghost = "Spirit"
