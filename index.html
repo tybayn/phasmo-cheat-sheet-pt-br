@@ -16,6 +16,7 @@
     <script src="scripts/ghost_template.js"></script>
     <link rel="stylesheet" href="styles/style.css"/>
     <link rel="stylesheet" href="styles/style-mobile.css"/>
+    <link rel="stylesheet" href="themes/themes.css"/>
     <link rel="stylesheet" href="wiki/wiki.css" >
     <link rel="stylesheet" href="events/events.css" >
     <link rel="stylesheet" href="styles/sparkles.css" >
@@ -131,7 +132,9 @@
 
     <div id="settings_box" style="left: -1000px;">
         <div id="settings_tab" onclick="showSettings()">
+            <div class="tab_rotate">
             Configurações
+            </div>
             <div id="settings_status"></div>
             <div id="dllink_status"></div>
             <div id="voice_recognition_status" class="pulse_animation" style="display:none; background-image: url(imgs/mic.png);"></div>
@@ -159,9 +162,12 @@
             <hr>
             <div class="modifier_volume yfont white">Ajuste de Reprodução</div>
             <div id="speed_offset">
-                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(-1);setTempo();saveSettings();">-</span>
-                <span id="offset_value"> 0% </span>
-                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(1);setTempo();saveSettings();">+</span></div>
+                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(-1);setTempo();saveSettings();">-1</span>
+                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(-0.1);setTempo();saveSettings();">-.1</span>
+                <span id="offset_value"> 0.0% </span>
+                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(0.1);setTempo();saveSettings();">+.1</span>
+                <span id="minus_speed" class="speed_icon" onclick="adjustOffset(1);setTempo();saveSettings();">+1</span>
+            </div>
             <div class="modifier_note">(Ajustar a velocidade dos passos)</div>
             <hr>
             <div class="modifier_volume yfont white">Lógica do Filtro de Velocidade</div>
@@ -225,7 +231,7 @@
     </div>
 
     <div id="event_box" style="left:-182px;">
-        <div id="event_tab" onclick="showEvent()">Evento Atual</div>
+        <div id="event_tab" onclick="showEvent()"><div class="tab_rotate">Evento Atual</div></div>
         <span class="icon" onclick="showEvent()"></span>
         <div class="settings_title yfont white">Evento Atual</div>
         <div class="info_block">
@@ -238,14 +244,14 @@
     </div>
 
     <div id="wiki_box" style="left: -1000px;">
-        <div id="wiki_tab" onclick="showWiki();setFlicker();">Guias<div id="guide_tab_footstep" style="display: none;"></div></div>
+        <div id="wiki_tab" onclick="showWiki();setFlicker();"><div class="tab_rotate">Guias</div><div id="guide_tab_footstep" style="display: none;"></div></div>
         <span class="icon" onclick="showWiki();setFlicker();"></span>
         <div class="settings_title yfont white">Guias</div>
         <div id="wiki-body" class="info_block"></div>
     </div>
 
     <div id="maps_box" style="left: -1000px;">
-        <div id="maps_tab" onclick="showMaps()">Mapas</div>
+        <div id="maps_tab" onclick="showMaps()"><div class="tab_rotate">Mapas</div></div>
         <span class="icon" onclick="showMaps()"></span>
 
         <div class="maps_title yfont white">Mapas</div>
@@ -257,7 +263,7 @@
         <div id="maps_list" class="maps_buttons"></div>
     </div>
 
-    <div id="lang_blackout" style="display: none;"></div>
+    <div id="lang_blockout" class="blockout" style="display: none;" onclick="showLanguage()"></div>
     <div id="language_box" style="right:-176px;">
         <div id="language_tab" onclick="showLanguage();">
             <img src="imgs/langauge.png" width="24px" id="feed_icon_img"/>
@@ -265,6 +271,18 @@
         <span class="icon" onclick="showLanguage()"></span>
         <div class="settings_title yfont white">
             <select name="language" id="language" class="language" onchange="loadLanguage();">
+            </select>
+        </div>
+    </div>
+
+    <div id="theme_blockout" class="blockout" style="display: none;" onclick="showTheme()"></div>
+    <div id="theme_box" style="right:-176px;">
+        <div id="theme_tab" onclick="showTheme();">
+            <img src="imgs/theme.png" width="24px" id="feed_icon_img"/>
+        </div>
+        <span class="icon" onclick="showTheme()"></span>
+        <div class="settings_title yfont white">
+            <select name="theme" id="theme" class="theme" onchange="changeTheme();saveSettings();">
             </select>
         </div>
     </div>
@@ -457,6 +475,8 @@
             document.getElementById("maps_box").style.left = "-388px";
         }
     </script>
+    <script src="themes/themes.js"></script>
+    <script src="scripts/audio_controller.js"></script>
     <script src="scripts/metronome.js"></script>
     <script src="scripts/timer.js"></script>
     <script src="wiki/wiki.js"></script>
