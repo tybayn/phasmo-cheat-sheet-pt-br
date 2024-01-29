@@ -71,33 +71,32 @@
     }
 
     #settings_status, #discord_link_status{
-        width: 10px;
-        height: 50px;
-        border-radius: 0px 0px 20px 0px;
+        width: 50px;
+        height: 10px;
+        border-radius: 0px 20px 0px 0px;
         top: 0px;
         right: 0px;
         position: absolute;
     }
 
     #dllink_status{
-        width: 10px;
-        height: 50px;
+        width: 50px;
+        height: 10px;
         border-radius: 0px 0px 0px 0px;
-        top: 0px;
-        right: 12px;
+        top: 12px;
+        right: 0px;
         position: absolute;
     }
 
     #voice_recognition_status{
         background-size: cover;
         background-repeat: no-repeat;
-        transform: rotate(90deg);
         width: 30px;
         height: 30px;
-        top: 9px;
-        left: 6px;
+        bottom: 6px;
+        left: 9px;
         position: absolute;
-        
+
     }
 
     .pulse_animation{
