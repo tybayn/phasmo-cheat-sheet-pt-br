@@ -1,14 +1,15 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
+function rev(obj,value){for(var prop in obj){if(obj.hasOwnProperty(prop)){if(obj[prop]===value)return prop;}}}
 
-const all_speed = ["Lento","Normal","Rápido"]
-const all_sanity = ["Tarde","Average","Cedo","MuitoCedo"]
+const all_speed = {"Slow":"Lento","Normal":"Normal","Fast":"Rápido"}
+const all_sanity = {"Late":"Tarde","Average":"Average","Early":"Cedo","VeryEarly":"MuitoCedo"}
 let all_evidence = []
 let all_ghosts = []
 let all_maps = {}
 let bpm_list = []
 
-var state = {"evidence":{},"speed":{"Lento":0,"Normal":0,"Rápido":0},"los":-1,"sanity":{"Tarde":0,"Average":0,"Cedo":0,"MuitoCedo":0},"ghosts":{}}
+var state = {"evidence":{},"speed":{"Slow":0,"Normal":0,"Fast":0},"los":-1,"sanity":{"Late":0,"Average":0,"Early":0,"VeryEarly":0},"ghosts":{}}
 var user_settings = {"num_evidences":3,"ghost_modifier":2,"volume":50,"mute_timer_toggle":0,"mute_timer_countdown":0,"offset":0,"sound_type":0,"speed_logic_type":0,"bpm":0,"domo_side":0,"theme":"Padrão"}
 
 let znid = getCookie("znid")
@@ -180,13 +181,13 @@ function select(elem,ignore_link=false,internal=false){
     if (on){
         $(elem).removeClass(["selected"]);
         if (!ignore_link || internal) markedDead = false
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 1;
+        state["ghosts"][elem.id] = 1;
     }
     else{
         $(elem).removeClass(["died","guessed","permhidden"])
         $(elem).addClass("selected");
         if (!ignore_link || internal) markedDead = false
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 2;
+        state["ghosts"][elem.id] = 2;
     }
     setCookie("state",JSON.stringify(state),1)
     if(!ignore_link && !switch_type){filter(ignore_link)}
@@ -214,12 +215,12 @@ function guess(elem,ignore_link=false,internal=false){
 
     if (on){
         $(elem).removeClass("guessed");
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 1;
+        state["ghosts"][elem.id] = 1;
     }
     else{
         $(elem).removeClass(["selected","died","permhidden"])
         $(elem).addClass("guessed");
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 3;
+        state["ghosts"][elem.id] = 3;
     }
     setCookie("state",JSON.stringify(state),1)
     if(!ignore_link){filter(ignore_link)}
@@ -244,13 +245,13 @@ function died(elem,ignore_link=false,internal=false){
     if (on){
         $(elem).removeClass(["selected","died"]);
         if (!ignore_link || internal) markedDead = false
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 1;
+        state["ghosts"][elem.id] = 1;
     }
     else{
         $(elem).removeClass(["selected","guessed","permhidden"])
         $(elem).addClass("died");
         if (!ignore_link || internal) markedDead = true
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = -2;
+        state["ghosts"][elem.id] = -2;
     }
     setCookie("state",JSON.stringify(state),1)
     if(!ignore_link && !switch_type){filter(ignore_link)}
@@ -262,13 +263,13 @@ function fade(elem,ignore_link=false){
 
     $(elem).removeClass(["selected","guessed","died"])
 
-    if (state["ghosts"][$(elem).find(".ghost_name")[0].innerText] != 0){
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 0;
+    if (state["ghosts"][elem.id] != 0){
+        state["ghosts"][elem.id] = 0;
         $(elem).addClass("faded");
         $(elem).find(".ghost_name").addClass("strike");
     }
     else{
-        state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = 1;
+        state["ghosts"][elem.id] = 1;
         $(elem).removeClass("faded");
         $(elem).find(".ghost_name").removeClass("strike");
     }
@@ -278,7 +279,7 @@ function fade(elem,ignore_link=false){
 }
 
 function remove(elem,ignore_link=false){
-    state["ghosts"][$(elem).find(".ghost_name")[0].innerText] = -1;
+    state["ghosts"][elem.id] = -1;
     $(elem).find(".ghost_name").removeClass("strike");
     $(elem).removeClass(["selected","guessed","died","faded"]);
     $(elem).addClass("permhidden");
@@ -300,11 +301,11 @@ function revive(){
 
 function filter(ignore_link=false){
     state["evidence"] = {}
-    state["speed"] = {"Lento":0,"Normal":0,"Rápido":0}
-    for (var i = 0; i < all_evidence.length; i++){
-        state["evidence"][all_evidence[i]] = 0
+    state["speed"] = {"Slow":0,"Normal":0,"Fast":0}
+    for (var i = 0; i < Object.keys(all_evidence).length; i++){
+        state["evidence"][Object.keys(all_evidence)[i]] = 0
     }
-    state["sanity"] = {"Tarde":0,"Average":0,"Cedo":0,"MuitoCedo":0}
+    state["sanity"] = {"Late":0,"Average":0,"Early":0,"VeryEarly":0}
     state["los"] = -1
 
     // Get values of checkboxes
@@ -314,7 +315,7 @@ function filter(ignore_link=false){
     var not_evi_array = [];
     var spe_array = [];
     var san_array = [];
-    var san_lookup = {"Tarde":0,"Average":40,"Cedo":50,"MuitoCedo":75}
+    var san_lookup = {"Late":0,"Average":40,"Early":50,"VeryEarly":75}
     var monkey_evi = ""
     if (document.querySelectorAll('[name="evidence"] .monkey-disabled').length > 0)
         monkey_evi = document.querySelectorAll('[name="evidence"] .monkey-disabled')[0].parentElement.value;
@@ -353,22 +354,22 @@ function filter(ignore_link=false){
 
 
     // Filter other evidences
-    for (var i = 0; i < all_evidence.length; i++){
-        var checkbox = document.getElementById(all_evidence[i]);
+    for (var i = 0; i < Object.keys(all_evidence).length; i++){
+        var checkbox = document.getElementById(Object.keys(all_evidence)[i]);
         $(checkbox).removeClass("block")
         $(checkbox).find("#checkbox").removeClass(["block","disabled","faded"])
         $(checkbox).find(".label").removeClass("disabled-text")
     }
     // Filter other speeds
-    for (var i = 0; i < all_speed.length; i++){
-        var checkbox = document.getElementById(all_speed[i]);
+    for (var i = 0; i < Object.keys(all_speed).length; i++){
+        var checkbox = document.getElementById(Object.keys(all_speed)[i]);
         $(checkbox).removeClass("block")
         $(checkbox).find("#checkbox").removeClass(["block","disabled","faded"])
         $(checkbox).find(".label").removeClass("disabled-text")
     }
     // Filter other sanities
-    for (var i = 0; i < all_sanity.length; i++){
-        var checkbox = document.getElementById(all_sanity[i]);
+    for (var i = 0; i < Object.keys(all_sanity).length; i++){
+        var checkbox = document.getElementById(Object.keys(all_sanity)[i]);
         $(checkbox).removeClass("block")
         $(checkbox).find("#checkbox").removeClass(["block","disabled","faded"])
         $(checkbox).find(".label").removeClass("disabled-text")
@@ -392,10 +393,10 @@ function filter(ignore_link=false){
         var keep = true;
         var loskeep = true;
         var marked_not = $(ghosts[i]).hasClass("faded") || $(ghosts[i]).hasClass("permhidden")
-        var name = ghosts[i].getElementsByClassName("ghost_name")[0].textContent;
+        var name = ghosts[i].id;
         var evi_objects = ghosts[i].getElementsByClassName("ghost_evidence_item")
         var evidence = []
-        for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].textContent)}
+        for (var j = 0; j < evi_objects.length; j++){evidence.push(evi_objects[j].id)}
         var nm_evidence = ghosts[i].getElementsByClassName("ghost_nightmare_evidence")[0].textContent;
         var speed = ghosts[i].getElementsByClassName("ghost_speed")[0].textContent;
         var has_los = parseInt(ghosts[i].getElementsByClassName("ghost_has_los")[0].textContent)
@@ -403,11 +404,11 @@ function filter(ignore_link=false){
             parseInt(ghosts[i].getElementsByClassName("ghost_hunt_low")[0].textContent),
             parseInt(ghosts[i].getElementsByClassName("ghost_hunt_high")[0].textContent)
         ]
-        if (name == "Mímico"){
-            evidence.push("Orbe Fantasma")
+        if (name == "The Mimic"){
+            evidence.push("Ghost Orbs")
             mimic_evi = evidence
-            nm_evidence = "Orbe Fantasma"
-            mimic_nm_evi = "Orbe Fantasma"
+            nm_evidence = "Ghost Orbs"
+            mimic_nm_evi = "Ghost Orbs"
         }
 
         //Check for monkey paw filter
@@ -416,7 +417,7 @@ function filter(ignore_link=false){
         }
 
         //Check for los filter
-        if (name != "Mímico" && speed_has_los != -1 && speed_has_los != has_los){
+        if (name != "The Mimic" && speed_has_los != -1 && speed_has_los != has_los){
             loskeep = false
         }
         
@@ -445,7 +446,7 @@ function filter(ignore_link=false){
         else if (num_evidences == "2"){
 
 
-            if (evi_array.length == 3 && name != "Mímico"){
+            if (evi_array.length == 3 && name != "The Mimic"){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -474,7 +475,7 @@ function filter(ignore_link=false){
         // Insanity
         else if (num_evidences == "1"){
 
-            if (evi_array.length == 2 && name != "Mímico"){
+            if (evi_array.length == 2 && name != "The Mimic"){
                 keep = false
             }
             else if (evi_array.length > 0){
@@ -503,11 +504,11 @@ function filter(ignore_link=false){
         // Apocalypse
         else if (num_evidences == "0"){
 
-            if (evi_array.length > 0 && name != "Mímico"){
+            if (evi_array.length > 0 && name != "The Mimic"){
                 keep = false
             }
 
-            if (not_evi_array.length > 0 && name == "Mímico"){
+            if (not_evi_array.length > 0 && name == "The Mimic"){
                 keep = false
             }
         }
@@ -547,19 +548,19 @@ function filter(ignore_link=false){
         if (spe_array.length > 0){
             var skeep = false,nkeep = false,fkeep = false;
 
-            var shas = (min_speed < base_speed || name == "Mímico")
-            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "Mímico")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
-            var fhas = (max_speed > base_speed || name == "Mímico")
+            var shas = (min_speed < base_speed || name == "The Mimic")
+            var nhas = (speed_type == "or" && (min_speed === base_speed || max_speed === base_speed || name == "The Mimic")) || (speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed)
+            var fhas = (max_speed > base_speed || name == "The Mimic")
 
             spe_array.forEach(function (item,index){
 
-                if (item == "Lento"){
+                if (item == "Slow"){
                     skeep = true
                 }
                 else if (item == "Normal"){
                     nkeep = true
                 }
-                else if (item == "Rápido"){
+                else if (item == "Fast"){
                     fkeep = true
                 }
             });
@@ -581,14 +582,14 @@ function filter(ignore_link=false){
 
         // Check if speed is being kept
         if (keep && loskeep){
-            if(min_speed < base_speed || name == "Mímico"){
-                keep_speed.add('Lento')
+            if(min_speed < base_speed || name == "The Mimic"){
+                keep_speed.add('Slow')
                 if (marked_not)
-                    fade_speed.add('Lento')
+                    fade_speed.add('Slow')
                 else
-                    not_fade_speed.add('Lento')
+                    not_fade_speed.add('Slow')
             }
-            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "Mímico"){
+            if ((speed_type == "range" && min_speed <= base_speed && base_speed <= max_speed) || name == "The Mimic"){
                 keep_speed.add('Normal')
                 if (marked_not)
                     fade_speed.add('Normal')
@@ -602,20 +603,20 @@ function filter(ignore_link=false){
                 else
                     not_fade_speed.add('Normal')
             }
-            if(max_speed > base_speed || name == "Mímico"){
-                keep_speed.add('Rápido')
+            if(max_speed > base_speed || name == "The Mimic"){
+                keep_speed.add('Fast')
                 if (marked_not)
-                    fade_speed.add('Rápido')
+                    fade_speed.add('Fast')
                 else
-                    not_fade_speed.add('Rápido')
+                    not_fade_speed.add('Fast')
             }
 
-            if(sanity[0] > san_lookup['Tarde'] || sanity[1] > san_lookup['Tarde']){
-                keep_sanity.add('Tarde')
+            if(sanity[0] > san_lookup['Late'] || sanity[1] > san_lookup['Late']){
+                keep_sanity.add('Late')
                 if (marked_not)
-                    fade_sanity.add('Tarde')
+                    fade_sanity.add('Late')
                 else
-                    not_fade_sanity.add('Tarde')
+                    not_fade_sanity.add('Late')
             }
             if(sanity[0] > san_lookup['Average'] || sanity[1] > san_lookup['Average']){
                 keep_sanity.add('Average')
@@ -624,19 +625,19 @@ function filter(ignore_link=false){
                 else
                     not_fade_sanity.add('Average')
             }
-            if(sanity[0] > san_lookup['Cedo'] || sanity[1] > san_lookup['Cedo']){
-                keep_sanity.add('Cedo')
+            if(sanity[0] > san_lookup['Early'] || sanity[1] > san_lookup['Early']){
+                keep_sanity.add('Early')
                 if (marked_not)
-                    fade_sanity.add('Cedo')
+                    fade_sanity.add('Early')
                 else
-                    not_fade_sanity.add('Cedo')
+                    not_fade_sanity.add('Early')
             }
-            if(sanity[0] > san_lookup['MuitoCedo'] || sanity[1] > san_lookup['MuitoCedo']){
-                keep_sanity.add('MuitoCedo')
+            if(sanity[0] > san_lookup['VeryEarly'] || sanity[1] > san_lookup['VeryEarly']){
+                keep_sanity.add('VeryEarly')
                 if (marked_not)
-                    fade_sanity.add('MuitoCedo')
+                    fade_sanity.add('VeryEarly')
                 else
-                    not_fade_sanity.add('MuitoCedo')
+                    not_fade_sanity.add('VeryEarly')
             }
         }
 
@@ -665,7 +666,7 @@ function filter(ignore_link=false){
 
     if (num_evidences == "3"){
         if (evi_array.length >= 0){
-            all_evidence.filter(evi => !keep_evidence.has(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evidence.has(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -681,7 +682,7 @@ function filter(ignore_link=false){
     else if (num_evidences == "2"){
         var keep_evi = evi_array
         if (keep_evi.length == 3){
-            all_evidence.filter(evi => !keep_evi.includes(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evi.includes(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -704,7 +705,7 @@ function filter(ignore_link=false){
                 } 
             }
 
-            all_evidence.filter(evi => !keep_evi.includes(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evi.includes(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -716,7 +717,7 @@ function filter(ignore_link=false){
             })
         }
         else if (keep_evi.length > 0){
-            all_evidence.filter(evi => !keep_evidence.has(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evidence.has(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -732,7 +733,7 @@ function filter(ignore_link=false){
     else if (num_evidences == "1"){
         var keep_evi = evi_array
         if (keep_evi.length == 2){
-            all_evidence.filter(evi => !keep_evi.includes(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evi.includes(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -755,7 +756,7 @@ function filter(ignore_link=false){
                 } 
             }
 
-            all_evidence.filter(evi => !keep_evi.includes(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evi.includes(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -767,7 +768,7 @@ function filter(ignore_link=false){
             })
         }
         else if (keep_evi.length > 0){
-            all_evidence.filter(evi => !keep_evidence.has(evi)).forEach(function(item){
+            Object.keys(all_evidence).filter(evi => !keep_evidence.has(evi)).forEach(function(item){
                 if (!not_evi_array.includes(item)){
                     var checkbox = document.getElementById(item);
                     $(checkbox).addClass("block")
@@ -781,7 +782,7 @@ function filter(ignore_link=false){
     }
 
     else if (num_evidences == "0"){
-        all_evidence.filter(evi => evi != 'Orbe Fantasma').forEach(function(item){
+        Object.keys(all_evidence).filter(evi => evi != 'Ghost Orbs').forEach(function(item){
             var checkbox = document.getElementById(item);
             $(checkbox).addClass("block")
             $(checkbox).find("#checkbox").removeClass(["good","bad","faded"])
@@ -862,7 +863,7 @@ function filter(ignore_link=false){
     }
 
     if (evi_array.length > 0 || not_evi_array.length > 0){
-        all_speed.filter(spe => !keep_speed.has(spe)).forEach(function(item){
+        Object.keys(all_speed).filter(spe => !keep_speed.has(spe)).forEach(function(item){
             var checkbox = document.getElementById(item);
             $(checkbox).addClass("block")
             $(checkbox).find("#checkbox").removeClass(["good"])
@@ -870,7 +871,7 @@ function filter(ignore_link=false){
             $(checkbox).find(".label").addClass("disabled-text")
         })
 
-        all_sanity.filter(san => !keep_sanity.has(san)).forEach(function(item){
+        Object.keys(all_sanity).filter(san => !keep_sanity.has(san)).forEach(function(item){
             var checkbox = document.getElementById(item);
             $(checkbox).addClass("block")
             $(checkbox).find("#checkbox").removeClass(["good"])

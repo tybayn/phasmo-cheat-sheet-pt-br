@@ -1,5 +1,6 @@
 function getCookie(e){let t=e+"=",i=decodeURIComponent(document.cookie).split(";");for(let n=0;n<i.length;n++){let o=i[n];for(;" "==o.charAt(0);)o=o.substring(1);if(0==o.indexOf(t))return o.substring(t.length,o.length)}return""}
 function setCookie(e,t,i){let n=new Date;n.setTime(n.getTime()+864e5*i);let o="expires="+n.toUTCString();document.cookie=e+"="+t+";"+o+";path=/"}
+function rev(obj,value){for(var prop in obj){if(obj.hasOwnProperty(prop)){if(obj[prop]===value)return prop;}}}
 
 function checkLink(){
     return new Promise((resolve, reject) => {
@@ -101,7 +102,7 @@ function loadAllAndConnect(){
         .then(data => {
             loadSettings()
     
-            all_ghosts = data.ghosts.map(a => a.ghost)
+            all_ghosts = data.ghosts.reduce((r, g) => {r[g.ghost] = g.name; return r;},{});
             all_evidence = data.evidence
 
             var cards = document.getElementById('cards')
@@ -109,36 +110,36 @@ function loadAllAndConnect(){
             var evidence_list = document.getElementById('evidence')
     
             evidence_list.innerHTML = "";
-            for(var i = 0; i < data.evidence.length; i++){
+            Object.entries(data.evidence).forEach(([key,value]) => {
                 evidence_list.innerHTML += `
                 <div class="evidence-row">
                     <img class="monkey-smudge" style="display:none;" src="imgs/smudge.png">
-                    <button id="${data.evidence[i]}" class="tricheck white" name="evidence" onclick="tristate(this)" value="${data.evidence[i]}">
+                    <button id="${key}" class="tricheck white" name="evidence" onclick="tristate(this)" value="${key}">
                         <div id="checkbox" class="neutral"><span class="icon"></span></div>
-                        <div class="label">${data.evidence[i]}</div>
+                        <div class="label">${value}</div>
                     </button>
                     <img class="monkey-paw-select" src="imgs/paw-icon.png" onclick="monkeyPawFilter(this)">
                 </div>
                 `
-            }
+            })
     
             cards.innerHTML = "";
             for(var i = 0; i < data.ghosts.length; i++){
                 bpm_speeds.add(data.ghosts[i].min_speed)
                 if(data.ghosts[i].max_speed != null){bpm_speeds.add(data.ghosts[i].max_speed)}
                 if(data.ghosts[i].alt_speed != null){bpm_speeds.add(data.ghosts[i].alt_speed)}
-                var ghost = new Ghost(data.ghosts[i]);
+                var ghost = new Ghost(data.ghosts[i],data.evidence);
                 cards.innerHTML += `${ghost.ghostTemplate}`
             }
             cur_version.innerHTML = `${data.version}`
     
             var start_state = getCookie("state")
     
-            for (var i = 0; i < all_evidence.length; i++){
-                state["evidence"][all_evidence[i]] = 0
+            for (var i = 0; i < Object.keys(all_evidence).length; i++){
+                state["evidence"][Object.keys(all_evidence)[i]] = 0
             }
-            for (var i = 0; i < all_ghosts.length; i++){
-                state["ghosts"][all_ghosts[i]] = 1
+            for (var i = 0; i < Object.keys(all_ghosts).length; i++){
+                state["ghosts"][Object.keys(all_ghosts)[i]] = 1
             }
             
             if (!start_state){

@@ -1,20 +1,20 @@
 evi_color = {
-    "EMF Nível 5": "#db4d48",
-    "Projetor DOTs": "#2ccc29",
-    "Ultravioleta": "#ad8ce7",
-    "Temperatura Negativa": "#9ae0f7",
-    "Orbe Fantasma": "#dbd993",
-    "Escrita Fantasma": "#4d8ce3",
+    "EMF 5": "#db4d48",
+    "DOTs": "#2ccc29",
+    "Ultraviolet": "#ad8ce7",
+    "Freezing": "#9ae0f7",
+    "Ghost Orbs": "#dbd993",
+    "Writing": "#4d8ce3",
     "Spirit Box": "#d18c5e", 
 }
 
 evi_icons = {
-    "EMF Nível 5": "imgs/emf5-icon.png",
-    "Projetor DOTs": "imgs/dots-icon.png",
-    "Ultravioleta": "imgs/fingerprints-icon.png",
-    "Temperatura Negativa": "imgs/freezing-icon.png",
-    "Orbe Fantasma": "imgs/orbs-icon.png",
-    "Escrita Fantasma": "imgs/writing-icon.png",
+    "EMF 5": "imgs/emf5-icon.png",
+    "DOTs": "imgs/dots-icon.png",
+    "Ultraviolet": "imgs/fingerprints-icon.png",
+    "Freezing": "imgs/freezing-icon.png",
+    "Ghost Orbs": "imgs/orbs-icon.png",
+    "Writing": "imgs/writing-icon.png",
     "Spirit Box": "imgs/spirit-box-icon.png", 
 }
 
@@ -27,7 +27,7 @@ behavior_titles = {
 }
 
 class Ghost {
-    constructor(data){
+    constructor(data,evidence){
 
         for (var i = 0; i < data.behavior.length; i++){
             var assets = [...data.behavior[i].matchAll("\{[a-zA-Z0-9:/_.-]+\}")];
@@ -42,7 +42,7 @@ class Ghost {
 
         this.ghostTemplate = `
         <div class="ghost_card" id="${data.ghost}">
-                <div class="ghost_name">${data.ghost}</div>
+                <div class="ghost_name">${data.name}</div>
                 <div class="ghost_hunt_info">
                     <div class="ghost_hunt ${parseInt(data.hunt_sanity) > 50 ?'high':parseInt(data.hunt_sanity) < 50 ? 'low':'average'}"><img src="imgs/sanity.png">${data.hunt_sanity}</div>
                     <div class="ghost_speed">
@@ -53,9 +53,9 @@ class Ghost {
                     </div>
                 </div>
                 <div class="ghost_evidence">
-                    <div class="ghost_evidence_item" ${data.evidence[0] in evi_color ? 'style=\"color:' + evi_color[data.evidence[0]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[0]]}">${data.evidence[0]}</div>
-                    <div class="ghost_evidence_item" ${data.evidence[1] in evi_color ? 'style=\"color:' + evi_color[data.evidence[1]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[1]]}">${data.evidence[1]}</div>
-                    <div class="ghost_evidence_item" ${data.evidence[2] in evi_color ? 'style=\"color:' + evi_color[data.evidence[2]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[2]]}">${data.evidence[2]}</div>
+                    <div id="${data.evidence[0]}" class="ghost_evidence_item" ${data.evidence[0] in evi_color ? 'style=\"color:' + evi_color[data.evidence[0]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[0]]}">${evidence[data.evidence[0]]}</div>
+                    <div id="${data.evidence[1]}"class="ghost_evidence_item" ${data.evidence[1] in evi_color ? 'style=\"color:' + evi_color[data.evidence[1]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[1]]}">${evidence[data.evidence[1]]}</div>
+                    <div id="${data.evidence[2]}"class="ghost_evidence_item" ${data.evidence[2] in evi_color ? 'style=\"color:' + evi_color[data.evidence[2]] + ' !important;\"' : ''}><img src="${evi_icons[data.evidence[2]]}">${evidence[data.evidence[2]]}</div>
                 </div>
                 <div class="ghost_nightmare_evidence">${data.nightmare_evidence?data.nightmare_evidence:''}</div>
                 <div class="ghost_hunt_high">${data.hunt_sanity_high}</div>

@@ -358,7 +358,7 @@ function mark_ghosts(ms){
         ghosts[i].style.boxShadow = 'none'
         
         if(ms != 0.00){
-            var name = ghosts[i].getElementsByClassName("ghost_name")[0].textContent;
+            var name = ghosts[i].id;
             var speed = ghosts[i].getElementsByClassName("ghost_speed")[0].textContent;
             var has_los = ghosts[i].getElementsByClassName("ghost_has_los")[0].textContent == '1';
 
