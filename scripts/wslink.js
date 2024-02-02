@@ -167,7 +167,7 @@ function link_room(){
 
 
             if (document.getElementById("num_evidence").value != incoming_state['settings']['num_evidences']){
-                document.getElementById("num_evidence").value = incoming_state['settings']['num_evidences']
+                document.getElementById("num_evidence").value = incoming_state['settings']['num_evidences'] == "-1" ? incoming_state['settings']['cust_num_evidences'] : incoming_state['settings']['num_evidences']
                 flashMode()
             }
             if(document.getElementById("ghost_modifier_speed").value != incoming_state['settings']['ghost_modifier']){
