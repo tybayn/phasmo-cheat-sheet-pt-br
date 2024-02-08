@@ -675,13 +675,13 @@ function parse_speech(vtext){
         running_log[cur_idx]["Domo"] = domovoi_msg
         reset_voice_status()
     }
-    else if(vtext.startsWith('mostrar filtros') || vtext.startsWith('mostrar Ferramentas')){
+    else if(vtext.startsWith('mostrar filtros') || vtext.startsWith('mostrar Ferramentas') || vtext.startsWith('alternar aba')){
         document.getElementById("voice_recognition_status").className = null
         document.getElementById("voice_recognition_status").style.backgroundImage = "url(imgs/mic-recognized.png)"
         console.log("Recognized filtros/ferramentas command")
         running_log[cur_idx]["Type"] = "filtros/ferramentas"
         console.log(`Heard '${vtext}'`)
-        domovoi_msg += "alternado menu"
+        domovoi_msg += "alternado aba"
 
         toggleFilterTools()
 

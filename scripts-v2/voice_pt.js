@@ -6,7 +6,7 @@ const ZNLANG = {
 		"resetar fantasma":["resultar fantasma"],
 		"resetar linha de visão":["resultar linha de visão"],
 		"resetar sanidade":["resultar sanidade"],
-		"resetar guia Phasmophobia":["resultar guia", "Resetar guia"]
+		"resetar guia Phasmophobia":["resultar guia", "resetar guia"]
     },
     "ghosts":{
         "spirit":["espirit", "spirit"],
