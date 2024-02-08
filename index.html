@@ -13,13 +13,13 @@
         };
     </script>
     <script src="jquery/jquery-3.6.2.min.js"></script>
-    <script src="scripts/ghost_template.js"></script>
-    <link rel="stylesheet" href="styles/style.css"/>
-    <link rel="stylesheet" href="styles/style-mobile.css"/>
+    <script src="scripts-v2/ghost_template.js"></script>
+    <link rel="stylesheet" href="styles-v2/style.css"/>
+    <link rel="stylesheet" href="styles-v2/style-mobile.css"/>
     <link rel="stylesheet" href="themes/themes.css"/>
-    <link rel="stylesheet" href="wiki/wiki.css" >
+    <link rel="stylesheet" href="wiki-v2/wiki.css" >
     <link rel="stylesheet" href="events/events.css" >
-    <link rel="stylesheet" href="styles/sparkles.css" >
+    <link rel="stylesheet" href="styles-v2/sparkles.css" >
 </head>
 
 <body>
@@ -73,7 +73,9 @@
             <div class="info_block" style="margin-top: 10px; overflow-y: scroll; overflow-x: hidden;">
                 <strong>Evidências:</strong>
                 <ul>
-                    <li>"Número de evidências &lt;num&gt;" -> Define o número de evidências</li>
+                    <li>"Dificuldade &lt;dificuldade&gt;" -> Define a dificuldade</li>
+                    <li>"Número de evidências &lt;num&gt;" -> Personalizado: Define número de evidências</li>
+                    <li>"Duração da caça &lt;duração&gt;" -> Personalizado: Define a duração da busca</li>
                     <li>"Marcar evidência &lt;evidência&gt;" -> Marca uma evidência encontrada</li>
                     <li>"Descartar evidência &lt;evidência&gt;" -> Descarta uma evidência</li>
                     <li>"Resetar evidência &lt;evidência&gt;" -> Reseta o status da evidência</li>
@@ -82,7 +84,6 @@
                 <hr>
                 <strong>Velocidade:</strong>
                 <ul>
-                    
                     <li>"Velocidade &lt;velocidade&gt;" -> Marca a velocidade especificada</li>
                     <li>"Resetar velocidade &lt;velocidade&gt;" -> Reseta a velocidade especificada</li>
                     <li>"Aceleração normal" -> Marca velocidade em linha de visão como sendo normal</li>
@@ -111,12 +112,15 @@
                     <li>"Parar temporizador" -> Para o temporizador do incenso</li>
                     <li>"Iniciar espera" -> Inicia o temporizador de tempo de espera de caça do fantasma</li>
                     <li>"Parar espera" -> Para o temporizador de tempo de espera de caça do fantasma</li>
+                    <li>"Iniciar caça" -> Inicia o temporizador de tempo de caça do fantasma</li>
+                    <li>"Parar caça" -> Para o temporizador de tempo de caça do fantasma</li>
                 </ul>
                 <hr>
                 <strong>Diversos:</strong>
                 <ul>
                     <li>"Mostrar filtros" ou "mostrar Ferramentas" -> Alterna entre filtros/ferramentas</li>
                     <li>"Velocidade do fantasma &lt;por cento&gt;" -> Define o modificador de velocidade do fantasma para 50%, 75%, 100%, 125%, ou 150%</li>
+                    <li>"Selecione o mapa &lt;nome do mapa&gt;" -> Seleciona o mapa especificado</li>
                     <li>"Mostrar mapa [&lt;nome do mapa&gt;]" -> Abre a aba de mapas e mostra o mapa</li>
                     <li>"Esconder mapa" -> Fecha o mapa</li>
                     <li>"Resetar guia phasmophobia" -> Reseta o Guia Phasmophobia</li>
@@ -158,6 +162,9 @@
             </div>
             <div class="modifier_note less_pad">
                 <input type="checkbox" id="mute_timer_toggle" name="mute_timer_toggle" class="settings_check" onclick="mute('toggle');saveSettings();"><label for="mute_timer_toggle">Ativar/Desativar Silenciamento do Temporizador</label>
+            </div>
+            <div class="modifier_note less_pad">
+                <input type="checkbox" id="timer_count_up" name="timer_count_up" class="settings_check" onclick="toggleCountup();saveSettings();"><label for="timer_count_up">Alterar a direção do temporizador</label>
             </div>
             <hr>
             <div class="modifier_volume yfont white">Ajuste de Reprodução</div>
@@ -255,7 +262,7 @@
         <span class="icon" onclick="showMaps()"></span>
 
         <div class="maps_title yfont white">Mapas</div>
-        <div class="maps_image" onmouseenter="zoomMap(this)" onmouseleave="unZoomMap(this)" onmousemove="moveZoom(this,event)">
+        <div class="maps_image" onpointerenter="zoomMap(this)" onpointerleave="unZoomMap(this)" onpointermove="moveZoom(this,event)">
             <div class="map_image"></div>
             <div class="hover_zoom">+ Passe o mouse para ampliar</div>
         </div>
@@ -288,10 +295,10 @@
     </div>
 
     <div class="data">
-        <div class="menu">
+        <div id="menu" class="menu">
             <div class="tools-filter-buttons">
-                <button id="show_filter_button" class="filter_tool_button filter_tool_button_live">Filtros</button>
-                <button id="show_tool_button" class="filter_tool_button filter_tool_button_back" onclick="toggleFilterTools()">Ferramentas</button>
+                <button id="show_filter_button" class="filter_tool_button filter_tool_button_live" onclick="showMenu()">Filtros</button>
+                <button id="show_tool_button" class="filter_tool_button filter_tool_button_back" onclick="toggleFilterTools();showMenu();">Ferramentas</button>
             </div>
             <div id="tools-content" class="tools-content" style="display: none;">
                 <div class="timer_title yfont white">
@@ -299,7 +306,10 @@
                 </div>
                 <div class="timers">
                     <div class="timer_block">
-                        <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">Temporizador de Incenso</div>
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_timer()">
+                            Incenso
+                            <div class="modifier_note_2">('T' - iniciar/parar)</div>
+                        </div>
                         <div class="line_labels" onclick="toggle_timer();send_timer();">
                             <div class="spirit_line_label">Spirit</div>
                             <div class="demon_line_label">Demon</div>
@@ -316,11 +326,13 @@
                         <div id="time_left" onclick="toggle_timer();send_timer();">
                             <span id="minute">03</span>:<span id="second">00</span>
                         </div>
-                        <div class="modifier_note_2" onclick="toggle_timer();send_timer();">(Aperte 'T' para iniciar/parar)</div>
                     </div>
                     <hr>
                     <div class="timer_block">
-                        <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">Temporizador de Espera</div>
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_cooldown_timer()">
+                            Espera
+                            <div class="modifier_note_2">('C' - iniciar/parar)</div>
+                        </div>
                         <div class="line_labels" onclick="toggle_cooldown_timer();send_cooldown_timer();">
                             <div class="cooldown_demon_line_label">Demon</div>
                         </div>
@@ -335,7 +347,28 @@
                         <div id="time_left_cooldown" onclick="toggle_cooldown_timer();send_cooldown_timer();">
                             <span id="minute_cooldown">00</span>:<span id="second_cooldown">25</span>
                         </div>
-                        <div class="modifier_note_2" onclick="toggle_cooldown_timer();send_cooldown_timer();">(Aperte 'H' para iniciar/parar)</div>
+                    </div>
+                    <hr>
+                    <div class="timer_block">
+                        <div class="modifier_smudge_timer yfont white" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            Caça
+                            <div class="modifier_note_2">('H' - iniciar/parar)</div>
+                        </div>
+                        <div class="line_labels" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            <div class="hunt_cursed_line_label">Amaldiçoado</div>
+                            <div class="hunt_size_label">M: S, C: B</div>
+                        </div>
+                        <div id="huntProgress" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            <img src="imgs/play.png" id="play_hunt_button" class="play_button">
+                            <div id="huntProgressBar">
+                                <div id="huntProgressBarInner" class="bar"></div>
+                                <div class="normal_line"></div>
+                                <div class="cursed_line"></div>
+                            </div>
+                        </div>
+                        <div id="time_left_hunt" onclick="toggle_hunt_timer();send_hunt_timer();">
+                            <span id="minute_hunt">00</span>:<span id="second_hunt">50</span>
+                        </div>
                     </div>
                 </div>
                 <div class="modifier_title yfont white">
@@ -387,11 +420,30 @@
             </div>
             <div id="filter-content" class="filter-content">
                 <div class="evidence_title yfont white">
-                    Evidências <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="filter();flashMode();saveSettings();">
-                        <option value="3">3</option>
-                        <option value="2">2</option>
-                        <option value="1">1</option>
-                        <option value="0">0</option>
+                    Evidências 
+                </div>
+
+                <select name="num_evidence" id="num_evidence" class="num_evidence" onchange="showCustom();filter();flashMode();updateMapDifficulty(this.value);saveSettings();">
+                    <option value="3A">Amador (3)</option>
+                    <option value="3I">Intermediário (3)</option>
+                    <option value="3">Profissional (3)</option>
+                    <option value="2">Pesadelo (2)</option>
+                    <option value="1">Insanidade (1)</option>
+                    <option value="0">Apocalipse (0)</option>
+                    <option value="-1">Personalizada (?)</option>
+                </select>
+
+                <div id="custom_options" style="display: none;">
+                    <select name="cust_num_evidence" id="cust_num_evidence" class="cust_num_evidence" style="width: calc(50% - 2px); margin-right: 2px;" onchange="filter();flashMode();saveSettings();">
+                        <option value="3">Evi: 3</option>
+                        <option value="2">Evi: 2</option>
+                        <option value="1">Evi: 1</option>
+                        <option value="0">Evi: 0</option>
+                    </select>
+                    <select name="cust_hunt_length" id="cust_hunt_length" class="cust_num_evidence"  style="width: calc(50% - 2px); margin-left: 2px;" onchange="filter();updateMapDifficulty(this.value);saveSettings();">
+                        <option value="3A">Baixo (Caça)</option>
+                        <option value="3I">Médio (Caça)</option>
+                        <option value="3">Alto (Caça)</option>
                     </select>
                 </div>
                 <div id="game_mode" class="yfont white" style="display:none;">Insanidade</div>
@@ -446,6 +498,7 @@
             </div>
             <div id="active-users"><span id="current-version-label"></span> | <span id="active-users-label">Usuários Ativos: -</span></div>
             <div class="copyright" onclick="showInfo()"><img class="question" src="imgs/question.png"> Informações / Copyright</div>
+            <div id="close-menu-button" onclick="closeMenu()"></div>
             <button id="reset" class="yfont standard_reset" onclick="reset()" onmouseenter="checkResetButton()" onmouseleave="resetResetButton()">Reiniciar</button>
 
         </div>
@@ -466,7 +519,7 @@
             document.getElementById("settings_box").style.left = "calc(-60% - 40px)";
             document.getElementById("event_box").style.left = "calc(-60% - 40px)";
             document.getElementById("wiki_box").style.left = "calc(-60% - 40px)";
-            document.getElementById("maps_box").style.left = "calc(-60% - 40px)";
+            document.getElementById("maps_box").style.left = "calc(-100% + 60px)";
         }
         else{
             document.getElementById("settings_box").style.left = "-32px";
@@ -476,21 +529,21 @@
         }
     </script>
     <script src="themes/themes.js"></script>
-    <script src="scripts/audio_controller.js"></script>
-    <script src="scripts/metronome.js"></script>
-    <script src="scripts/timer.js"></script>
-    <script src="wiki/wiki.js"></script>
-    <script src="scripts/filter.js"></script>
-    <script src="scripts/wslink.js"></script>
-    <script src="scripts/zn.js"></script>
+    <script src="scripts-v2/audio_controller.js"></script>
+    <script src="scripts-v2/metronome.js"></script>
+    <script src="scripts-v2/timer.js"></script>
+    <script src="wiki-v2/wiki.js"></script>
+    <script src="scripts-v2/filter.js"></script>
+    <script src="scripts-v2/wslink.js"></script>
+    <script src="scripts-v2/zn.js"></script>
     <script src="events/events.js"></script>
-    <script src="scripts/voice_pt.js"></script>
-    <script src="scripts/voice_recognition.js"></script>
-    <script src="scripts/sparkles.js"></script>
+    <script src="scripts-v2/voice_pt.js"></script>
+    <script src="scripts-v2/voice_recognition.js"></script>
+    <script src="scripts-v2/sparkles.js"></script>
     <script>
         $(window).on('load', function() {
             let load_wiki = new Promise((resolve, reject) => {
-                $("#wiki-body").load("wiki/wiki.html")
+                $("#wiki-body").load("wiki-v2/wiki.html")
                 resolve("Ghost data loaded")
             })
             Promise.all([load_wiki,checkLink()])

@@ -44,13 +44,17 @@ function copy_url_code(){
 }
 
 function create_room(){
-    var outgoing_state = {
+   var outgoing_state = {
         'evidence': state['evidence'],
         'speed': state['speed'],
+        'los': state['los'],
         'sanity': state['sanity'],
         'ghosts': state['ghosts'],
+        "map": state['map'],
         'settings': {
-            "num_evidences":parseInt(document.getElementById("num_evidence").value),
+            "num_evidences":document.getElementById("num_evidence").value,
+            "cust_num_evidences":document.getElementById("cust_num_evidence").value,
+            "cust_hunt_length":document.getElementById("cust_hunt_length").value,
             "ghost_modifier":parseInt(document.getElementById("ghost_modifier_speed").value)
         }
     }
@@ -129,6 +133,14 @@ function link_room(){
                         toggle_cooldown_timer()
                     }
                 }
+                if (incoming_state['action'].toUpperCase() == "HUNTTIMER"){
+                    if(incoming_state.hasOwnProperty("force_start") && incoming_state.hasOwnProperty("force_stop")){
+                        toggle_hunt_timer(incoming_state["force_start"], incoming_state["force_stop"])
+                    }
+                    else{
+                        toggle_hunt_timer()
+                    }
+                }
                 if (incoming_state['action'].toUpperCase() == "CHANGE"){
                     document.getElementById("room_id_note").innerText = `STATUS: Conectado (${incoming_state['players']})`
                 }
@@ -166,8 +178,19 @@ function link_room(){
             }
 
 
-            if (document.getElementById("num_evidence").value != incoming_state['settings']['num_evidences']){
-                document.getElementById("num_evidence").value = incoming_state['settings']['num_evidences'] == "-1" ? incoming_state['settings']['cust_num_evidences'] : incoming_state['settings']['num_evidences']
+            if (
+                document.getElementById("num_evidence").value != incoming_state['settings']['num_evidences'] ||
+                document.getElementById("cust_num_evidence").value != incoming_state['settings']['cust_num_evidences'] ||
+                document.getElementById("cust_hunt_length").value != incoming_state['settings']['cust_hunt_length']
+            ){
+                if(incoming_state['settings']['num_evidences'] != "")
+                    document.getElementById("num_evidence").value = incoming_state['settings']['num_evidences']
+                if(incoming_state['settings']['cust_num_evidences'] != "")
+                    document.getElementById("cust_num_evidence").value = incoming_state['settings']['cust_num_evidences']
+                if(incoming_state['settings']['cust_hunt_length'] != "")
+                    document.getElementById("cust_hunt_length").value = incoming_state['settings']['cust_hunt_length']
+                updateMapDifficulty(incoming_state['settings']['num_evidences'])
+                showCustom()
                 flashMode()
             }
             if(document.getElementById("ghost_modifier_speed").value != incoming_state['settings']['ghost_modifier']){
@@ -212,6 +235,17 @@ function link_room(){
                         }
                     }
                 }
+            }
+
+            if(incoming_state.hasOwnProperty("map")){
+                var map_exists = setInterval(function(){
+                    if(document.getElementById(incoming_state['map']) != null){
+                        var map_elem = document.getElementById(incoming_state["map"])
+                        changeMap(map_elem,map_elem.onclick.toString().match(/(http.+?)'\)/)[1],true)
+                        saveSettings()
+                        clearInterval(map_exists)
+                    }
+                },500)
             }
 
             var prev_evidence = state['evidence']
@@ -292,6 +326,10 @@ function link_link(){
                 if (incoming_state['action'].toUpperCase() == "COOLDOWNTIMER"){
                     toggle_cooldown_timer()
                     send_cooldown_timer()
+                }
+                if (incoming_state['action'].toUpperCase() == "HUNTTIMER"){
+                    toggle_hunt_timer()
+                    send_hunt_timer()
                 }
                 if (incoming_state['action'].toUpperCase() == "LINKED"){
                     document.getElementById("link_id_note").innerText = `STATUS: Linked`
@@ -418,7 +456,9 @@ function send_evidence_link(reset = false){
         for (const [key, value] of Object.entries(state['evidence'])){ 
             evi_list.push(`${key}:${reset ? 0 : $(document.getElementById(key)).hasClass("block")? -2 : value}`)
         }
-        dlws.send(`{"action":"EVIDENCE","evidences":"${evi_list}","num_evidence":${document.getElementById("num_evidence").value}}`)
+         var cur_num_evi = document.getElementById("num_evidence").value
+        cur_num_evi = cur_num_evi == "-1" ? document.getElementById("cust_num_evidence").value : cur_num_evi
+        dlws.send(`{"action":"EVIDENCE","evidences":"${evi_list}","num_evidence":"${cur_num_evi}"}`)
     }
 }
 
@@ -486,6 +526,12 @@ function send_cooldown_timer(force_start = false, force_stop = false){
     }
 }
 
+function send_hunt_timer(force_start = false, force_stop = false){
+    if(hasLink){
+        ws.send(`{"action":"HUNTTIMER","force_start":${force_start},"force_stop":${force_stop}}`)
+    }
+}
+
 function send_ping(){
     if(hasLink){
         ws.send('{"action":"PING"}')
@@ -500,8 +546,11 @@ function send_state() {
             'los': state['los'],
             'sanity': state['sanity'],
             'ghosts': state['ghosts'],
+            "map": state['map'],
             'settings': {
-                "num_evidences":parseInt(document.getElementById("num_evidence").value),
+                "num_evidences":document.getElementById("num_evidence").value,
+                "cust_num_evidences":document.getElementById("cust_num_evidence").value,
+                "cust_hunt_length":document.getElementById("cust_hunt_length").value,
                 "ghost_modifier":parseInt(document.getElementById("ghost_modifier_speed").value)
             }
         })
