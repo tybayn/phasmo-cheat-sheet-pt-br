@@ -913,6 +913,16 @@ hr{
         align-items: center;
     }
 
+    .modifier_option{
+        color: #ffffffa0;
+        font-size: 10px;
+        padding-top: 10px;
+        margin: 0px 10px;
+        display: flex;
+        align-items: center;
+        width: calc(100% - 20px);
+    }
+
     .modifier_note_2{
         color: #ffffffa0;
         font-size: 10px;
@@ -1537,9 +1547,9 @@ hr{
     .modifier_volume{
         font-size: 18px;
         letter-spacing: 1px;
-        padding: 10px 10px 0px 10px;
+        padding: 10px 5px 0px 5px;
         position: relative;
-        width: calc(100% - 42px);
+        width: calc(100% - 30px);
         text-align: center;
     }
 
@@ -2186,6 +2196,37 @@ input{
         font-size: inherit;
     }
 
+    #priority_sort{
+        display: none;
+    }
+
+    #priority_sort + label{
+        position: fixed;
+        right: 10px;
+        bottom: 28px;
+        cursor: pointer;
+        opacity:25%;
+    }
+
+    #priority_sort:checked + label{
+        opacity:100%;
+    }
+
+    #priority_sort + label:hover, #priority_sort:checked + label:hover{
+        opacity:50%;
+    }
+
+    label[for=priority_sort]{
+        position: fixed;
+        right: 10px;
+        bottom: 28px;
+        cursor: pointer;
+    }
+
+    label[for=priority_sort] img{
+        width: 25px;
+    }
+
     #eye{
         position: fixed;
         right: 10px;
@@ -2204,7 +2245,7 @@ input{
 
     #domovoi{
         position: fixed;
-        bottom: 40px;
+        bottom: 58px;
         right: 10px;
         display: flex;
         animation: domovoi-float 2s cubic-bezier(0.1, -0.6, 0.2, 0) infinite;
@@ -2229,13 +2270,13 @@ input{
 
     @keyframes domovoi-float {
         0% {
-            bottom: 40px;
+            bottom: 58px;
         }
         50% {
-            bottom: 44px;
+            bottom: 60px;
         }
         100% {
-            bottom: 40px;
+            bottom: 58px;
         }
     }
 

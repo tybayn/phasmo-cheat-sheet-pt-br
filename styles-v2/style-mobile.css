@@ -395,7 +395,7 @@
         color: #fff;
         padding: 20px;
         overflow-y: scroll;
-        font-size: 12px;
+        font-size: 22px;
     }
 
     #info_box .icon, #info_box_voice .icon{
@@ -469,7 +469,7 @@
         margin-top: 20px;
         text-align: center;
         align-self: center;
-        font-size: 10px;
+        font-size: 18px;
         width: 100%;
     }
 
@@ -478,7 +478,7 @@
         margin-top: 40px;
         text-align: center;
         align-self: center;
-        font-size: 9px;
+        font-size: 20px;
         width: 100%;
     }
 
@@ -1070,6 +1070,17 @@
         display: flex;
         align-items: center;
         justify-content: center;
+    }
+
+    .modifier_option{
+        color: #ffffffa0;
+        font-size: 21px;
+        padding-top: 15px;
+        margin: 0px 10px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: calc(100% - 40px);
     }
 
     .modifier_note_2, .modifier_note_3{
@@ -1982,6 +1993,11 @@
     #eye{
         display: none;
     }
+
+    #priority_sort, #priority_sort + label{
+        display: none;
+    }
+    
     #domovoi{
         position: fixed;
         bottom: 660px;

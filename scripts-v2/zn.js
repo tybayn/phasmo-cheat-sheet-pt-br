@@ -132,42 +132,27 @@ function loadAllAndConnect(){
                 cards.innerHTML += `${ghost.ghostTemplate}`
             }
             cur_version.innerHTML = `${data.version}`
+        })
+        .then(data => {
     
-            var start_state = getCookie("state")
-    
-            for (var i = 0; i < Object.keys(all_evidence).length; i++){
-                state["evidence"][Object.keys(all_evidence)[i]] = 0
-            }
-            for (var i = 0; i < Object.keys(all_ghosts).length; i++){
-                state["ghosts"][Object.keys(all_ghosts)[i]] = 1
-            }
-            
-            if (!start_state){
-                start_state = state;
+            var raw_state = getCookie("state")
+
+            if (!raw_state || raw_state == '' || raw_state == null){
+                console.log("No State found")
+                for (var i = 0; i < all_evidence.length; i++){
+                    state["evidence"][all_evidence[i]] = 0
+                }
+                for (var i = 0; i < all_ghosts.length; i++){
+                    state["ghosts"][all_ghosts[i]] = 1
+                }
+
+                var read_state = JSON.parse(JSON.stringify(state))
             }
             else{
-                start_state = JSON.parse(start_state)
-                state = start_state
+                var read_state = JSON.parse(raw_state)
             }
-        
-            for (const [key, value] of Object.entries(start_state["ghosts"])){ 
-                if (value == 0){
-                    fade(document.getElementById(key), true, true);
-                }
-                else if (value == -2){
-                    died(document.getElementById(key), true, true);
-                }
-                else if (value == -1){
-                    remove(document.getElementById(key), true, true);
-                }
-                else if (value == 2){
-                    select(document.getElementById(key), true, true);
-                }
-                else if (value == 3){
-                    guess(document.getElementById(key), true, true);
-                }
-            }
-            for (const [key, value] of Object.entries(start_state["evidence"])){ 
+
+            for (const [key, value] of Object.entries(read_state["evidence"])){ 
                 if($(document.getElementById(key)).parent().find(".monkey-paw-select").hasClass("monkey-paw-selected"))
                     monkeyPawFilter($(document.getElementById(key)).parent().find(".monkey-paw-select"))
 
@@ -182,25 +167,48 @@ function loadAllAndConnect(){
                     monkeyPawFilter($(document.getElementById(key)).parent().find(".monkey-paw-select"))
                 }
             }
-            for (const [key, value] of Object.entries(start_state["speed"])){ 
+            for (const [key, value] of Object.entries(read_state["speed"])){ 
                 if (value == 1){
                     $("#"+key)[0].click();
                 }
             }
-            for (const [key, value] of Object.entries(start_state["sanity"])){ 
+            for (const [key, value] of Object.entries(read_state["sanity"])){ 
                 if (value == 1){
                     $("#"+key)[0].click();
                 }
             }
 
-            if (start_state['los'] == 1){
+            if (state['los'] == 1){
                 tristate(document.getElementById("LOS"));
             }
-            else if (start_state['los'] == 0){
+            else if (state['los'] == 0){
                 tristate(document.getElementById("LOS"));
                 tristate(document.getElementById("LOS"));
             }
-            
+
+            filter(true)
+
+            for (const [key, value] of Object.entries(read_state['ghosts'])){ 
+                if (value == 0){
+                    fade(document.getElementById(key), true);
+                }
+                else if (value == -2){
+                    died(document.getElementById(key), true, true);
+                }
+                else if (value == -1){
+                    remove(document.getElementById(key), true, true);
+                }
+                else if (value == 2){
+                    select(document.getElementById(key), true, true);
+                }
+                else if (value == 3){
+                    guess(document.getElementById(key), true, true);
+                }
+                else{
+                    state['ghosts'][key] = value
+                }
+            }
+
             loadSettings()
             filter()
     

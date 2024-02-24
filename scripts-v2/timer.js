@@ -97,18 +97,20 @@ var hunt_worker;
 var count_direction = 0;
 var map_size = 0;
 var map_difficulty = 2;
+var cursed_hunt = 20;
 const map_hunt_lengths = [
-    [15+20,30+20,40+20],
-    [20+20,40+20,50+20],
-    [30+20,50+20,60+20]
+    [15+cursed_hunt,30+cursed_hunt,40+cursed_hunt],
+    [20+cursed_hunt,40+cursed_hunt,50+cursed_hunt],
+    [30+cursed_hunt,50+cursed_hunt,60+cursed_hunt]
 ];
+
 
 function updateMapSize(size){
     map_size = {"S":0,"M":1,"L":2}[size]
     document.getElementById("minute_hunt").innerHTML = zeroPad(Math.floor(map_hunt_lengths[map_difficulty][map_size]/60),2)
     document.getElementById("second_hunt").innerHTML = zeroPad(map_hunt_lengths[map_difficulty][map_size] % 60,2)
     document.getElementsByClassName('normal_line')[0].style.left = `${(20/map_hunt_lengths[map_difficulty][map_size])*100}%`
-    document.getElementsByClassName('hunt_size_label')[0].innerText = `M: ${["S","M","L"][map_size]}, C: ${["B","M","A"][map_difficulty]}`
+    document.getElementsByClassName('hunt_size_label')[0].innerText = `Map: ${["S","M","L"][map_size]}, Hunt: ${["L","M","H"][map_difficulty]}`
 }
 
 function updateMapDifficulty(difficulty){
@@ -116,7 +118,7 @@ function updateMapDifficulty(difficulty){
     document.getElementById("minute_hunt").innerHTML = zeroPad(Math.floor(map_hunt_lengths[map_difficulty][map_size]/60),2)
     document.getElementById("second_hunt").innerHTML = zeroPad(map_hunt_lengths[map_difficulty][map_size] % 60,2)
     document.getElementsByClassName('normal_line')[0].style.left = `${(20/map_hunt_lengths[map_difficulty][map_size])*100}%`
-    document.getElementsByClassName('hunt_size_label')[0].innerText = `M: ${["S","M","L"][map_size]}, C: ${["B","M","A"][map_difficulty]}`
+    document.getElementsByClassName('hunt_size_label')[0].innerText = `Map: ${["S","M","L"][map_size]}, Hunt: ${["L","M","H"][map_difficulty]}`
 }
 
 function toggleCountup(){
@@ -189,12 +191,24 @@ function start_timer(){
     
     function progress() {
         var t = deadline - Date.now();
+        var dt = t;
         var timeleft = Math.floor(t / 1000);
-        if (count_direction == 1)
+
+        var is_demon = timeleft <= 120 && timeleft > 90;
+        var is_spirit = timeleft <= 90;
+        var is_split = document.getElementById("timer_split").checked
+        if (count_direction == 1){
             t = (181*1000) - t
+            dt = t
+        }
+        else{
+            dt = !is_spirit && is_split ? t - (90*1000) : t
+        }
 
         var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((t % (1000 * 60)) / 1000);
+        var d_minutes = Math.floor((dt % (1000 * 60 * 60)) / (1000 * 60));
+        var d_seconds = Math.floor((dt % (1000 * 60)) / 1000);
 
         if(!muteTimerCountdown){
             if (timeleft == 128){
@@ -282,8 +296,10 @@ function start_timer(){
 
         min_val = t<0 ? "00" : zeroPad(minutes,2);
         sec_val = t<0 ? "00" : zeroPad(seconds,2);
+        d_min_val = t<0 ? "00" : zeroPad(d_minutes,2);
+        d_sec_val = t<0 ? "00" : zeroPad(d_seconds,2);
 
-        send_timer_link("TIMER_VAL",`${min_val[1]}:${sec_val}`)
+        send_timer_link("TIMER_VAL",`${d_min_val[1]}:${d_sec_val}`,is_split && is_spirit ? 2 : is_split && is_demon ? 1 : 0)
 
         min_obj.innerHTML = min_val
         sec_obj.innerHTML = sec_val
@@ -368,6 +384,10 @@ function start_cooldown_timer(){
     function progress() {
         var t = deadline - Date.now();
         var timeleft = Math.floor(t / 1000);
+
+        var is_demon = timeleft <= 5;
+        var is_split = document.getElementById("timer_split").checked
+
         if (count_direction == 1)
             t = (26*1000) - t
 
@@ -436,7 +456,7 @@ function start_cooldown_timer(){
         min_val = t<0 ? "00" : zeroPad(minutes,2);
         sec_val = t<0 ? "00" : zeroPad(seconds,2);
 
-        send_timer_link("COOLDOWN_VAL",`${min_val[1]}:${sec_val}`)
+        send_timer_link("COOLDOWN_VAL",`${min_val[1]}:${sec_val}`,is_split && is_demon ? 1 : 0)
 
         min_obj.innerHTML = min_val
         sec_obj.innerHTML = sec_val
@@ -520,12 +540,22 @@ function start_hunt_timer(){
     
     function progress() {
         var t = deadline - Date.now();
+        var dt = t;
         var timeleft = Math.floor(t / 1000);
-        if (count_direction == 1)
+        var is_cursed = timeleft <= cursed_hunt;
+        var is_split = document.getElementById("timer_split").checked
+        if (count_direction == 1){
             t = ((map_hunt_lengths[map_difficulty][map_size]+1)*1000) - t
+            dt = t
+        }
+        else{
+            dt = !is_cursed && is_split ? t - (cursed_hunt*1000) : t
+        }
 
         var minutes = Math.floor((t % (1000 * 60 * 60)) / (1000 * 60));
         var seconds = Math.floor((t % (1000 * 60)) / 1000);
+        var d_minutes = Math.floor((dt % (1000 * 60 * 60)) / (1000 * 60));
+        var d_seconds = Math.floor((dt % (1000 * 60)) / 1000);
 
         if(!muteTimerCountdown){
             if (timeleft == 27){
@@ -607,8 +637,10 @@ function start_hunt_timer(){
 
         min_val = t<0 ? "00" : zeroPad(minutes,2);
         sec_val = t<0 ? "00" : zeroPad(seconds,2);
+        d_min_val = t<0 ? "00" : zeroPad(d_minutes,2);
+        d_sec_val = t<0 ? "00" : zeroPad(d_seconds,2);
 
-        send_timer_link("HUNT_VAL",`${min_val[1]}:${sec_val}`)
+        send_timer_link("HUNT_VAL",`${d_min_val[1]}:${d_sec_val}`,is_split && is_cursed ? 1 : 0)
 
         min_obj.innerHTML = min_val
         sec_obj.innerHTML = sec_val
