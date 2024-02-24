@@ -1266,6 +1266,7 @@ function loadSettings(){
         $("#domovoi").addClass("domovoi-flip")
         $("#domovoi-img").addClass("domovoi-img-flip")
     }
+    document.getElementById("priority_sort").checked = user_settings['priority_sort'] ?? 0 == 1;
 
 
     var map_exists = setInterval(function(){
