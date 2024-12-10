@@ -225,7 +225,8 @@
             "nightmare_evidence": null,
             "behavior": [
                 "<Dicas>",
-                "Nunca dá interações que resultem em EMF Nível 2, 3 ou 5 com um jogador no mesmo cômodo (exceto por escrita fantasma e apagar chamas)",
+                "Não pode realizar eventos na mesma sala que um jogador (mas pode iniciar um evento fora da sala e teletransportar-se para o jogador)",
+                "Não pode fazer interações que resultem em EMF 2, EMF 3, ou EMF 5 enquanto estiver na mesma sala que o jogador, incluindo escrita fantasma e soprar chamas (pode sair da sala e interagir com coisas na sala)",
                 "Não iniciará caça quando alguém estiver no mesmo cômodo",
                 "<Comportamentos>",
                 "Realiza mais eventos quando a sanidade média está baixa (não consegue realizar eventos quando a sanidade está a 100%)",
